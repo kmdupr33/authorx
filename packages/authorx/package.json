@@ -1,0 +1,18 @@
+{
+  "name": "authorx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nearleyc ./grammar.ne > grammar.js && jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "array-flat-polyfill": "^1.0.1",
+    "nearley": "^2.19.6"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
+}
