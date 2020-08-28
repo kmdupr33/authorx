@@ -1,13 +1,13 @@
-{
-  authorx is a tool-chain for creating { extensible } | i, authorable formats.
+<$ {
+  authorx is a tool-chain for creating <i { authorable } formats.
 
-  { Why? } | #
+  <# Why?
 
-  Because while markdown is authorable, it leaves much to be desired in the realm of extensibility.
+  Because while markdown is authorable, it's difficult to extend because:
 
-  For one, markdown { has an ambiguous grammar } | a(https://roopc.net/posts/2014/markdown-cfg/). Of course, this has resulted in a proliferation of differences in how it's parsed and rendered, but more importantly, it makes extensibility more complicated.
+  <l {
+    << Markdown <a(https://roopc.net/posts/2014/markdown-cfg/) { has an ambiguous grammar }. Of course, this has resulted in a proliferation of differences in how it's parsed and rendered, but more importantly, it makes extensibility more complicated.
+    << Not all languages have markdown parsers that offer extension points, and even when they do, those extension points often make markdown feel less authorable.
+  }
 
-
-
-   
-} | autoParagraph
+}

@@ -6,10 +6,10 @@ const makeLexer = () => {
       ws: { match: /[ \n]/, lineBreaks: true },
       brackets: /[{}]/,
       functionInvocation: { match: /(?<!\\)</, push: "function" },
-      word: /[a-zA-Z0-9]+/,
+      words: { match: /[^\}\<]+/, lineBreaks: true },
     },
     function: {
-      identifier: { match: /[a-zA-Z0-9]+/, pop: true },
+      identifier: { match: /[a-zA-Z0-9>#?^&*%$@!-=+_~`<>.,/\\|]+/, pop: true },
       ws: / /,
     },
   });

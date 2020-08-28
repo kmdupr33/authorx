@@ -9,19 +9,26 @@ const lexer = makeLexer()
 var grammar = {
     Lexer: lexer,
     ParserRules: [
-    {"name": "authorx", "symbols": ["_", (lexer.has("functionInvocation") ? {type: "functionInvocation"} : functionInvocation), "_", (lexer.has("identifier") ? {type: "identifier"} : identifier), "_", {"literal":"{"}, "_", "optional_words", "_", "authorx", "_", "optional_words", "_", {"literal":"}"}]},
+    {"name": "authorx$ebnf$1$subexpression$1", "symbols": ["authorx", "_"]},
+    {"name": "authorx$ebnf$1", "symbols": ["authorx$ebnf$1$subexpression$1"]},
+    {"name": "authorx$ebnf$1$subexpression$2", "symbols": ["authorx", "_"]},
+    {"name": "authorx$ebnf$1", "symbols": ["authorx$ebnf$1", "authorx$ebnf$1$subexpression$2"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "authorx", "symbols": [(lexer.has("functionInvocation") ? {type: "functionInvocation"} : functionInvocation), (lexer.has("identifier") ? {type: "identifier"} : identifier), "_", {"literal":"{"}, "_", "authorx$ebnf$1", {"literal":"}"}], "postprocess":  
+        ([_, _1, _2, identifier, _3, _4, _5, authorx]) => (
+          {
+            type: "functionInvocation", 
+            identifier, 
+            children: authorx
+          }
+        )
+        },
     {"name": "_$ebnf$1", "symbols": []},
     {"name": "_$ebnf$1", "symbols": ["_$ebnf$1", (lexer.has("ws") ? {type: "ws"} : ws)], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "_", "symbols": ["_$ebnf$1"]},
+    {"name": "_", "symbols": ["_$ebnf$1"], "postprocess": () => null},
     {"name": "optional_words$ebnf$1", "symbols": []},
-    {"name": "optional_words$ebnf$1", "symbols": ["optional_words$ebnf$1", "words"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "optional_words$ebnf$1", "symbols": ["optional_words$ebnf$1", (lexer.has("words") ? {type: "words"} : words)], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "optional_words", "symbols": ["optional_words$ebnf$1"]},
-    {"name": "words$ebnf$1$subexpression$1", "symbols": [(lexer.has("word") ? {type: "word"} : word), "_"]},
-    {"name": "words$ebnf$1", "symbols": ["words$ebnf$1$subexpression$1"]},
-    {"name": "words$ebnf$1$subexpression$2", "symbols": [(lexer.has("word") ? {type: "word"} : word), "_"]},
-    {"name": "words$ebnf$1", "symbols": ["words$ebnf$1", "words$ebnf$1$subexpression$2"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "words", "symbols": ["words$ebnf$1"]},
-    {"name": "authorx", "symbols": ["words"]}
+    {"name": "authorx", "symbols": [(lexer.has("words") ? {type: "words"} : words)], "postprocess": id}
 ]
   , ParserStart: "authorx"
 }

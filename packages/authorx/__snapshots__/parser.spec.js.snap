@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`authorx -> authorx | %identifier parses { hello } | b world 1`] = `
+Object {
+  "children": undefined,
+  "identifier": Object {
+    "col": 4,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 3,
+    "text": "{",
+    "toString": [Function],
+    "type": "brackets",
+    "value": "{",
+  },
+  "type": "functionInvocation",
+}
+`;
+
+exports[`authorx -> authorx | %identifier parses { hello world } | b 1`] = `
+Object {
+  "children": undefined,
+  "identifier": Object {
+    "col": 4,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 3,
+    "text": "{",
+    "toString": [Function],
+    "type": "brackets",
+    "value": "{",
+  },
+  "type": "functionInvocation",
+}
+`;
+
+exports[`authorx -> authorx | %identifier parses hello { world } | b 1`] = `
+Object {
+  "children": undefined,
+  "identifier": Object {
+    "col": 4,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 3,
+    "text": "{",
+    "toString": [Function],
+    "type": "brackets",
+    "value": "{",
+  },
+  "type": "functionInvocation",
+}
+`;
+
+exports[`authorx -> authorx | %identifier parses hello 1`] = `
+Object {
+  "children": undefined,
+  "identifier": Object {
+    "col": 4,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 3,
+    "text": "{",
+    "toString": [Function],
+    "type": "brackets",
+    "value": "{",
+  },
+  "type": "functionInvocation",
+}
+`;
+
+exports[`authorx -> authorx | %identifier parses hello world 1`] = `
+Object {
+  "children": undefined,
+  "identifier": Object {
+    "col": 4,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 3,
+    "text": "{",
+    "toString": [Function],
+    "type": "brackets",
+    "value": "{",
+  },
+  "type": "functionInvocation",
+}
+`;
