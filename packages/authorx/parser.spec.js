@@ -40,14 +40,34 @@ describe("authorx -> authorx | %identifier", () => {
     expectToParse("<p { <b { hello world } }");
   });
   it("parses multiline hello world", () => {
-    parse(`<p {
+    expectToParse(`<p {
       hello <b { world }
     }`);
   });
   it("parses a paragraph", () => {
-    parse(`<p {
+    expectToParse(`<p {
       hello world
       this is authorx
+    }`);
+  });
+  it("parses a paragraph with escaped function invocations", () => {
+    expectToParse(`<p {
+      1 \\< 2
+    }`);
+  });
+  it("parses a paragraph with escaped function invocations followed by text", () => {
+    expectToParse(`<p {
+      1 \\< 2 hello
+    }`);
+  });
+  it("parses a paragraph with escaped function invocations followed by a real function invocation", () => {
+    expectToParse(`<p {
+      1 \\< 2 <b { 3 }
+    }`);
+  });
+  it("parses a paragraph with an escape character", () => {
+    expectToParse(`<p {
+      \\
     }`);
   });
 });

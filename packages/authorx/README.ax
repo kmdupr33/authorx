@@ -1,7 +1,7 @@
 <$ {
   authorx is a tool-chain for creating <i { authorable } formats.
 
-  <# Why?
+  <# { Why? }
 
   Because while markdown is authorable, it's difficult to extend because:
 

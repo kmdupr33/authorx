@@ -1,6 +1,11 @@
 <l {  
+  << Bracket-less functions for single lines
   << Quoting? (for embedding code within .ax docs)
+  << Buffer tweets example semantics?
+  << Slack onboarding example semantics?
   << Java bindings
   << R bindings?
   << Custom lexing flags to cli?
+  << Split parser from js bindings?
+  << reveal.js example semantics?
 }

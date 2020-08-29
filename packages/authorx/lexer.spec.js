@@ -33,4 +33,8 @@ describe("lexer", () => {
     const tokens = lex("<p { <b { hello } world");
     expect(tokens).toMatchSnapshot();
   });
+  it("lexes 1 \\< 2", () => {
+    const tokens = lex("<p { 1 \\< 2 }");
+    expect(tokens).toMatchSnapshot();
+  });
 });

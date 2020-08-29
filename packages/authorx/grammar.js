@@ -14,21 +14,22 @@ var grammar = {
     {"name": "authorx$ebnf$1$subexpression$2", "symbols": ["authorx", "_"]},
     {"name": "authorx$ebnf$1", "symbols": ["authorx$ebnf$1", "authorx$ebnf$1$subexpression$2"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "authorx", "symbols": [(lexer.has("functionInvocation") ? {type: "functionInvocation"} : functionInvocation), (lexer.has("identifier") ? {type: "identifier"} : identifier), "_", {"literal":"{"}, "_", "authorx$ebnf$1", {"literal":"}"}], "postprocess":  
-        ([_, _1, _2, identifier, _3, _4, _5, authorx]) => (
+        ([_, identifier, _1, _2, _3, authorx]) => (
           {
-            type: "functionInvocation", 
+            _type: "functionInvocation", 
             identifier, 
-            children: authorx
+            children: authorx.flat().filter(el => el)
           }
         )
         },
     {"name": "_$ebnf$1", "symbols": []},
     {"name": "_$ebnf$1", "symbols": ["_$ebnf$1", (lexer.has("ws") ? {type: "ws"} : ws)], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "_", "symbols": ["_$ebnf$1"], "postprocess": () => null},
-    {"name": "optional_words$ebnf$1", "symbols": []},
-    {"name": "optional_words$ebnf$1", "symbols": ["optional_words$ebnf$1", (lexer.has("words") ? {type: "words"} : words)], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "optional_words", "symbols": ["optional_words$ebnf$1"]},
-    {"name": "authorx", "symbols": [(lexer.has("words") ? {type: "words"} : words)], "postprocess": id}
+    {"name": "text$subexpression$1", "symbols": [(lexer.has("words") ? {type: "words"} : words)]},
+    {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedFunctionInvocation") ? {type: "escapedFunctionInvocation"} : escapedFunctionInvocation)]},
+    {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedSlash") ? {type: "escapedSlash"} : escapedSlash)]},
+    {"name": "text", "symbols": ["text$subexpression$1"], "postprocess": id},
+    {"name": "authorx", "symbols": ["text"], "postprocess": ([text]) => ({_type: "text", children: text})}
 ]
   , ParserStart: "authorx"
 }
