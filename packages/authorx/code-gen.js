@@ -10,25 +10,28 @@ const genLeaf = (type, { value }) => {
   }
 };
 
+const getFunction = (identifier) => {
+  switch (identifier && identifier.value) {
+    case "*":
+      return (string) => `*${string}*`;
+    case "#":
+      return (string) => `# ${string}`;
+    case "##":
+      return (string) => `## ${string}`;
+    case "<":
+      return (string) => `* ${string}`;
+    default:
+      return (string) => string;
+  }
+};
+
 const walk = ({ children, type, ...rest }) => {
   if (!children) {
     return genLeaf(type, rest);
   }
-  return children.reduce((acc, child) => {
-    const { identifier } = rest;
-    switch (identifier && identifier.value) {
-      case "*":
-        return acc + `*${walk(child)}*`;
-      case "#":
-        return acc + `# ${walk(child)}`;
-      case "##":
-        return acc + `## ${walk(child)}`;
-      case "<":
-        return acc + `* ${walk(child)}`;
-      default:
-        return acc + walk(child);
-    }
-  }, "");
+  const { identifier } = rest;
+  const func = getFunction(identifier);
+  return func(children.reduce((acc, child) => acc + walk(child), ""));
 };
 
 console.log(walk(JSON.parse(fs.readFileSync(process.argv[2]))));
