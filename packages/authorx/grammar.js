@@ -14,22 +14,27 @@ var grammar = {
     {"name": "authorx$ebnf$1$subexpression$2", "symbols": ["authorx", "_"]},
     {"name": "authorx$ebnf$1", "symbols": ["authorx$ebnf$1", "authorx$ebnf$1$subexpression$2"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "authorx", "symbols": [{"literal":"<"}, "invocation", "_", {"literal":"{"}, "_", "authorx$ebnf$1", {"literal":"}"}], "postprocess":  
-        ([_, identifier, _1, _2, _3, authorx]) => (
+        ([_, invocation, _1, _2, _3, authorx]) => (
           {
             type: "functionInvocation", 
-            identifier, 
+            ...invocation, 
             children: [...authorx.flat().filter(el => el)]
           }
         )
         },
     {"name": "invocation$ebnf$1", "symbols": ["argList"], "postprocess": id},
     {"name": "invocation$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
-    {"name": "invocation", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "invocation$ebnf$1"]},
-    {"name": "argList$ebnf$1", "symbols": []},
-    {"name": "argList$ebnf$1$subexpression$1", "symbols": [(lexer.has("argument") ? {type: "argument"} : argument), {"literal":","}, (lexer.has("ws") ? {type: "ws"} : ws)]},
-    {"name": "argList$ebnf$1", "symbols": ["argList$ebnf$1", "argList$ebnf$1$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "argList$subexpression$1", "symbols": [(lexer.has("argument") ? {type: "argument"} : argument), {"literal":")"}]},
-    {"name": "argList", "symbols": [{"literal":"("}, "argList$ebnf$1", "argList$subexpression$1"]},
+    {"name": "invocation", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "invocation$ebnf$1"], "postprocess": 
+        ([identifier, argList]) => argList ? ({ identifier, argList }) : ({ identifier })
+        },
+    {"name": "argList", "symbols": [{"literal":"("}, "args", "terminalArg"], "postprocess":  
+        ([_, args, terminalArg]) => args.length > 0 ? args.concat([terminalArg]) : [terminalArg]
+        },
+    {"name": "args$ebnf$1", "symbols": []},
+    {"name": "args$ebnf$1", "symbols": ["args$ebnf$1", "arg"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "args", "symbols": ["args$ebnf$1"], "postprocess": id},
+    {"name": "arg", "symbols": [(lexer.has("argument") ? {type: "argument"} : argument), {"literal":","}, (lexer.has("ws") ? {type: "ws"} : ws)], "postprocess": id},
+    {"name": "terminalArg", "symbols": [(lexer.has("argument") ? {type: "argument"} : argument), {"literal":")"}], "postprocess": id},
     {"name": "_$ebnf$1", "symbols": []},
     {"name": "_$ebnf$1", "symbols": ["_$ebnf$1", (lexer.has("ws") ? {type: "ws"} : ws)], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "_", "symbols": ["_$ebnf$1"], "postprocess":  

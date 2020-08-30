@@ -8,17 +8,25 @@ const lexer = makeLexer()
 @lexer lexer
 
 authorx -> "<" invocation _ "{" _ (authorx _):+ "}" {% 
-  ([_, identifier, _1, _2, _3, authorx]) => (
+  ([_, invocation, _1, _2, _3, authorx]) => (
     {
       type: "functionInvocation", 
-      identifier, 
+      ...invocation, 
       children: [...authorx.flat().filter(el => el)]
     }
   )
 %}
 
-invocation -> %identifier argList:?
-argList -> "(" (%argument "," %ws):* (%argument ")")
+invocation -> %identifier argList:? {%
+  ([identifier, argList]) => argList ? ({ identifier, argList }) : ({ identifier })
+%}
+
+argList -> "(" args terminalArg {% 
+  ([_, args, terminalArg]) => args.length > 0 ? args.concat([terminalArg]) : [terminalArg]
+%}
+args -> arg:* {% id %}
+arg -> %argument "," %ws {% id %}
+terminalArg -> %argument ")" {% id %}
 
 _ -> %ws:* {% 
   ([ws]) => ws.length > 0 ? ({ type: "whitespace", children: ws }) : null
