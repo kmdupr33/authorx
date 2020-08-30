@@ -43,6 +43,7 @@ var grammar = {
     {"name": "text$subexpression$1", "symbols": [(lexer.has("words") ? {type: "words"} : words)]},
     {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedFunctionInvocation") ? {type: "escapedFunctionInvocation"} : escapedFunctionInvocation)]},
     {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedSlash") ? {type: "escapedSlash"} : escapedSlash)]},
+    {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedCloseBracket") ? {type: "escapedCloseBracket"} : escapedCloseBracket)]},
     {"name": "text", "symbols": ["text$subexpression$1"], "postprocess": ([[text]]) => ({...text, type: "text"})},
     {"name": "authorx", "symbols": ["text"], "postprocess": id}
 ]

@@ -50,26 +50,36 @@ describe("authorx -> authorx | %identifier", () => {
       this is authorx
     }`);
   });
-  it("parses a paragraph with escaped function invocations", () => {
-    expectToParse(`<p {
-      1 \\< 2
-    }`);
+  describe("escaping", () => {
+    it("parses a paragraph with escaped function invocations", () => {
+      expectToParse(`<p {
+        1 \\< 2
+      }`);
+    });
+    it("parses a paragraph with escaped function invocations followed by text", () => {
+      expectToParse(`<p {
+        1 \\< 2 hello
+      }`);
+    });
+    it("parses a paragraph with escaped function invocations followed by a real function invocation", () => {
+      expectToParse(`<p {
+        1 \\< 2 <b { 3 }
+      }`);
+    });
+    it("parses a paragraph with an escape character", () => {
+      expectToParse(`<p {
+        \\
+      }`);
+    });
+    it("parses an escaped function invocation within a function", () => {
+      expectToParse(`<> {
+        \\<p {
+            hello
+          \\}
+        }`);
+    });
   });
-  it("parses a paragraph with escaped function invocations followed by text", () => {
-    expectToParse(`<p {
-      1 \\< 2 hello
-    }`);
-  });
-  it("parses a paragraph with escaped function invocations followed by a real function invocation", () => {
-    expectToParse(`<p {
-      1 \\< 2 <b { 3 }
-    }`);
-  });
-  it("parses a paragraph with an escape character", () => {
-    expectToParse(`<p {
-      \\
-    }`);
-  });
+
   describe("arguments", () => {
     it("parses a single argument", () => {
       expectToParse(`<p {

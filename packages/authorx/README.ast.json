@@ -12,58 +12,12 @@
   "children": [
     {
       "type": "text",
-      "value": "authorx is a tool-chain for creating ",
-      "text": "authorx is a tool-chain for creating ",
-      "offset": 7,
-      "lineBreaks": 0,
-      "line": 2,
-      "col": 3
-    },
-    {
-      "type": "functionInvocation",
-      "identifier": {
-        "type": "identifier",
-        "value": "*",
-        "text": "*",
-        "offset": 45,
-        "lineBreaks": 0,
-        "line": 2,
-        "col": 41
-      },
-      "children": [
-        {
-          "type": "text",
-          "value": "authorable ",
-          "text": "authorable ",
-          "offset": 49,
-          "lineBreaks": 0,
-          "line": 2,
-          "col": 45
-        }
-      ]
-    },
-    {
-      "type": "whitespace",
-      "children": [
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 61,
-          "lineBreaks": 0,
-          "line": 2,
-          "col": 57
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "formats.\n\n  ",
-      "text": "formats.\n\n  ",
-      "offset": 62,
+      "value": "authorx is a tool-chain for creating markdown-like languages.\n\n",
+      "text": "authorx is a tool-chain for creating markdown-like languages.\n\n",
+      "offset": 5,
       "lineBreaks": 2,
       "line": 2,
-      "col": 58
+      "col": 1
     },
     {
       "type": "functionInvocation",
@@ -71,20 +25,20 @@
         "type": "identifier",
         "value": "#",
         "text": "#",
-        "offset": 75,
+        "offset": 69,
         "lineBreaks": 0,
         "line": 4,
-        "col": 4
+        "col": 2
       },
       "children": [
         {
           "type": "text",
           "value": "Why? ",
           "text": "Why? ",
-          "offset": 79,
+          "offset": 73,
           "lineBreaks": 0,
           "line": 4,
-          "col": 8
+          "col": 6
         }
       ]
     },
@@ -95,48 +49,30 @@
           "type": "ws",
           "value": "\n",
           "text": "\n",
-          "offset": 85,
+          "offset": 79,
           "lineBreaks": 1,
           "line": 4,
-          "col": 14
+          "col": 12
         },
         {
           "type": "ws",
           "value": "\n",
           "text": "\n",
-          "offset": 86,
+          "offset": 80,
           "lineBreaks": 1,
           "line": 5,
           "col": 1
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 87,
-          "lineBreaks": 0,
-          "line": 6,
-          "col": 1
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 88,
-          "lineBreaks": 0,
-          "line": 6,
-          "col": 2
         }
       ]
     },
     {
       "type": "text",
-      "value": "Because while markdown is authorable, it's difficult to extend because:\n\n  ",
-      "text": "Because while markdown is authorable, it's difficult to extend because:\n\n  ",
-      "offset": 89,
+      "value": "While its nice to write simple documents in markdown, anything relatively sophisticated (e.g., blogs, interactive explanations, interactive computing notebooks) requires using and/or implementing ad-hoc extensions to markdown. Implementing and using these extensions is difficult because: \n\n",
+      "text": "While its nice to write simple documents in markdown, anything relatively sophisticated (e.g., blogs, interactive explanations, interactive computing notebooks) requires using and/or implementing ad-hoc extensions to markdown. Implementing and using these extensions is difficult because: \n\n",
+      "offset": 81,
       "lineBreaks": 2,
       "line": 6,
-      "col": 3
+      "col": 1
     },
     {
       "type": "functionInvocation",
@@ -144,10 +80,10 @@
         "type": "identifier",
         "value": "l",
         "text": "l",
-        "offset": 165,
+        "offset": 373,
         "lineBreaks": 0,
         "line": 8,
-        "col": 4
+        "col": 2
       },
       "children": [
         {
@@ -156,20 +92,20 @@
             "type": "identifier",
             "value": "<",
             "text": "<",
-            "offset": 174,
+            "offset": 378,
             "lineBreaks": 0,
             "line": 9,
-            "col": 6
+            "col": 2
           },
           "children": [
             {
               "type": "text",
               "value": "Markdown ",
               "text": "Markdown ",
-              "offset": 178,
+              "offset": 382,
               "lineBreaks": 0,
               "line": 9,
-              "col": 10
+              "col": 6
             },
             {
               "type": "functionInvocation",
@@ -177,20 +113,20 @@
                 "type": "identifier",
                 "value": "a",
                 "text": "a",
-                "offset": 188,
+                "offset": 392,
                 "lineBreaks": 0,
                 "line": 9,
-                "col": 20
+                "col": 16
               },
               "argList": [
                 {
                   "type": "argument",
                   "value": "https://roopc.net/posts/2014/markdown-cfg/",
                   "text": "https://roopc.net/posts/2014/markdown-cfg/",
-                  "offset": 190,
+                  "offset": 394,
                   "lineBreaks": 0,
                   "line": 9,
-                  "col": 22
+                  "col": 18
                 }
               ],
               "children": [
@@ -198,21 +134,35 @@
                   "type": "text",
                   "value": "has an ambiguous grammar ",
                   "text": "has an ambiguous grammar ",
-                  "offset": 236,
+                  "offset": 440,
                   "lineBreaks": 0,
                   "line": 9,
-                  "col": 68
+                  "col": 64
+                }
+              ]
+            },
+            {
+              "type": "whitespace",
+              "children": [
+                {
+                  "type": "ws",
+                  "value": " ",
+                  "text": " ",
+                  "offset": 466,
+                  "lineBreaks": 0,
+                  "line": 9,
+                  "col": 90
                 }
               ]
             },
             {
               "type": "text",
-              "value": ". Of course, this has resulted in a proliferation of differences in how it's parsed and rendered, but more importantly, it makes extensibility more complicated. ",
-              "text": ". Of course, this has resulted in a proliferation of differences in how it's parsed and rendered, but more importantly, it makes extensibility more complicated. ",
-              "offset": 262,
+              "value": "and therefore multiple implementations of parsing and rendering. ",
+              "text": "and therefore multiple implementations of parsing and rendering. ",
+              "offset": 467,
               "lineBreaks": 0,
               "line": 9,
-              "col": 94
+              "col": 91
             }
           ]
         },
@@ -223,46 +173,10 @@
               "type": "ws",
               "value": "\n",
               "text": "\n",
-              "offset": 424,
+              "offset": 533,
               "lineBreaks": 1,
               "line": 9,
-              "col": 256
-            },
-            {
-              "type": "ws",
-              "value": " ",
-              "text": " ",
-              "offset": 425,
-              "lineBreaks": 0,
-              "line": 10,
-              "col": 1
-            },
-            {
-              "type": "ws",
-              "value": " ",
-              "text": " ",
-              "offset": 426,
-              "lineBreaks": 0,
-              "line": 10,
-              "col": 2
-            },
-            {
-              "type": "ws",
-              "value": " ",
-              "text": " ",
-              "offset": 427,
-              "lineBreaks": 0,
-              "line": 10,
-              "col": 3
-            },
-            {
-              "type": "ws",
-              "value": " ",
-              "text": " ",
-              "offset": 428,
-              "lineBreaks": 0,
-              "line": 10,
-              "col": 4
+              "col": 157
             }
           ]
         },
@@ -272,20 +186,20 @@
             "type": "identifier",
             "value": "<",
             "text": "<",
-            "offset": 430,
+            "offset": 535,
             "lineBreaks": 0,
             "line": 10,
-            "col": 6
+            "col": 2
           },
           "children": [
             {
               "type": "text",
-              "value": "Not all languages have markdown parsers that offer extension points, and even when they do, those extension points often make markdown feel less authorable. ",
-              "text": "Not all languages have markdown parsers that offer extension points, and even when they do, those extension points often make markdown feel less authorable. ",
-              "offset": 434,
+              "value": "Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown. ",
+              "text": "Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown. ",
+              "offset": 539,
               "lineBreaks": 0,
               "line": 10,
-              "col": 10
+              "col": 6
             }
           ]
         },
@@ -296,46 +210,10 @@
               "type": "ws",
               "value": "\n",
               "text": "\n",
-              "offset": 592,
+              "offset": 716,
               "lineBreaks": 1,
               "line": 10,
-              "col": 168
-            },
-            {
-              "type": "ws",
-              "value": " ",
-              "text": " ",
-              "offset": 593,
-              "lineBreaks": 0,
-              "line": 11,
-              "col": 1
-            },
-            {
-              "type": "ws",
-              "value": " ",
-              "text": " ",
-              "offset": 594,
-              "lineBreaks": 0,
-              "line": 11,
-              "col": 2
-            },
-            {
-              "type": "ws",
-              "value": " ",
-              "text": " ",
-              "offset": 595,
-              "lineBreaks": 0,
-              "line": 11,
-              "col": 3
-            },
-            {
-              "type": "ws",
-              "value": " ",
-              "text": " ",
-              "offset": 596,
-              "lineBreaks": 0,
-              "line": 11,
-              "col": 4
+              "col": 183
             }
           ]
         },
@@ -345,20 +223,20 @@
             "type": "identifier",
             "value": "<",
             "text": "<",
-            "offset": 598,
+            "offset": 718,
             "lineBreaks": 0,
             "line": 11,
-            "col": 6
+            "col": 2
           },
           "children": [
             {
               "type": "text",
-              "value": "You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as an authorable format. ",
-              "text": "You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as an authorable format. ",
-              "offset": 602,
+              "value": "You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. ",
+              "text": "You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. ",
+              "offset": 722,
               "lineBreaks": 0,
               "line": 11,
-              "col": 10
+              "col": 6
             }
           ]
         },
@@ -369,28 +247,10 @@
               "type": "ws",
               "value": "\n",
               "text": "\n",
-              "offset": 719,
+              "offset": 829,
               "lineBreaks": 1,
               "line": 11,
-              "col": 127
-            },
-            {
-              "type": "ws",
-              "value": " ",
-              "text": " ",
-              "offset": 720,
-              "lineBreaks": 0,
-              "line": 12,
-              "col": 1
-            },
-            {
-              "type": "ws",
-              "value": " ",
-              "text": " ",
-              "offset": 721,
-              "lineBreaks": 0,
-              "line": 12,
-              "col": 2
+              "col": 113
             }
           ]
         }
@@ -399,178 +259,78 @@
     {
       "type": "whitespace",
       "children": [
-        {
-          "type": "ws",
-          "value": "\n",
-          "text": "\n",
-          "offset": 723,
-          "lineBreaks": 1,
-          "line": 12,
-          "col": 4
-        },
-        {
-          "type": "ws",
-          "value": "\n",
-          "text": "\n",
-          "offset": 724,
-          "lineBreaks": 1,
-          "line": 13,
-          "col": 1
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 725,
-          "lineBreaks": 0,
-          "line": 14,
-          "col": 1
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 726,
-          "lineBreaks": 0,
-          "line": 14,
-          "col": 2
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "In contrast, authorx\n\n  ",
-      "text": "In contrast, authorx\n\n  ",
-      "offset": 727,
-      "lineBreaks": 2,
-      "line": 14,
-      "col": 3
-    },
-    {
-      "type": "functionInvocation",
-      "identifier": {
-        "type": "identifier",
-        "value": "##",
-        "text": "##",
-        "offset": 752,
-        "lineBreaks": 0,
-        "line": 16,
-        "col": 4
-      },
-      "children": [
-        {
-          "type": "text",
-          "value": "Simple, unambiguous grammar ",
-          "text": "Simple, unambiguous grammar ",
-          "offset": 757,
-          "lineBreaks": 0,
-          "line": 16,
-          "col": 9
-        }
-      ]
-    },
-    {
-      "type": "whitespace",
-      "children": [
-        {
-          "type": "ws",
-          "value": "\n",
-          "text": "\n",
-          "offset": 786,
-          "lineBreaks": 1,
-          "line": 16,
-          "col": 38
-        },
-        {
-          "type": "ws",
-          "value": "\n",
-          "text": "\n",
-          "offset": 787,
-          "lineBreaks": 1,
-          "line": 17,
-          "col": 1
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 788,
-          "lineBreaks": 0,
-          "line": 18,
-          "col": 1
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 789,
-          "lineBreaks": 0,
-          "line": 18,
-          "col": 2
-        }
-      ]
-    },
-    {
-      "type": "functionInvocation",
-      "identifier": {
-        "type": "identifier",
-        "value": "##",
-        "text": "##",
-        "offset": 791,
-        "lineBreaks": 0,
-        "line": 18,
-        "col": 4
-      },
-      "children": [
-        {
-          "type": "text",
-          "value": "Write extensions in any language ",
-          "text": "Write extensions in any language ",
-          "offset": 796,
-          "lineBreaks": 0,
-          "line": 18,
-          "col": 9
-        }
-      ]
-    },
-    {
-      "type": "whitespace",
-      "children": [
-        {
-          "type": "ws",
-          "value": "\n",
-          "text": "\n",
-          "offset": 830,
-          "lineBreaks": 1,
-          "line": 18,
-          "col": 43
-        },
         {
           "type": "ws",
           "value": "\n",
           "text": "\n",
           "offset": 831,
           "lineBreaks": 1,
-          "line": 19,
-          "col": 1
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 832,
-          "lineBreaks": 0,
-          "line": 20,
-          "col": 1
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 833,
-          "lineBreaks": 0,
-          "line": 20,
+          "line": 12,
           "col": 2
+        },
+        {
+          "type": "ws",
+          "value": "\n",
+          "text": "\n",
+          "offset": 832,
+          "lineBreaks": 1,
+          "line": 13,
+          "col": 1
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "authorx makes it easy to create markdown-like languages that work for more complicated publishing formats.\n\n",
+      "text": "authorx makes it easy to create markdown-like languages that work for more complicated publishing formats.\n\n",
+      "offset": 833,
+      "lineBreaks": 2,
+      "line": 14,
+      "col": 1
+    },
+    {
+      "type": "functionInvocation",
+      "identifier": {
+        "type": "identifier",
+        "value": "#",
+        "text": "#",
+        "offset": 942,
+        "lineBreaks": 0,
+        "line": 16,
+        "col": 2
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "How? ",
+          "text": "How? ",
+          "offset": 946,
+          "lineBreaks": 0,
+          "line": 16,
+          "col": 6
+        }
+      ]
+    },
+    {
+      "type": "whitespace",
+      "children": [
+        {
+          "type": "ws",
+          "value": "\n",
+          "text": "\n",
+          "offset": 952,
+          "lineBreaks": 1,
+          "line": 16,
+          "col": 12
+        },
+        {
+          "type": "ws",
+          "value": "\n",
+          "text": "\n",
+          "offset": 953,
+          "lineBreaks": 1,
+          "line": 17,
+          "col": 1
         }
       ]
     },
@@ -580,20 +340,20 @@
         "type": "identifier",
         "value": "##",
         "text": "##",
-        "offset": 835,
+        "offset": 955,
         "lineBreaks": 0,
-        "line": 20,
-        "col": 4
+        "line": 18,
+        "col": 2
       },
       "children": [
         {
           "type": "text",
-          "value": "Suh ",
-          "text": "Suh ",
-          "offset": 840,
+          "value": "Simple, unambiguous grammar ",
+          "text": "Simple, unambiguous grammar ",
+          "offset": 960,
           "lineBreaks": 0,
-          "line": 20,
-          "col": 9
+          "line": 18,
+          "col": 7
         }
       ]
     },
@@ -604,71 +364,279 @@
           "type": "ws",
           "value": "\n",
           "text": "\n",
-          "offset": 845,
+          "offset": 989,
           "lineBreaks": 1,
-          "line": 20,
-          "col": 14
+          "line": 18,
+          "col": 36
         },
         {
           "type": "ws",
           "value": "\n",
           "text": "\n",
-          "offset": 846,
+          "offset": 990,
           "lineBreaks": 1,
-          "line": 21,
+          "line": 19,
           "col": 1
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 847,
-          "lineBreaks": 0,
-          "line": 22,
-          "col": 1
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 848,
-          "lineBreaks": 0,
-          "line": 22,
-          "col": 2
         }
       ]
     },
     {
       "type": "text",
-      "value": "\\<",
-      "text": "\\<",
-      "offset": 849,
-      "lineBreaks": 0,
-      "line": 22,
-      "col": 3
+      "value": "There's only two syntactic elements to authorx documents: text and functions. Hello world looks like this:\n\n",
+      "text": "There's only two syntactic elements to authorx documents: text and functions. Hello world looks like this:\n\n",
+      "offset": 991,
+      "lineBreaks": 2,
+      "line": 20,
+      "col": 1
+    },
+    {
+      "type": "functionInvocation",
+      "identifier": {
+        "type": "identifier",
+        "value": ">",
+        "text": ">",
+        "offset": 1100,
+        "lineBreaks": 0,
+        "line": 22,
+        "col": 2
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "\\<",
+          "text": "\\<",
+          "offset": 1106,
+          "lineBreaks": 0,
+          "line": 23,
+          "col": 3
+        },
+        {
+          "type": "text",
+          "value": "p {\n    Hello, world!\n  ",
+          "text": "p {\n    Hello, world!\n  ",
+          "offset": 1108,
+          "lineBreaks": 2,
+          "line": 23,
+          "col": 5
+        },
+        {
+          "type": "text",
+          "value": "\\",
+          "text": "\\",
+          "offset": 1132,
+          "lineBreaks": 0,
+          "line": 25,
+          "col": 3
+        }
+      ]
     },
     {
       "type": "whitespace",
       "children": [
         {
           "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 851,
-          "lineBreaks": 0,
-          "line": 22,
+          "value": "\n",
+          "text": "\n",
+          "offset": 1134,
+          "lineBreaks": 1,
+          "line": 25,
           "col": 5
         }
       ]
     },
     {
       "type": "text",
-      "value": "but not this\n",
-      "text": "but not this\n",
-      "offset": 852,
-      "lineBreaks": 1,
-      "line": 22,
-      "col": 6
+      "value": "}",
+      "text": "}",
+      "offset": 1135,
+      "lineBreaks": 0,
+      "line": 26,
+      "col": 1
+    },
+    {
+      "type": "whitespace",
+      "children": [
+        {
+          "type": "ws",
+          "value": "\n",
+          "text": "\n",
+          "offset": 1136,
+          "lineBreaks": 1,
+          "line": 26,
+          "col": 2
+        },
+        {
+          "type": "ws",
+          "value": "\n",
+          "text": "\n",
+          "offset": 1137,
+          "lineBreaks": 1,
+          "line": 27,
+          "col": 1
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "You can see the grammar ",
+      "text": "You can see the grammar ",
+      "offset": 1138,
+      "lineBreaks": 0,
+      "line": 28,
+      "col": 1
+    },
+    {
+      "type": "functionInvocation",
+      "identifier": {
+        "type": "identifier",
+        "value": "a",
+        "text": "a",
+        "offset": 1163,
+        "lineBreaks": 0,
+        "line": 28,
+        "col": 26
+      },
+      "argList": [
+        {
+          "type": "argument",
+          "value": "./grammar.ne",
+          "text": "./grammar.ne",
+          "offset": 1165,
+          "lineBreaks": 0,
+          "line": 28,
+          "col": 28
+        }
+      ],
+      "children": [
+        {
+          "type": "text",
+          "value": "here ",
+          "text": "here ",
+          "offset": 1181,
+          "lineBreaks": 0,
+          "line": 28,
+          "col": 44
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ".\n\n",
+      "text": ".\n\n",
+      "offset": 1187,
+      "lineBreaks": 2,
+      "line": 28,
+      "col": 50
+    },
+    {
+      "type": "functionInvocation",
+      "identifier": {
+        "type": "identifier",
+        "value": "##",
+        "text": "##",
+        "offset": 1191,
+        "lineBreaks": 0,
+        "line": 30,
+        "col": 2
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "Syntax is separate from semantics ",
+          "text": "Syntax is separate from semantics ",
+          "offset": 1196,
+          "lineBreaks": 0,
+          "line": 30,
+          "col": 7
+        }
+      ]
+    },
+    {
+      "type": "whitespace",
+      "children": [
+        {
+          "type": "ws",
+          "value": "\n",
+          "text": "\n",
+          "offset": 1231,
+          "lineBreaks": 1,
+          "line": 30,
+          "col": 42
+        },
+        {
+          "type": "ws",
+          "value": "\n",
+          "text": "\n",
+          "offset": 1232,
+          "lineBreaks": 1,
+          "line": 31,
+          "col": 1
+        }
+      ]
+    },
+    {
+      "type": "functionInvocation",
+      "identifier": {
+        "type": "identifier",
+        "value": "##",
+        "text": "##",
+        "offset": 1234,
+        "lineBreaks": 0,
+        "line": 32,
+        "col": 2
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "Write semantics in any language ",
+          "text": "Write semantics in any language ",
+          "offset": 1239,
+          "lineBreaks": 0,
+          "line": 32,
+          "col": 7
+        }
+      ]
+    },
+    {
+      "type": "whitespace",
+      "children": [
+        {
+          "type": "ws",
+          "value": "\n",
+          "text": "\n",
+          "offset": 1272,
+          "lineBreaks": 1,
+          "line": 32,
+          "col": 40
+        },
+        {
+          "type": "ws",
+          "value": " ",
+          "text": " ",
+          "offset": 1273,
+          "lineBreaks": 0,
+          "line": 33,
+          "col": 1
+        },
+        {
+          "type": "ws",
+          "value": " ",
+          "text": " ",
+          "offset": 1274,
+          "lineBreaks": 0,
+          "line": 33,
+          "col": 2
+        },
+        {
+          "type": "ws",
+          "value": "\n",
+          "text": "\n",
+          "offset": 1275,
+          "lineBreaks": 1,
+          "line": 33,
+          "col": 3
+        }
+      ]
     }
   ]
 }

@@ -41,4 +41,14 @@ describe("lexer", () => {
     const tokens = lex("<c(r, exec) {}");
     expect(tokens).toMatchSnapshot();
   });
+  it("lexes doubly nested escaped invocations", () => {
+    const tokens = lex(`<p {
+      <p {
+        \\<p {
+          Hello, world!
+        }
+      }
+    }`);
+    expect(tokens).toMatchSnapshot();
+  });
 });

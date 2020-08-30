@@ -21,7 +21,9 @@ const getFunction = (identifier) => {
     case "<":
       return (string) => `* ${string}`;
     case "a":
-      return (string, [url]) => `[${string}](${url.value})`;
+      return (string, [url]) => `[${string.trim()}](${url.value})`;
+    case ">":
+      return (string) => `\`\`\`${string}\`\`\``;
     default:
       return (string) => string;
   }

@@ -31,5 +31,5 @@ terminalArg -> %argument ")" {% id %}
 _ -> %ws:* {% 
   ([ws]) => ws.length > 0 ? ({ type: "whitespace", children: ws }) : null
 %}
-text -> (%words | %escapedFunctionInvocation | %escapedSlash) {% ([[text]]) => ({...text, type: "text"})  %}
+text -> (%words | %escapedFunctionInvocation | %escapedSlash | %escapedCloseBracket) {% ([[text]]) => ({...text, type: "text"})  %}
 authorx -> text {% id %}
