@@ -1,6 +1,7 @@
 
 @{%
 require("array-flat-polyfill")
+const { postProcessAuthorX } = require("./post-processors");
 const { makeLexer } = require("./lexer");
 const lexer = makeLexer()
 %}
@@ -8,13 +9,7 @@ const lexer = makeLexer()
 @lexer lexer
 
 authorx -> "<" invocation _ "{" _ (authorx _):+ "}" {% 
-  ([_, invocation, _1, _2, _3, authorx]) => (
-    {
-      type: "functionInvocation", 
-      ...invocation, 
-      children: [...authorx.flat().filter(el => el)]
-    }
-  )
+ (data) => postProcessAuthorX(data)
 %}
 
 invocation -> %identifier argList:? {%
@@ -31,5 +26,7 @@ terminalArg -> %argument ")" {% id %}
 _ -> %ws:* {% 
   ([ws]) => ws.length > 0 ? ({ type: "whitespace", children: ws }) : null
 %}
-text -> (%words | %escapedFunctionInvocation | %escapedSlash | %escapedCloseBracket) {% ([[text]]) => ({...text, type: "text"})  %}
+text -> (%words | %escapedFunctionInvocation | %escapedSlash | %escapedCloseBracket) {% 
+  ([[text]]) => ({...text, type: "text"})  
+%}
 authorx -> text {% id %}

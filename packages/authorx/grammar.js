@@ -4,6 +4,7 @@
 function id(x) { return x[0]; }
 
 require("array-flat-polyfill")
+const { postProcessAuthorX } = require("./post-processors");
 const { makeLexer } = require("./lexer");
 const lexer = makeLexer()
 var grammar = {
@@ -13,14 +14,8 @@ var grammar = {
     {"name": "authorx$ebnf$1", "symbols": ["authorx$ebnf$1$subexpression$1"]},
     {"name": "authorx$ebnf$1$subexpression$2", "symbols": ["authorx", "_"]},
     {"name": "authorx$ebnf$1", "symbols": ["authorx$ebnf$1", "authorx$ebnf$1$subexpression$2"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "authorx", "symbols": [{"literal":"<"}, "invocation", "_", {"literal":"{"}, "_", "authorx$ebnf$1", {"literal":"}"}], "postprocess":  
-        ([_, invocation, _1, _2, _3, authorx]) => (
-          {
-            type: "functionInvocation", 
-            ...invocation, 
-            children: [...authorx.flat().filter(el => el)]
-          }
-        )
+    {"name": "authorx", "symbols": [{"literal":"<"}, "invocation", "_", {"literal":"{"}, "_", "authorx$ebnf$1", {"literal":"}"}], "postprocess": 
+        (data) => postProcessAuthorX(data)
         },
     {"name": "invocation$ebnf$1", "symbols": ["argList"], "postprocess": id},
     {"name": "invocation$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
@@ -44,7 +39,9 @@ var grammar = {
     {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedFunctionInvocation") ? {type: "escapedFunctionInvocation"} : escapedFunctionInvocation)]},
     {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedSlash") ? {type: "escapedSlash"} : escapedSlash)]},
     {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedCloseBracket") ? {type: "escapedCloseBracket"} : escapedCloseBracket)]},
-    {"name": "text", "symbols": ["text$subexpression$1"], "postprocess": ([[text]]) => ({...text, type: "text"})},
+    {"name": "text", "symbols": ["text$subexpression$1"], "postprocess":  
+        ([[text]]) => ({...text, type: "text"})  
+        },
     {"name": "authorx", "symbols": ["text"], "postprocess": id}
 ]
   , ParserStart: "authorx"
