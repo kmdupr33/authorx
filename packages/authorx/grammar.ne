@@ -7,7 +7,7 @@ const lexer = makeLexer()
 
 @lexer lexer
 
-authorx -> %functionInvocation %identifier _ "{" _ (authorx _):+ "}" {% 
+authorx -> "<" invocation _ "{" _ (authorx _):+ "}" {% 
   ([_, identifier, _1, _2, _3, authorx]) => (
     {
       type: "functionInvocation", 
@@ -16,6 +16,10 @@ authorx -> %functionInvocation %identifier _ "{" _ (authorx _):+ "}" {%
     }
   )
 %}
+
+invocation -> %identifier argList:?
+argList -> "(" (%argument "," %ws):* (%argument ")")
+
 _ -> %ws:* {% 
   ([ws]) => ws.length > 0 ? ({ type: "whitespace", children: ws }) : null
 %}

@@ -1,4 +1,5 @@
 <l {  
+  << Add Macro Support (e.g., auto paragraph)
   << Add composition-based api (to make it easy to extend markdown-like semantics, for example)
   << Bracket-less functions for single lines  
   << Quoting? (for embedding code within .ax docs)

@@ -70,4 +70,18 @@ describe("authorx -> authorx | %identifier", () => {
       \\
     }`);
   });
+  describe("arguments", () => {
+    it("parses a single argument", () => {
+      expectToParse(`<p {
+      <a(google.com) { Google }
+    }`);
+    });
+    it("parses multiple arguments", () => {
+      expectToParse(`<p {
+        <code(r, exec) {
+          "hello"
+        }
+      }`);
+    });
+  });
 });

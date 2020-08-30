@@ -7,12 +7,20 @@ const makeLexer = () => {
       brackets: /[{}]/,
       escapedFunctionInvocation: /\\\</,
       escapedSlash: /\\/,
-      functionInvocation: { match: /\</, push: "function" },
+      functionInvocationStart: { match: /\</, push: "function" },
       words: { match: /[^\}\<\\]+/, lineBreaks: true },
     },
     function: {
-      identifier: { match: /[a-zA-Z0-9>#?^&*%$@!-=+_~`<>.,/\\|]+/, pop: true },
+      identifier: { match: /[a-zA-Z0-9>#?^&*%$@!\-=+_~`<>.,/\\|]+/ },
+      openParen: { match: /\(/, push: "args" },
+      openBracket: { match: /{/, pop: true },
       ws: / /,
+    },
+    args: {
+      ws: / /,
+      argument: /[^ \n,)]+/,
+      argumentSeparator: /,/,
+      closeParen: { match: /\)/, pop: true },
     },
   });
 };

@@ -37,4 +37,8 @@ describe("lexer", () => {
     const tokens = lex("<p { 1 \\< 2 }");
     expect(tokens).toMatchSnapshot();
   });
+  it("lexes multi argument invocations", () => {
+    const tokens = lex("<c(r, exec) {}");
+    expect(tokens).toMatchSnapshot();
+  });
 });
