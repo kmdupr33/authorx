@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "readme": "cat README.ax | node parse.js > README.ast.json && node code-gen.js README.ast.json > README.md",
-    "test": "nearleyc ./grammar.ne > grammar.js && jest"
+    "build": "nearleyc ./grammar.ne > grammar.js",
+    "readme": "npm run build && cat README.ax | node parse.js > README.ast.json && node code-gen.js README.ast.json > README.md",
+    "test": "npm run build && jest"
   },
   "author": "",
   "license": "ISC",
