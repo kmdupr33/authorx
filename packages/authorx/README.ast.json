@@ -1,17 +1,14 @@
 {
   "type": "functionInvocation",
-  "identifier": [
-    {
-      "type": "identifier",
-      "value": "$",
-      "text": "$",
-      "offset": 1,
-      "lineBreaks": 0,
-      "line": 1,
-      "col": 2
-    },
-    null
-  ],
+  "identifier": {
+    "type": "identifier",
+    "value": "$",
+    "text": "$",
+    "offset": 1,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 2
+  },
   "children": [
     {
       "type": "text",
@@ -24,18 +21,15 @@
     },
     {
       "type": "functionInvocation",
-      "identifier": [
-        {
-          "type": "identifier",
-          "value": "*",
-          "text": "*",
-          "offset": 45,
-          "lineBreaks": 0,
-          "line": 2,
-          "col": 41
-        },
-        null
-      ],
+      "identifier": {
+        "type": "identifier",
+        "value": "*",
+        "text": "*",
+        "offset": 45,
+        "lineBreaks": 0,
+        "line": 2,
+        "col": 41
+      },
       "children": [
         {
           "type": "text",
@@ -73,18 +67,15 @@
     },
     {
       "type": "functionInvocation",
-      "identifier": [
-        {
-          "type": "identifier",
-          "value": "#",
-          "text": "#",
-          "offset": 75,
-          "lineBreaks": 0,
-          "line": 4,
-          "col": 4
-        },
-        null
-      ],
+      "identifier": {
+        "type": "identifier",
+        "value": "#",
+        "text": "#",
+        "offset": 75,
+        "lineBreaks": 0,
+        "line": 4,
+        "col": 4
+      },
       "children": [
         {
           "type": "text",
@@ -149,33 +140,27 @@
     },
     {
       "type": "functionInvocation",
-      "identifier": [
-        {
-          "type": "identifier",
-          "value": "l",
-          "text": "l",
-          "offset": 165,
-          "lineBreaks": 0,
-          "line": 8,
-          "col": 4
-        },
-        null
-      ],
+      "identifier": {
+        "type": "identifier",
+        "value": "l",
+        "text": "l",
+        "offset": 165,
+        "lineBreaks": 0,
+        "line": 8,
+        "col": 4
+      },
       "children": [
         {
           "type": "functionInvocation",
-          "identifier": [
-            {
-              "type": "identifier",
-              "value": "<",
-              "text": "<",
-              "offset": 174,
-              "lineBreaks": 0,
-              "line": 9,
-              "col": 6
-            },
-            null
-          ],
+          "identifier": {
+            "type": "identifier",
+            "value": "<",
+            "text": "<",
+            "offset": 174,
+            "lineBreaks": 0,
+            "line": 9,
+            "col": 6
+          },
           "children": [
             {
               "type": "text",
@@ -188,48 +173,25 @@
             },
             {
               "type": "functionInvocation",
-              "identifier": [
+              "identifier": {
+                "type": "identifier",
+                "value": "a",
+                "text": "a",
+                "offset": 188,
+                "lineBreaks": 0,
+                "line": 9,
+                "col": 20
+              },
+              "argList": [
                 {
-                  "type": "identifier",
-                  "value": "a",
-                  "text": "a",
-                  "offset": 188,
+                  "type": "argument",
+                  "value": "https://roopc.net/posts/2014/markdown-cfg/",
+                  "text": "https://roopc.net/posts/2014/markdown-cfg/",
+                  "offset": 190,
                   "lineBreaks": 0,
                   "line": 9,
-                  "col": 20
-                },
-                [
-                  {
-                    "type": "openParen",
-                    "value": "(",
-                    "text": "(",
-                    "offset": 189,
-                    "lineBreaks": 0,
-                    "line": 9,
-                    "col": 21
-                  },
-                  [],
-                  [
-                    {
-                      "type": "argument",
-                      "value": "https://roopc.net/posts/2014/markdown-cfg/",
-                      "text": "https://roopc.net/posts/2014/markdown-cfg/",
-                      "offset": 190,
-                      "lineBreaks": 0,
-                      "line": 9,
-                      "col": 22
-                    },
-                    {
-                      "type": "closeParen",
-                      "value": ")",
-                      "text": ")",
-                      "offset": 232,
-                      "lineBreaks": 0,
-                      "line": 9,
-                      "col": 64
-                    }
-                  ]
-                ]
+                  "col": 22
+                }
               ],
               "children": [
                 {
@@ -306,18 +268,15 @@
         },
         {
           "type": "functionInvocation",
-          "identifier": [
-            {
-              "type": "identifier",
-              "value": "<",
-              "text": "<",
-              "offset": 430,
-              "lineBreaks": 0,
-              "line": 10,
-              "col": 6
-            },
-            null
-          ],
+          "identifier": {
+            "type": "identifier",
+            "value": "<",
+            "text": "<",
+            "offset": 430,
+            "lineBreaks": 0,
+            "line": 10,
+            "col": 6
+          },
           "children": [
             {
               "type": "text",
@@ -382,18 +341,15 @@
         },
         {
           "type": "functionInvocation",
-          "identifier": [
-            {
-              "type": "identifier",
-              "value": "<",
-              "text": "<",
-              "offset": 598,
-              "lineBreaks": 0,
-              "line": 11,
-              "col": 6
-            },
-            null
-          ],
+          "identifier": {
+            "type": "identifier",
+            "value": "<",
+            "text": "<",
+            "offset": 598,
+            "lineBreaks": 0,
+            "line": 11,
+            "col": 6
+          },
           "children": [
             {
               "type": "text",
@@ -492,18 +448,15 @@
     },
     {
       "type": "functionInvocation",
-      "identifier": [
-        {
-          "type": "identifier",
-          "value": "##",
-          "text": "##",
-          "offset": 752,
-          "lineBreaks": 0,
-          "line": 16,
-          "col": 4
-        },
-        null
-      ],
+      "identifier": {
+        "type": "identifier",
+        "value": "##",
+        "text": "##",
+        "offset": 752,
+        "lineBreaks": 0,
+        "line": 16,
+        "col": 4
+      },
       "children": [
         {
           "type": "text",
@@ -559,18 +512,15 @@
     },
     {
       "type": "functionInvocation",
-      "identifier": [
-        {
-          "type": "identifier",
-          "value": "##",
-          "text": "##",
-          "offset": 791,
-          "lineBreaks": 0,
-          "line": 18,
-          "col": 4
-        },
-        null
-      ],
+      "identifier": {
+        "type": "identifier",
+        "value": "##",
+        "text": "##",
+        "offset": 791,
+        "lineBreaks": 0,
+        "line": 18,
+        "col": 4
+      },
       "children": [
         {
           "type": "text",
@@ -626,18 +576,15 @@
     },
     {
       "type": "functionInvocation",
-      "identifier": [
-        {
-          "type": "identifier",
-          "value": "##",
-          "text": "##",
-          "offset": 835,
-          "lineBreaks": 0,
-          "line": 20,
-          "col": 4
-        },
-        null
-      ],
+      "identifier": {
+        "type": "identifier",
+        "value": "##",
+        "text": "##",
+        "offset": 835,
+        "lineBreaks": 0,
+        "line": 20,
+        "col": 4
+      },
       "children": [
         {
           "type": "text",
