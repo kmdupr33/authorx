@@ -16,20 +16,22 @@ var grammar = {
     {"name": "authorx", "symbols": [(lexer.has("functionInvocation") ? {type: "functionInvocation"} : functionInvocation), (lexer.has("identifier") ? {type: "identifier"} : identifier), "_", {"literal":"{"}, "_", "authorx$ebnf$1", {"literal":"}"}], "postprocess":  
         ([_, identifier, _1, _2, _3, authorx]) => (
           {
-            _type: "functionInvocation", 
+            type: "functionInvocation", 
             identifier, 
-            children: authorx.flat().filter(el => el)
+            children: [...authorx.flat().filter(el => el)]
           }
         )
         },
     {"name": "_$ebnf$1", "symbols": []},
     {"name": "_$ebnf$1", "symbols": ["_$ebnf$1", (lexer.has("ws") ? {type: "ws"} : ws)], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "_", "symbols": ["_$ebnf$1"], "postprocess": () => null},
+    {"name": "_", "symbols": ["_$ebnf$1"], "postprocess":  
+        ([ws]) => ws.length > 0 ? ({ type: "whitespace", children: ws }) : null
+        },
     {"name": "text$subexpression$1", "symbols": [(lexer.has("words") ? {type: "words"} : words)]},
     {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedFunctionInvocation") ? {type: "escapedFunctionInvocation"} : escapedFunctionInvocation)]},
     {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedSlash") ? {type: "escapedSlash"} : escapedSlash)]},
-    {"name": "text", "symbols": ["text$subexpression$1"], "postprocess": id},
-    {"name": "authorx", "symbols": ["text"], "postprocess": ([text]) => ({_type: "text", children: text})}
+    {"name": "text", "symbols": ["text$subexpression$1"], "postprocess": ([[text]]) => ({...text, type: "text"})},
+    {"name": "authorx", "symbols": ["text"], "postprocess": id}
 ]
   , ParserStart: "authorx"
 }

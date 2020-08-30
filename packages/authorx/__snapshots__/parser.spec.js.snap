@@ -2,25 +2,18 @@
 
 exports[`authorx -> authorx | %identifier parses { hello } | b world 1`] = `
 Object {
-  "_type": "functionInvocation",
   "children": Array [
     Object {
-      "_type": "functionInvocation",
       "children": Array [
         Object {
-          "_type": "text",
-          "children": Array [
-            Object {
-              "col": 11,
-              "line": 1,
-              "lineBreaks": 0,
-              "offset": 10,
-              "text": "hello ",
-              "toString": [Function],
-              "type": "words",
-              "value": "hello ",
-            },
-          ],
+          "col": 11,
+          "line": 1,
+          "lineBreaks": 0,
+          "offset": 10,
+          "text": "hello ",
+          "toString": [Function],
+          "type": "text",
+          "value": "hello ",
         },
       ],
       "identifier": Object {
@@ -33,21 +26,32 @@ Object {
         "type": "identifier",
         "value": "b",
       },
+      "type": "functionInvocation",
     },
     Object {
-      "_type": "text",
       "children": Array [
         Object {
-          "col": 19,
+          "col": 18,
           "line": 1,
           "lineBreaks": 0,
-          "offset": 18,
-          "text": "world ",
+          "offset": 17,
+          "text": " ",
           "toString": [Function],
-          "type": "words",
-          "value": "world ",
+          "type": "ws",
+          "value": " ",
         },
       ],
+      "type": "whitespace",
+    },
+    Object {
+      "col": 19,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 18,
+      "text": "world ",
+      "toString": [Function],
+      "type": "text",
+      "value": "world ",
     },
   ],
   "identifier": Object {
@@ -60,30 +64,24 @@ Object {
     "type": "identifier",
     "value": "p",
   },
+  "type": "functionInvocation",
 }
 `;
 
 exports[`authorx -> authorx | %identifier parses { hello world } | b 1`] = `
 Object {
-  "_type": "functionInvocation",
   "children": Array [
     Object {
-      "_type": "functionInvocation",
       "children": Array [
         Object {
-          "_type": "text",
-          "children": Array [
-            Object {
-              "col": 11,
-              "line": 1,
-              "lineBreaks": 0,
-              "offset": 10,
-              "text": "hello world ",
-              "toString": [Function],
-              "type": "words",
-              "value": "hello world ",
-            },
-          ],
+          "col": 11,
+          "line": 1,
+          "lineBreaks": 0,
+          "offset": 10,
+          "text": "hello world ",
+          "toString": [Function],
+          "type": "text",
+          "value": "hello world ",
         },
       ],
       "identifier": Object {
@@ -96,6 +94,22 @@ Object {
         "type": "identifier",
         "value": "b",
       },
+      "type": "functionInvocation",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 24,
+          "line": 1,
+          "lineBreaks": 0,
+          "offset": 23,
+          "text": " ",
+          "toString": [Function],
+          "type": "ws",
+          "value": " ",
+        },
+      ],
+      "type": "whitespace",
     },
   ],
   "identifier": Object {
@@ -108,31 +122,26 @@ Object {
     "type": "identifier",
     "value": "p",
   },
+  "type": "functionInvocation",
 }
 `;
 
 exports[`authorx -> authorx | %identifier parses a paragraph 1`] = `
 Object {
-  "_type": "functionInvocation",
   "children": Array [
     Object {
-      "_type": "text",
-      "children": Array [
-        Object {
-          "col": 1,
-          "line": 2,
-          "lineBreaks": 2,
-          "offset": 5,
-          "text": "hello world
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 2,
+      "offset": 5,
+      "text": "hello world
 this is authorx
 ",
-          "toString": [Function],
-          "type": "words",
-          "value": "hello world
+      "toString": [Function],
+      "type": "text",
+      "value": "hello world
 this is authorx
 ",
-        },
-      ],
     },
   ],
   "identifier": Object {
@@ -145,27 +154,39 @@ this is authorx
     "type": "identifier",
     "value": "p",
   },
+  "type": "functionInvocation",
 }
 `;
 
 exports[`authorx -> authorx | %identifier parses a paragraph with an escape character 1`] = `
 Object {
-  "_type": "functionInvocation",
   "children": Array [
     Object {
-      "_type": "text",
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "\\\\",
+      "toString": [Function],
+      "type": "text",
+      "value": "\\\\",
+    },
+    Object {
       "children": Array [
         Object {
-          "col": 1,
+          "col": 2,
           "line": 2,
-          "lineBreaks": 0,
-          "offset": 5,
-          "text": "\\\\",
+          "lineBreaks": 1,
+          "offset": 6,
+          "text": "
+",
           "toString": [Function],
-          "type": "escapedSlash",
-          "value": "\\\\",
+          "type": "ws",
+          "value": "
+",
         },
       ],
+      "type": "whitespace",
     },
   ],
   "identifier": Object {
@@ -178,59 +199,59 @@ Object {
     "type": "identifier",
     "value": "p",
   },
+  "type": "functionInvocation",
 }
 `;
 
 exports[`authorx -> authorx | %identifier parses a paragraph with escaped function invocations 1`] = `
 Object {
-  "_type": "functionInvocation",
   "children": Array [
     Object {
-      "_type": "text",
-      "children": Array [
-        Object {
-          "col": 1,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 5,
-          "text": "1 ",
-          "toString": [Function],
-          "type": "words",
-          "value": "1 ",
-        },
-      ],
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "1 ",
+      "toString": [Function],
+      "type": "text",
+      "value": "1 ",
     },
     Object {
-      "_type": "text",
-      "children": Array [
-        Object {
-          "col": 3,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 7,
-          "text": "\\\\<",
-          "toString": [Function],
-          "type": "escapedFunctionInvocation",
-          "value": "\\\\<",
-        },
-      ],
+      "col": 3,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 7,
+      "text": "\\\\<",
+      "toString": [Function],
+      "type": "text",
+      "value": "\\\\<",
     },
     Object {
-      "_type": "text",
       "children": Array [
         Object {
-          "col": 6,
+          "col": 5,
           "line": 2,
-          "lineBreaks": 1,
-          "offset": 10,
-          "text": "2
-",
+          "lineBreaks": 0,
+          "offset": 9,
+          "text": " ",
           "toString": [Function],
-          "type": "words",
-          "value": "2
-",
+          "type": "ws",
+          "value": " ",
         },
       ],
+      "type": "whitespace",
+    },
+    Object {
+      "col": 6,
+      "line": 2,
+      "lineBreaks": 1,
+      "offset": 10,
+      "text": "2
+",
+      "toString": [Function],
+      "type": "text",
+      "value": "2
+",
     },
   ],
   "identifier": Object {
@@ -243,75 +264,69 @@ Object {
     "type": "identifier",
     "value": "p",
   },
+  "type": "functionInvocation",
 }
 `;
 
 exports[`authorx -> authorx | %identifier parses a paragraph with escaped function invocations followed by a real function invocation 1`] = `
 Object {
-  "_type": "functionInvocation",
   "children": Array [
     Object {
-      "_type": "text",
-      "children": Array [
-        Object {
-          "col": 1,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 5,
-          "text": "1 ",
-          "toString": [Function],
-          "type": "words",
-          "value": "1 ",
-        },
-      ],
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "1 ",
+      "toString": [Function],
+      "type": "text",
+      "value": "1 ",
     },
     Object {
-      "_type": "text",
-      "children": Array [
-        Object {
-          "col": 3,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 7,
-          "text": "\\\\<",
-          "toString": [Function],
-          "type": "escapedFunctionInvocation",
-          "value": "\\\\<",
-        },
-      ],
+      "col": 3,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 7,
+      "text": "\\\\<",
+      "toString": [Function],
+      "type": "text",
+      "value": "\\\\<",
     },
     Object {
-      "_type": "text",
       "children": Array [
         Object {
-          "col": 6,
+          "col": 5,
           "line": 2,
           "lineBreaks": 0,
-          "offset": 10,
-          "text": "2 ",
+          "offset": 9,
+          "text": " ",
           "toString": [Function],
-          "type": "words",
-          "value": "2 ",
+          "type": "ws",
+          "value": " ",
         },
       ],
+      "type": "whitespace",
     },
     Object {
-      "_type": "functionInvocation",
+      "col": 6,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 10,
+      "text": "2 ",
+      "toString": [Function],
+      "type": "text",
+      "value": "2 ",
+    },
+    Object {
       "children": Array [
         Object {
-          "_type": "text",
-          "children": Array [
-            Object {
-              "col": 13,
-              "line": 2,
-              "lineBreaks": 0,
-              "offset": 17,
-              "text": "3 ",
-              "toString": [Function],
-              "type": "words",
-              "value": "3 ",
-            },
-          ],
+          "col": 13,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 17,
+          "text": "3 ",
+          "toString": [Function],
+          "type": "text",
+          "value": "3 ",
         },
       ],
       "identifier": Object {
@@ -324,6 +339,24 @@ Object {
         "type": "identifier",
         "value": "b",
       },
+      "type": "functionInvocation",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 16,
+          "line": 2,
+          "lineBreaks": 1,
+          "offset": 20,
+          "text": "
+",
+          "toString": [Function],
+          "type": "ws",
+          "value": "
+",
+        },
+      ],
+      "type": "whitespace",
     },
   ],
   "identifier": Object {
@@ -336,59 +369,59 @@ Object {
     "type": "identifier",
     "value": "p",
   },
+  "type": "functionInvocation",
 }
 `;
 
 exports[`authorx -> authorx | %identifier parses a paragraph with escaped function invocations followed by text 1`] = `
 Object {
-  "_type": "functionInvocation",
   "children": Array [
     Object {
-      "_type": "text",
-      "children": Array [
-        Object {
-          "col": 1,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 5,
-          "text": "1 ",
-          "toString": [Function],
-          "type": "words",
-          "value": "1 ",
-        },
-      ],
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "1 ",
+      "toString": [Function],
+      "type": "text",
+      "value": "1 ",
     },
     Object {
-      "_type": "text",
-      "children": Array [
-        Object {
-          "col": 3,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 7,
-          "text": "\\\\<",
-          "toString": [Function],
-          "type": "escapedFunctionInvocation",
-          "value": "\\\\<",
-        },
-      ],
+      "col": 3,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 7,
+      "text": "\\\\<",
+      "toString": [Function],
+      "type": "text",
+      "value": "\\\\<",
     },
     Object {
-      "_type": "text",
       "children": Array [
         Object {
-          "col": 6,
+          "col": 5,
           "line": 2,
-          "lineBreaks": 1,
-          "offset": 10,
-          "text": "2 hello
-",
+          "lineBreaks": 0,
+          "offset": 9,
+          "text": " ",
           "toString": [Function],
-          "type": "words",
-          "value": "2 hello
-",
+          "type": "ws",
+          "value": " ",
         },
       ],
+      "type": "whitespace",
+    },
+    Object {
+      "col": 6,
+      "line": 2,
+      "lineBreaks": 1,
+      "offset": 10,
+      "text": "2 hello
+",
+      "toString": [Function],
+      "type": "text",
+      "value": "2 hello
+",
     },
   ],
   "identifier": Object {
@@ -401,45 +434,34 @@ Object {
     "type": "identifier",
     "value": "p",
   },
+  "type": "functionInvocation",
 }
 `;
 
 exports[`authorx -> authorx | %identifier parses hello { world } | b 1`] = `
 Object {
-  "_type": "functionInvocation",
   "children": Array [
     Object {
-      "_type": "text",
-      "children": Array [
-        Object {
-          "col": 6,
-          "line": 1,
-          "lineBreaks": 0,
-          "offset": 5,
-          "text": "hello ",
-          "toString": [Function],
-          "type": "words",
-          "value": "hello ",
-        },
-      ],
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "hello ",
+      "toString": [Function],
+      "type": "text",
+      "value": "hello ",
     },
     Object {
-      "_type": "functionInvocation",
       "children": Array [
         Object {
-          "_type": "text",
-          "children": Array [
-            Object {
-              "col": 17,
-              "line": 1,
-              "lineBreaks": 0,
-              "offset": 16,
-              "text": "world ",
-              "toString": [Function],
-              "type": "words",
-              "value": "world ",
-            },
-          ],
+          "col": 17,
+          "line": 1,
+          "lineBreaks": 0,
+          "offset": 16,
+          "text": "world ",
+          "toString": [Function],
+          "type": "text",
+          "value": "world ",
         },
       ],
       "identifier": Object {
@@ -452,6 +474,22 @@ Object {
         "type": "identifier",
         "value": "b",
       },
+      "type": "functionInvocation",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 24,
+          "line": 1,
+          "lineBreaks": 0,
+          "offset": 23,
+          "text": " ",
+          "toString": [Function],
+          "type": "ws",
+          "value": " ",
+        },
+      ],
+      "type": "whitespace",
     },
   ],
   "identifier": Object {
@@ -464,27 +502,22 @@ Object {
     "type": "identifier",
     "value": "p",
   },
+  "type": "functionInvocation",
 }
 `;
 
 exports[`authorx -> authorx | %identifier parses hello 1`] = `
 Object {
-  "_type": "functionInvocation",
   "children": Array [
     Object {
-      "_type": "text",
-      "children": Array [
-        Object {
-          "col": 6,
-          "line": 1,
-          "lineBreaks": 0,
-          "offset": 5,
-          "text": "hello ",
-          "toString": [Function],
-          "type": "words",
-          "value": "hello ",
-        },
-      ],
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "hello ",
+      "toString": [Function],
+      "type": "text",
+      "value": "hello ",
     },
   ],
   "identifier": Object {
@@ -497,27 +530,22 @@ Object {
     "type": "identifier",
     "value": "p",
   },
+  "type": "functionInvocation",
 }
 `;
 
 exports[`authorx -> authorx | %identifier parses hello world 1`] = `
 Object {
-  "_type": "functionInvocation",
   "children": Array [
     Object {
-      "_type": "text",
-      "children": Array [
-        Object {
-          "col": 6,
-          "line": 1,
-          "lineBreaks": 0,
-          "offset": 5,
-          "text": "hello world ",
-          "toString": [Function],
-          "type": "words",
-          "value": "hello world ",
-        },
-      ],
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "hello world ",
+      "toString": [Function],
+      "type": "text",
+      "value": "hello world ",
     },
   ],
   "identifier": Object {
@@ -530,45 +558,34 @@ Object {
     "type": "identifier",
     "value": "p",
   },
+  "type": "functionInvocation",
 }
 `;
 
 exports[`authorx -> authorx | %identifier parses multiline hello world 1`] = `
 Object {
-  "_type": "functionInvocation",
   "children": Array [
     Object {
-      "_type": "text",
-      "children": Array [
-        Object {
-          "col": 1,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 5,
-          "text": "hello ",
-          "toString": [Function],
-          "type": "words",
-          "value": "hello ",
-        },
-      ],
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "hello ",
+      "toString": [Function],
+      "type": "text",
+      "value": "hello ",
     },
     Object {
-      "_type": "functionInvocation",
       "children": Array [
         Object {
-          "_type": "text",
-          "children": Array [
-            Object {
-              "col": 12,
-              "line": 2,
-              "lineBreaks": 0,
-              "offset": 16,
-              "text": "world ",
-              "toString": [Function],
-              "type": "words",
-              "value": "world ",
-            },
-          ],
+          "col": 12,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 16,
+          "text": "world ",
+          "toString": [Function],
+          "type": "text",
+          "value": "world ",
         },
       ],
       "identifier": Object {
@@ -581,6 +598,24 @@ Object {
         "type": "identifier",
         "value": "b",
       },
+      "type": "functionInvocation",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 19,
+          "line": 2,
+          "lineBreaks": 1,
+          "offset": 23,
+          "text": "
+",
+          "toString": [Function],
+          "type": "ws",
+          "value": "
+",
+        },
+      ],
+      "type": "whitespace",
     },
   ],
   "identifier": Object {
@@ -593,5 +628,6 @@ Object {
     "type": "identifier",
     "value": "p",
   },
+  "type": "functionInvocation",
 }
 `;
