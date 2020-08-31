@@ -4,7 +4,7 @@ const genLeaf = (type, { value }) => {
   switch (type) {
     case "text":
     case "ws":
-      return value;
+      return value.replace("\\", "");
     default:
       throw new Error(`expect text | whitespace, got ${type}`);
   }
@@ -23,7 +23,8 @@ const getFunction = (identifier) => {
     case "a":
       return (string, [url]) => `[${string.trim()}](${url.value})`;
     case ">":
-      return (string) => `\`\`\`${string}\`\`\``;
+      return (string, lang) =>
+        `\`\`\`${(lang && lang[0].value) || ""}\n${string}\`\`\``;
     default:
       return (string) => string;
   }
@@ -38,7 +39,7 @@ const walk = ({ children, type, ...rest }) => {
   return func(
     children.reduce((acc, child) => acc + walk(child), ""),
     argList
-  );
+  ).replace(/\\/g, "");
 };
 
 console.log(walk(JSON.parse(fs.readFileSync(process.argv[2]))));

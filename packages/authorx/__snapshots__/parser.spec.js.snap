@@ -162,9 +162,10 @@ Object {
     Object {
       "col": 1,
       "line": 2,
-      "lineBreaks": 0,
+      "lineBreaks": 1,
       "offset": 5,
-      "text": "\\\\",
+      "text": "\\\\
+",
       "toString": [Function],
       "type": "text",
       "value": "\\\\
@@ -191,9 +192,10 @@ Object {
     Object {
       "col": 1,
       "line": 2,
-      "lineBreaks": 0,
+      "lineBreaks": 1,
       "offset": 5,
-      "text": "1 ",
+      "text": "1 \\\\< 2
+",
       "toString": [Function],
       "type": "text",
       "value": "1 \\\\< 2
@@ -290,9 +292,10 @@ Object {
     Object {
       "col": 1,
       "line": 2,
-      "lineBreaks": 0,
+      "lineBreaks": 1,
       "offset": 5,
-      "text": "1 ",
+      "text": "1 \\\\< 2 hello
+",
       "toString": [Function],
       "type": "text",
       "value": "1 \\\\< 2 hello
@@ -319,24 +322,15 @@ Object {
     Object {
       "col": 1,
       "line": 2,
-      "lineBreaks": 0,
+      "lineBreaks": 3,
       "offset": 5,
-      "text": "\\\\<",
-      "toString": [Function],
-      "type": "text",
-      "value": "\\\\<",
-    },
-    Object {
-      "col": 3,
-      "line": 2,
-      "lineBreaks": 2,
-      "offset": 7,
-      "text": "p {
+      "text": "\\\\<p {
 hello
+\\\\}
 ",
       "toString": [Function],
       "type": "text",
-      "value": "p {
+      "value": "\\\\<p {
 hello
 \\\\}
 ",

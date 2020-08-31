@@ -33,7 +33,12 @@
       "children": [
         {
           "type": "text",
-          "value": "Why? "
+          "value": "Why? ",
+          "text": "Why? ",
+          "offset": 73,
+          "lineBreaks": 0,
+          "line": 4,
+          "col": 6
         }
       ]
     },
@@ -127,7 +132,12 @@
               "children": [
                 {
                   "type": "text",
-                  "value": "has an ambiguous grammar "
+                  "value": "has an ambiguous grammar ",
+                  "text": "has an ambiguous grammar ",
+                  "offset": 440,
+                  "lineBreaks": 0,
+                  "line": 9,
+                  "col": 64
                 }
               ]
             },
@@ -184,7 +194,12 @@
           "children": [
             {
               "type": "text",
-              "value": "Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown. "
+              "value": "Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown. ",
+              "text": "Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown. ",
+              "offset": 539,
+              "lineBreaks": 0,
+              "line": 10,
+              "col": 6
             }
           ]
         },
@@ -216,7 +231,12 @@
           "children": [
             {
               "type": "text",
-              "value": "You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. "
+              "value": "You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. ",
+              "text": "You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. ",
+              "offset": 722,
+              "lineBreaks": 0,
+              "line": 11,
+              "col": 6
             }
           ]
         },
@@ -282,7 +302,12 @@
       "children": [
         {
           "type": "text",
-          "value": "How? "
+          "value": "How? ",
+          "text": "How? ",
+          "offset": 946,
+          "lineBreaks": 0,
+          "line": 16,
+          "col": 6
         }
       ]
     },
@@ -323,7 +348,12 @@
       "children": [
         {
           "type": "text",
-          "value": "Simple, unambiguous grammar "
+          "value": "Simple, unambiguous grammar ",
+          "text": "Simple, unambiguous grammar ",
+          "offset": 960,
+          "lineBreaks": 0,
+          "line": 18,
+          "col": 7
         }
       ]
     },
@@ -352,8 +382,8 @@
     },
     {
       "type": "text",
-      "value": "There's only two syntactic elements to authorx documents: text and functions. Hello world looks like this:\n\n",
-      "text": "There's only two syntactic elements to authorx documents: text and functions. Hello world looks like this:\n\n",
+      "value": "There's only two syntactic elements to authorx documents: text and functions that transform text. Hello world looks like this:\n\n",
+      "text": "There's only two syntactic elements to authorx documents: text and functions that transform text. Hello world looks like this:\n\n",
       "offset": 991,
       "lineBreaks": 2,
       "line": 20,
@@ -365,7 +395,7 @@
         "type": "identifier",
         "value": ">",
         "text": ">",
-        "offset": 1100,
+        "offset": 1120,
         "lineBreaks": 0,
         "line": 22,
         "col": 2
@@ -373,7 +403,12 @@
       "children": [
         {
           "type": "text",
-          "value": "\\<p {\n    Hello, world!\n  \\"
+          "value": "\\<p {\n    Hello, world!\n  \\}\n",
+          "text": "\\<p {\n    Hello, world!\n  \\}\n",
+          "offset": 1126,
+          "lineBreaks": 3,
+          "line": 23,
+          "col": 3
         }
       ]
     },
@@ -384,30 +419,7 @@
           "type": "ws",
           "value": "\n",
           "text": "\n",
-          "offset": 1134,
-          "lineBreaks": 1,
-          "line": 25,
-          "col": 5
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "}",
-      "text": "}",
-      "offset": 1135,
-      "lineBreaks": 0,
-      "line": 26,
-      "col": 1
-    },
-    {
-      "type": "whitespace",
-      "children": [
-        {
-          "type": "ws",
-          "value": "\n",
-          "text": "\n",
-          "offset": 1136,
+          "offset": 1156,
           "lineBreaks": 1,
           "line": 26,
           "col": 2
@@ -416,7 +428,7 @@
           "type": "ws",
           "value": "\n",
           "text": "\n",
-          "offset": 1137,
+          "offset": 1157,
           "lineBreaks": 1,
           "line": 27,
           "col": 1
@@ -427,7 +439,7 @@
       "type": "text",
       "value": "You can see the grammar ",
       "text": "You can see the grammar ",
-      "offset": 1138,
+      "offset": 1158,
       "lineBreaks": 0,
       "line": 28,
       "col": 1
@@ -438,7 +450,7 @@
         "type": "identifier",
         "value": "a",
         "text": "a",
-        "offset": 1163,
+        "offset": 1183,
         "lineBreaks": 0,
         "line": 28,
         "col": 26
@@ -448,7 +460,7 @@
           "type": "argument",
           "value": "./grammar.ne",
           "text": "./grammar.ne",
-          "offset": 1165,
+          "offset": 1185,
           "lineBreaks": 0,
           "line": 28,
           "col": 28
@@ -457,7 +469,12 @@
       "children": [
         {
           "type": "text",
-          "value": "here "
+          "value": "here ",
+          "text": "here ",
+          "offset": 1201,
+          "lineBreaks": 0,
+          "line": 28,
+          "col": 44
         }
       ]
     },
@@ -465,7 +482,7 @@
       "type": "text",
       "value": ".\n\n",
       "text": ".\n\n",
-      "offset": 1187,
+      "offset": 1207,
       "lineBreaks": 2,
       "line": 28,
       "col": 50
@@ -476,7 +493,7 @@
         "type": "identifier",
         "value": "##",
         "text": "##",
-        "offset": 1191,
+        "offset": 1211,
         "lineBreaks": 0,
         "line": 30,
         "col": 2
@@ -484,7 +501,12 @@
       "children": [
         {
           "type": "text",
-          "value": "Syntax is separate from semantics "
+          "value": "Syntax is separate from semantics ",
+          "text": "Syntax is separate from semantics ",
+          "offset": 1216,
+          "lineBreaks": 0,
+          "line": 30,
+          "col": 7
         }
       ]
     },
@@ -495,7 +517,7 @@
           "type": "ws",
           "value": "\n",
           "text": "\n",
-          "offset": 1231,
+          "offset": 1251,
           "lineBreaks": 1,
           "line": 30,
           "col": 42
@@ -504,7 +526,7 @@
           "type": "ws",
           "value": "\n",
           "text": "\n",
-          "offset": 1232,
+          "offset": 1252,
           "lineBreaks": 1,
           "line": 31,
           "col": 1
@@ -512,20 +534,45 @@
       ]
     },
     {
+      "type": "text",
+      "value": "Functions in authorx have no meaning by default. This means that the above hello world example that calls the \"p\" function may create a simple html paragraph or it may display the text inside a div with pink background. It's your call. With authorx, semantics are added by defining the text-transformation functions in js and passing them to the compiler:\n\n",
+      "text": "Functions in authorx have no meaning by default. This means that the above hello world example that calls the \"p\" function may create a simple html paragraph or it may display the text inside a div with pink background. It's your call. With authorx, semantics are added by defining the text-transformation functions in js and passing them to the compiler:\n\n",
+      "offset": 1253,
+      "lineBreaks": 2,
+      "line": 32,
+      "col": 1
+    },
+    {
       "type": "functionInvocation",
       "identifier": {
         "type": "identifier",
-        "value": "##",
-        "text": "##",
-        "offset": 1234,
+        "value": ">",
+        "text": ">",
+        "offset": 1611,
         "lineBreaks": 0,
-        "line": 32,
+        "line": 34,
         "col": 2
       },
+      "argList": [
+        {
+          "type": "argument",
+          "value": "js",
+          "text": "js",
+          "offset": 1613,
+          "lineBreaks": 0,
+          "line": 34,
+          "col": 4
+        }
+      ],
       "children": [
         {
           "type": "text",
-          "value": "Write semantics in any language "
+          "value": "import \\{ compile \\} from \"authorx\";\n\n  compile((identifer) => \\{\n    switch(identifer) \\{\n      case \"p\":\n        return (text) => `\\<p>$\\{text\\}\\<\\\\p>`\n    \\}\n  \\});\n",
+          "text": "import \\{ compile \\} from \"authorx\";\n\n  compile((identifer) => \\{\n    switch(identifer) \\{\n      case \"p\":\n        return (text) => `\\<p>$\\{text\\}\\<\\\\p>`\n    \\}\n  \\});\n",
+          "offset": 1621,
+          "lineBreaks": 8,
+          "line": 35,
+          "col": 3
         }
       ]
     },
@@ -536,37 +583,74 @@
           "type": "ws",
           "value": "\n",
           "text": "\n",
-          "offset": 1272,
+          "offset": 1790,
           "lineBreaks": 1,
-          "line": 32,
-          "col": 40
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 1273,
-          "lineBreaks": 0,
-          "line": 33,
-          "col": 1
-        },
-        {
-          "type": "ws",
-          "value": " ",
-          "text": " ",
-          "offset": 1274,
-          "lineBreaks": 0,
-          "line": 33,
+          "line": 43,
           "col": 2
         },
         {
           "type": "ws",
           "value": "\n",
           "text": "\n",
-          "offset": 1275,
+          "offset": 1791,
           "lineBreaks": 1,
-          "line": 33,
-          "col": 3
+          "line": 44,
+          "col": 1
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "In fact, this markdown README file was generated from a README.ax file, where the functions look like markdown tags:\n\n",
+      "text": "In fact, this markdown README file was generated from a README.ax file, where the functions look like markdown tags:\n\n",
+      "offset": 1792,
+      "lineBreaks": 2,
+      "line": 45,
+      "col": 1
+    },
+    {
+      "type": "functionInvocation",
+      "identifier": {
+        "type": "identifier",
+        "value": ">",
+        "text": ">",
+        "offset": 1911,
+        "lineBreaks": 0,
+        "line": 47,
+        "col": 2
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "\\<# \\{ How? \\}\n\n\\<## \\{ Syntax is separate from semantics \\} \n\nYou can see the grammar \\<a(./grammar.ne) \\{ here \\}.\n\n\\<l \\{\n\\<\\< \\{ Markdown \\<a(https://roopc.net/posts/2014/markdown-cfg/) \\{ has an ambiguous grammar \\} and therefore multiple implementations of parsing and rendering. \\}\n\\<\\< \\{ Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown. \\}\n\\<\\< \\{ You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. \\}\n\\}\n",
+          "text": "\\<# \\{ How? \\}\n\n\\<## \\{ Syntax is separate from semantics \\} \n\nYou can see the grammar \\<a(./grammar.ne) \\{ here \\}.\n\n\\<l \\{\n\\<\\< \\{ Markdown \\<a(https://roopc.net/posts/2014/markdown-cfg/) \\{ has an ambiguous grammar \\} and therefore multiple implementations of parsing and rendering. \\}\n\\<\\< \\{ Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown. \\}\n\\<\\< \\{ You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. \\}\n\\}\n",
+          "offset": 1915,
+          "lineBreaks": 11,
+          "line": 48,
+          "col": 1
+        }
+      ]
+    },
+    {
+      "type": "whitespace",
+      "children": [
+        {
+          "type": "ws",
+          "value": "\n",
+          "text": "\n",
+          "offset": 2512,
+          "lineBreaks": 1,
+          "line": 59,
+          "col": 2
+        },
+        {
+          "type": "ws",
+          "value": "\n",
+          "text": "\n",
+          "offset": 2513,
+          "lineBreaks": 1,
+          "line": 60,
+          "col": 1
         }
       ]
     }
