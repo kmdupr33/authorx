@@ -3,7 +3,7 @@ authorx is a tool-chain for creating markdown-like languages.
 
 <# { Why? }
 
-While its nice to write simple documents in markdown, anything relatively sophisticated (e.g., blogs, interactive explanations, interactive computing notebooks) requires using and/or implementing ad-hoc extensions to markdown. Implementing and using these extensions is difficult because: 
+While its nice to write simple documents in markdown, anything relatively sophisticated (e.g., blogs, technical documentation, interactive explanations, interactive computing notebooks) requires using and/or implementing ad-hoc extensions to markdown. Implementing and using these extensions is difficult because: 
 
 <l {
 << { Markdown <a(https://roopc.net/posts/2014/markdown-cfg/) { has an ambiguous grammar } and therefore multiple implementations of parsing and rendering. }
