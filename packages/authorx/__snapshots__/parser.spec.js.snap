@@ -18,6 +18,12 @@ Object {
       ],
       "children": Array [
         Object {
+          "col": 18,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 22,
+          "text": "Google ",
+          "toString": [Function],
           "type": "text",
           "value": "Google ",
         },
@@ -94,6 +100,13 @@ Object {
       ],
       "children": Array [
         Object {
+          "col": 1,
+          "line": 3,
+          "lineBreaks": 1,
+          "offset": 22,
+          "text": "\\"hello\\"
+",
+          "toString": [Function],
           "type": "text",
           "value": "\\"hello\\"
 ",
@@ -147,8 +160,31 @@ exports[`authorx -> authorx | %identifier escaping parses a paragraph with an es
 Object {
   "children": Array [
     Object {
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "\\\\",
+      "toString": [Function],
       "type": "text",
-      "value": "\\\\undefined",
+      "value": "\\\\",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 2,
+          "line": 2,
+          "lineBreaks": 1,
+          "offset": 6,
+          "text": "
+",
+          "toString": [Function],
+          "type": "ws",
+          "value": "
+",
+        },
+      ],
+      "type": "whitespace",
     },
   ],
   "identifier": Object {
@@ -169,8 +205,50 @@ exports[`authorx -> authorx | %identifier escaping parses a paragraph with escap
 Object {
   "children": Array [
     Object {
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "1 ",
+      "toString": [Function],
       "type": "text",
-      "value": "1 \\\\<undefined2
+      "value": "1 ",
+    },
+    Object {
+      "col": 3,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 7,
+      "text": "\\\\<",
+      "toString": [Function],
+      "type": "text",
+      "value": "\\\\<",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 5,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 9,
+          "text": " ",
+          "toString": [Function],
+          "type": "ws",
+          "value": " ",
+        },
+      ],
+      "type": "whitespace",
+    },
+    Object {
+      "col": 6,
+      "line": 2,
+      "lineBreaks": 1,
+      "offset": 10,
+      "text": "2
+",
+      "toString": [Function],
+      "type": "text",
+      "value": "2
 ",
     },
   ],
@@ -239,6 +317,12 @@ Object {
     Object {
       "children": Array [
         Object {
+          "col": 13,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 17,
+          "text": "3 ",
+          "toString": [Function],
           "type": "text",
           "value": "3 ",
         },
@@ -291,8 +375,50 @@ exports[`authorx -> authorx | %identifier escaping parses a paragraph with escap
 Object {
   "children": Array [
     Object {
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "1 ",
+      "toString": [Function],
       "type": "text",
-      "value": "1 \\\\<undefined2 hello
+      "value": "1 ",
+    },
+    Object {
+      "col": 3,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 7,
+      "text": "\\\\<",
+      "toString": [Function],
+      "type": "text",
+      "value": "\\\\<",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 5,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 9,
+          "text": " ",
+          "toString": [Function],
+          "type": "ws",
+          "value": " ",
+        },
+      ],
+      "type": "whitespace",
+    },
+    Object {
+      "col": 6,
+      "line": 2,
+      "lineBreaks": 1,
+      "offset": 10,
+      "text": "2 hello
+",
+      "toString": [Function],
+      "type": "text",
+      "value": "2 hello
 ",
     },
   ],
@@ -314,10 +440,65 @@ exports[`authorx -> authorx | %identifier escaping parses an escaped function in
 Object {
   "children": Array [
     Object {
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "\\\\<",
+      "toString": [Function],
       "type": "text",
-      "value": "\\\\<p {
+      "value": "\\\\<",
+    },
+    Object {
+      "col": 3,
+      "line": 2,
+      "lineBreaks": 2,
+      "offset": 7,
+      "text": "p {
 hello
-\\\\}undefined",
+",
+      "toString": [Function],
+      "type": "text",
+      "value": "p {
+hello
+",
+    },
+    Object {
+      "col": 1,
+      "line": 4,
+      "lineBreaks": 0,
+      "offset": 17,
+      "text": "\\\\",
+      "toString": [Function],
+      "type": "text",
+      "value": "\\\\",
+    },
+    Object {
+      "col": 2,
+      "line": 4,
+      "lineBreaks": 0,
+      "offset": 18,
+      "text": "}",
+      "toString": [Function],
+      "type": "text",
+      "value": "}",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 3,
+          "line": 4,
+          "lineBreaks": 1,
+          "offset": 19,
+          "text": "
+",
+          "toString": [Function],
+          "type": "ws",
+          "value": "
+",
+        },
+      ],
+      "type": "whitespace",
     },
   ],
   "identifier": Object {
@@ -340,6 +521,12 @@ Object {
     Object {
       "children": Array [
         Object {
+          "col": 11,
+          "line": 1,
+          "lineBreaks": 0,
+          "offset": 10,
+          "text": "hello ",
+          "toString": [Function],
           "type": "text",
           "value": "hello ",
         },
@@ -402,6 +589,12 @@ Object {
     Object {
       "children": Array [
         Object {
+          "col": 11,
+          "line": 1,
+          "lineBreaks": 0,
+          "offset": 10,
+          "text": "hello world ",
+          "toString": [Function],
           "type": "text",
           "value": "hello world ",
         },
@@ -452,6 +645,14 @@ exports[`authorx -> authorx | %identifier parses a paragraph 1`] = `
 Object {
   "children": Array [
     Object {
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 2,
+      "offset": 5,
+      "text": "hello world
+this is authorx
+",
+      "toString": [Function],
       "type": "text",
       "value": "hello world
 this is authorx
@@ -488,6 +689,12 @@ Object {
     Object {
       "children": Array [
         Object {
+          "col": 17,
+          "line": 1,
+          "lineBreaks": 0,
+          "offset": 16,
+          "text": "world ",
+          "toString": [Function],
           "type": "text",
           "value": "world ",
         },
@@ -538,6 +745,12 @@ exports[`authorx -> authorx | %identifier parses hello 1`] = `
 Object {
   "children": Array [
     Object {
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "hello ",
+      "toString": [Function],
       "type": "text",
       "value": "hello ",
     },
@@ -560,6 +773,12 @@ exports[`authorx -> authorx | %identifier parses hello world 1`] = `
 Object {
   "children": Array [
     Object {
+      "col": 6,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 5,
+      "text": "hello world ",
+      "toString": [Function],
       "type": "text",
       "value": "hello world ",
     },
@@ -594,6 +813,12 @@ Object {
     Object {
       "children": Array [
         Object {
+          "col": 12,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 16,
+          "text": "world ",
+          "toString": [Function],
           "type": "text",
           "value": "world ",
         },
