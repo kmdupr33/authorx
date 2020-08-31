@@ -8,7 +8,7 @@ const lexer = makeLexer()
 
 @lexer lexer
 
-authorx -> "<" invocation _ "{" _ (authorx _):+ "}" {% 
+authorx -> "<" invocation _ "{" _ (authorx _):+ %closeBracket {% 
  (data) => postProcessAuthorX(data)
 %}
 
@@ -26,7 +26,7 @@ terminalArg -> %argument ")" {% id %}
 _ -> %ws:* {% 
   ([ws]) => ws.length > 0 ? ({ type: "whitespace", children: ws }) : null
 %}
-text -> (%words | %escapedFunctionInvocation | %escapedSlash | %escapedCloseBracket) {% 
+text -> (%words) {% 
   ([[text]]) => ({...text, type: "text"})  
 %}
 authorx -> text {% id %}

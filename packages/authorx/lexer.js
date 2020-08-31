@@ -4,12 +4,9 @@ const makeLexer = () => {
   return moo.states({
     main: {
       ws: { match: /[ \n]/, lineBreaks: true },
-      escapedCloseBracket: /\}/,
-      escapedFunctionInvocation: /\\\</,
-      brackets: /[{}]/,
-      escapedSlash: /\\/,
-      functionInvocationStart: { match: /\</, push: "function" },
-      words: { match: /[^\}\<\\]+/, lineBreaks: true },
+      closeBracket: /(?<!\\)}/,
+      functionInvocationStart: { match: /(?<!\\)</, push: "function" },
+      words: { match: /(?:(?:\\<)|(?:\\})|(?:\\)|[^<\\}])+/, lineBreaks: true },
     },
     function: {
       identifier: { match: /[a-zA-Z0-9>#?^&*%$@!\-=+_~`<>.,/\\|]+/ },

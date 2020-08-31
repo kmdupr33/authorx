@@ -10,15 +10,20 @@ describe("lexer", () => {
     lexer = makeLexer();
     lex = (string) => {
       lexer.reset(string);
-      const states = [];
-      for (
-        let token = lexer.next();
-        token !== undefined;
-        token = lexer.next()
-      ) {
-        states.push(token);
+      const tokens = [];
+      try {
+        for (
+          let token = lexer.next();
+          token !== undefined;
+          token = lexer.next()
+        ) {
+          tokens.push(token);
+        }
+      } catch (e) {
+        e.tokens = tokens;
+        throw e;
       }
-      return states;
+      return tokens;
     };
   });
   it("lexes <p {hello}", () => {
@@ -46,9 +51,17 @@ describe("lexer", () => {
       <p {
         \\<p {
           Hello, world!
-        }
+        \\}
       }
     }`);
+    expect(tokens).toMatchSnapshot();
+  });
+  it("lexes escaped < as words", () => {
+    const tokens = lex(`
+        <p {
+          \\<p
+        }
+      `);
     expect(tokens).toMatchSnapshot();
   });
 });

@@ -167,24 +167,8 @@ Object {
       "text": "\\\\",
       "toString": [Function],
       "type": "text",
-      "value": "\\\\",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "col": 2,
-          "line": 2,
-          "lineBreaks": 1,
-          "offset": 6,
-          "text": "
+      "value": "\\\\
 ",
-          "toString": [Function],
-          "type": "ws",
-          "value": "
-",
-        },
-      ],
-      "type": "whitespace",
     },
   ],
   "identifier": Object {
@@ -212,43 +196,7 @@ Object {
       "text": "1 ",
       "toString": [Function],
       "type": "text",
-      "value": "1 ",
-    },
-    Object {
-      "col": 3,
-      "line": 2,
-      "lineBreaks": 0,
-      "offset": 7,
-      "text": "\\\\<",
-      "toString": [Function],
-      "type": "text",
-      "value": "\\\\<",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "col": 5,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 9,
-          "text": " ",
-          "toString": [Function],
-          "type": "ws",
-          "value": " ",
-        },
-      ],
-      "type": "whitespace",
-    },
-    Object {
-      "col": 6,
-      "line": 2,
-      "lineBreaks": 1,
-      "offset": 10,
-      "text": "2
-",
-      "toString": [Function],
-      "type": "text",
-      "value": "2
+      "value": "1 \\\\< 2
 ",
     },
   ],
@@ -274,45 +222,10 @@ Object {
       "line": 2,
       "lineBreaks": 0,
       "offset": 5,
-      "text": "1 ",
+      "text": "1 \\\\< 2 ",
       "toString": [Function],
       "type": "text",
-      "value": "1 ",
-    },
-    Object {
-      "col": 3,
-      "line": 2,
-      "lineBreaks": 0,
-      "offset": 7,
-      "text": "\\\\<",
-      "toString": [Function],
-      "type": "text",
-      "value": "\\\\<",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "col": 5,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 9,
-          "text": " ",
-          "toString": [Function],
-          "type": "ws",
-          "value": " ",
-        },
-      ],
-      "type": "whitespace",
-    },
-    Object {
-      "col": 6,
-      "line": 2,
-      "lineBreaks": 0,
-      "offset": 10,
-      "text": "2 ",
-      "toString": [Function],
-      "type": "text",
-      "value": "2 ",
+      "value": "1 \\\\< 2 ",
     },
     Object {
       "children": Array [
@@ -382,43 +295,7 @@ Object {
       "text": "1 ",
       "toString": [Function],
       "type": "text",
-      "value": "1 ",
-    },
-    Object {
-      "col": 3,
-      "line": 2,
-      "lineBreaks": 0,
-      "offset": 7,
-      "text": "\\\\<",
-      "toString": [Function],
-      "type": "text",
-      "value": "\\\\<",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "col": 5,
-          "line": 2,
-          "lineBreaks": 0,
-          "offset": 9,
-          "text": " ",
-          "toString": [Function],
-          "type": "ws",
-          "value": " ",
-        },
-      ],
-      "type": "whitespace",
-    },
-    Object {
-      "col": 6,
-      "line": 2,
-      "lineBreaks": 1,
-      "offset": 10,
-      "text": "2 hello
-",
-      "toString": [Function],
-      "type": "text",
-      "value": "2 hello
+      "value": "1 \\\\< 2 hello
 ",
     },
   ],
@@ -461,44 +338,8 @@ hello
       "type": "text",
       "value": "p {
 hello
+\\\\}
 ",
-    },
-    Object {
-      "col": 1,
-      "line": 4,
-      "lineBreaks": 0,
-      "offset": 17,
-      "text": "\\\\",
-      "toString": [Function],
-      "type": "text",
-      "value": "\\\\",
-    },
-    Object {
-      "col": 2,
-      "line": 4,
-      "lineBreaks": 0,
-      "offset": 18,
-      "text": "}",
-      "toString": [Function],
-      "type": "text",
-      "value": "}",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "col": 3,
-          "line": 4,
-          "lineBreaks": 1,
-          "offset": 19,
-          "text": "
-",
-          "toString": [Function],
-          "type": "ws",
-          "value": "
-",
-        },
-      ],
-      "type": "whitespace",
     },
   ],
   "identifier": Object {

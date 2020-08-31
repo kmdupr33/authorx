@@ -14,7 +14,7 @@ var grammar = {
     {"name": "authorx$ebnf$1", "symbols": ["authorx$ebnf$1$subexpression$1"]},
     {"name": "authorx$ebnf$1$subexpression$2", "symbols": ["authorx", "_"]},
     {"name": "authorx$ebnf$1", "symbols": ["authorx$ebnf$1", "authorx$ebnf$1$subexpression$2"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "authorx", "symbols": [{"literal":"<"}, "invocation", "_", {"literal":"{"}, "_", "authorx$ebnf$1", {"literal":"}"}], "postprocess": 
+    {"name": "authorx", "symbols": [{"literal":"<"}, "invocation", "_", {"literal":"{"}, "_", "authorx$ebnf$1", (lexer.has("closeBracket") ? {type: "closeBracket"} : closeBracket)], "postprocess": 
         (data) => postProcessAuthorX(data)
         },
     {"name": "invocation$ebnf$1", "symbols": ["argList"], "postprocess": id},
@@ -36,9 +36,6 @@ var grammar = {
         ([ws]) => ws.length > 0 ? ({ type: "whitespace", children: ws }) : null
         },
     {"name": "text$subexpression$1", "symbols": [(lexer.has("words") ? {type: "words"} : words)]},
-    {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedFunctionInvocation") ? {type: "escapedFunctionInvocation"} : escapedFunctionInvocation)]},
-    {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedSlash") ? {type: "escapedSlash"} : escapedSlash)]},
-    {"name": "text$subexpression$1", "symbols": [(lexer.has("escapedCloseBracket") ? {type: "escapedCloseBracket"} : escapedCloseBracket)]},
     {"name": "text", "symbols": ["text$subexpression$1"], "postprocess":  
         ([[text]]) => ({...text, type: "text"})  
         },
