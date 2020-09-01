@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "> TODO: description",
   "author": "Matt Dupree <kmdupr33@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"

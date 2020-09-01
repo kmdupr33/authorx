@@ -11,7 +11,7 @@
   "bin": {
     "axc": "./bin/compile.js"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "array-flat-polyfill": "^1.0.1",
     "nearley": "^2.19.6"
