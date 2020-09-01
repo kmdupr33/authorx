@@ -1,5 +1,34 @@
 authorx is a tool-chain for creating markdown-like languages.
 
+# Quick Start 
+
+Here's how you could create a language that has the "#" h1 headings of markdown:
+
+```
+npm i @authorx/compiler
+echo -n "# hello world! " > hello.ax
+echo "module.exports = { '#': (text) => `<h1>${text}`</h1> } " > my-markdown.js  
+axc hello.ax my-markdown.js
+# outputs <h1>hello world</h1>
+```
+
+If you don't want to rewrite markdown-esque functions, you can `npm i @authorx/x-faux-markdown` and extend those functions trivially:
+
+```js
+// my-markdown.js
+const xFauxMarkdown = require("@authorx/x-faux-markdown")
+module.exports = {
+  // Your custom functions here
+  ...xFauxMarkdown  
+}
+```
+
+Then just rerun `axc` and point it to your new file:
+
+```
+axc hello.ax my-markdown.js
+```
+
 # Why? 
 
 While its nice to write simple documents in markdown, anything relatively sophisticated (e.g., blogs, technical documentation, interactive explanations, interactive computing notebooks) requires using and/or implementing ad-hoc extensions to markdown. Implementing and using these extensions is difficult because: 
@@ -52,5 +81,9 @@ You can see the grammar <a(./grammar.ne) { here }.
 << { You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. }
 }
 ```
+
+# Project Status & Roadmap 
+
+authorx is in rough shape currently. The syntax isn't even as clean as I'd like it, but I'm working on [the roadmap](./Roadmap.ax). Feel free to file issues. Would love to hear your feedback.
 
 

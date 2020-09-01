@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "readme": "lerna run build && cat README.ax | packages/compiler/bin/parse.js > README.ast.json && packages/compiler/bin/compile.js README.ast.json ../../x-faux-markdown/index.js > README.md"
+    "readme": "lerna run build && packages/compiler/bin/compile.js README.ax packages/x-faux-markdown/index.js > README.md"
   },
   "devDependencies": {
     "lerna": "^3.22.1"

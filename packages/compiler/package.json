@@ -9,8 +9,7 @@
   },
   "author": "Matt Dupree <kmdupr33@gmail.com>",
   "bin": {
-    "axc": "./bin/axc.js",
-    "axp": "./bin/parse.js"
+    "axc": "./bin/compile.js"
   },
   "license": "ISC",
   "dependencies": {
