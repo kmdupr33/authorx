@@ -23,21 +23,18 @@ There's only two syntactic elements to authorx documents: text and functions tha
   }
 ```
 
-You can see the grammar [here](./grammar.ne).
+You can see the grammar [here](./packages/compiler/lib/grammar.ne).
 
 ## Syntax is separate from semantics 
 
 Functions in authorx have no meaning by default. This means that the above hello world example that calls the "p" function may create a simple html paragraph or it may display the text inside a div with pink background. It's your call. With authorx, semantics are added by defining the text-transformation functions in js and passing them to the compiler:
 
 ```js
-import { compile } from "authorx";
+import { compile } from "@authorx/compiler";
 
-  compile((identifer) => {
-    switch(identifer) {
-      case "p":
-        return (text) => `<p>${text}<p>`
-    }
-  });
+compile("path-to-ax-file", {
+  "p": (string) => `<p>${string}</p>`
+});
 ```
 
 In fact, this markdown README file was generated from a README.ax file, where the functions look like markdown tags:
