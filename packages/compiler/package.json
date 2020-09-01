@@ -1,14 +1,17 @@
 {
-  "name": "authorx",
+  "name": "@authorx/compiler",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "nearleyc ./grammar.ne > grammar.js",
-    "readme": "npm run build && cat README.ax | node parse.js > README.ast.json && node code-gen.js README.ast.json > README.md",
+    "build": "nearleyc lib/grammar.ne > lib/grammar.js",
     "test": "npm run build && jest"
   },
-  "author": "",
+  "author": "Matt Dupree <kmdupr33@gmail.com>",
+  "bin": {
+    "axc": "./bin/axc.js",
+    "axp": "./bin/parse.js"
+  },
   "license": "ISC",
   "dependencies": {
     "array-flat-polyfill": "^1.0.1",

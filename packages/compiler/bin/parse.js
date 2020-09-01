@@ -1,4 +1,6 @@
-const { createParser } = require("./parser");
+#!/usr/bin/env node
+
+const { createParser } = require("../lib/parser");
 
 const parser = createParser();
 
