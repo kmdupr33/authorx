@@ -12,6 +12,9 @@
     "axc": "./bin/compile.js"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "array-flat-polyfill": "^1.0.1",
     "nearley": "^2.19.6"
