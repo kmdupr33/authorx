@@ -7,9 +7,9 @@ Here's how you could create a language that has the "#" h1 headings of markdown:
 
 <> {
 npm i @authorx/compiler
-echo -n "<# { hello world! }" > hello.ax
-echo "module.exports = \{ '#': (text) => `\<h1\>$\{text\}`\</h1\> \} " > my-markdown.js  
-axc hello.ax my-markdown.js
+echo -n "\<# \{ hello world! \}" > hello.ax
+echo "module.exports = \{ '#': (text) => '\<h1\>' + text + '\</h1\>' \} " > my-markdown.js  
+npx axc hello.ax my-markdown.js
 # outputs \<h1\>hello world\</h1\>
 }
 
@@ -27,7 +27,7 @@ module.exports = \{
 Then just rerun <` { axc } and point it to your new file:
 
 <> {
-axc hello.ax my-markdown.js
+npx axc hello.ax my-markdown.js
 }
 
 <# { Why? }
