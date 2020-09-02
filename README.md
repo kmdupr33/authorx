@@ -1,33 +1,11 @@
 authorx is a tool-chain for creating markdown-like languages.
 
-# Quick Start 
+# Table of Contents 
 
-Here's how you could create a language that has the "#" h1 headings of markdown:
+* [Why?](#why) 
+* [How?](#how) 
+* [Quickstart](#quick-start) 
 
-```
-npm i @authorx/compiler
-echo -n "<# { hello world! }" > hello.ax
-echo "module.exports = { '#': (text) => '<h1>' + text + '</h1>' } " > my-markdown.js  
-npx axc hello.ax my-markdown.js
-# outputs <h1>hello world</h1>
-```
-
-If you don't want to rewrite markdown-esque functions, you can `npm i @authorx/x-faux-markdown` and extend those functions trivially:
-
-```js
-// my-markdown.js
-const xFauxMarkdown = require("@authorx/x-faux-markdown")
-module.exports = {
-  // Your custom functions here
-  ...xFauxMarkdown  
-}
-```
-
-Then just rerun `axc` and point it to your new file:
-
-```
-npx axc hello.ax my-markdown.js
-```
 
 # Why? 
 
@@ -80,6 +58,35 @@ You can see the grammar <a(./grammar.ne) { here }.
 << { Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown. }
 << { You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. }
 }
+```
+
+# Quick Start 
+
+Here's how you could create a language that has the "#" h1 headings of markdown:
+
+```
+npm i @authorx/compiler
+echo -n "<# { hello world! }" > hello.ax
+echo "module.exports = { '#': (text) => '<h1>' + text + '</h1>' } " > my-markdown.js  
+npx axc hello.ax my-markdown.js
+# outputs <h1>hello world</h1>
+```
+
+If you don't want to rewrite markdown-esque functions, you can `npm i @authorx/x-faux-markdown` and extend those functions trivially:
+
+```js
+// my-markdown.js
+const xFauxMarkdown = require("@authorx/x-faux-markdown")
+module.exports = {
+  // Your custom functions here
+  ...xFauxMarkdown  
+}
+```
+
+Then just rerun `axc` and point it to your new file:
+
+```
+npx axc hello.ax my-markdown.js
 ```
 
 # Project Status & Roadmap 
