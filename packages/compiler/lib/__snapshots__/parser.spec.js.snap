@@ -350,6 +350,122 @@ hello
 }
 `;
 
+exports[`authorx -> authorx | %identifier leaves parses a simple authorx code block without escapes 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "col": 4,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 3,
+      "text": "{:
+<p {
+hello
+}
+:}",
+      "toString": [Function],
+      "type": "text",
+      "value": "
+<p {
+hello
+}
+",
+    },
+  ],
+  "identifier": Object {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+    "text": ">",
+    "toString": [Function],
+    "type": "identifier",
+    "value": ">",
+  },
+  "type": "functionInvocation",
+}
+`;
+
+exports[`authorx -> authorx | %identifier leaves parses html code block without escapes 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "col": 4,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 3,
+      "text": "{:
+<pre>
+<code>
+</code>
+</pre>
+:}",
+      "toString": [Function],
+      "type": "text",
+      "value": "
+<pre>
+<code>
+</code>
+</pre>
+",
+    },
+  ],
+  "identifier": Object {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+    "text": ">",
+    "toString": [Function],
+    "type": "identifier",
+    "value": ">",
+  },
+  "type": "functionInvocation",
+}
+`;
+
+exports[`authorx -> authorx | %identifier leaves parses javascript code block without escapes 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "col": 4,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 3,
+      "text": "{:
+// my-markdown.js
+const xFauxMarkdown = require(\\"@authorx/x-faux-markdown\\")
+module.exports = {
+// Your custom functions here
+...xFauxMarkdown  
+}
+:}",
+      "toString": [Function],
+      "type": "text",
+      "value": "
+// my-markdown.js
+const xFauxMarkdown = require(\\"@authorx/x-faux-markdown\\")
+module.exports = {
+// Your custom functions here
+...xFauxMarkdown  
+}
+",
+    },
+  ],
+  "identifier": Object {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+    "text": ">",
+    "toString": [Function],
+    "type": "identifier",
+    "value": ">",
+  },
+  "type": "functionInvocation",
+}
+`;
+
 exports[`authorx -> authorx | %identifier parses { hello } | b world 1`] = `
 Object {
   "children": Array [

@@ -6,5 +6,5 @@ module.exports = {
   "`": (string) => "`" + string.trim() + "`",
   a: (string, [url]) => `[${string.trim()}](${url.value})`,
   ">": (string, lang) =>
-    `\`\`\`${(lang && lang[0].value) || ""}\n${string}\`\`\``,
+    `\`\`\`${(lang && lang[0].value) || ""}${string}\`\`\``,
 };

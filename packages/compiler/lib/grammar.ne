@@ -1,7 +1,7 @@
 
 @{%
 require("array-flat-polyfill")
-const { postProcessAuthorX } = require("./post-processors");
+const { postProcessAuthorX, postProcessLeaf } = require("./post-processors");
 const { makeLexer } = require("./lexer");
 const lexer = makeLexer()
 %}
@@ -10,6 +10,10 @@ const lexer = makeLexer()
 
 authorx -> "<" invocation _ "{" _ (authorx _):+ %closeBracket {% 
  (data) => postProcessAuthorX(data)
+%}
+authorx -> text {% id %}
+authorx -> "<" invocation _ %leaf {%
+  (data) => postProcessLeaf(data)  
 %}
 
 invocation -> %identifier argList:? {%
@@ -29,4 +33,3 @@ _ -> %ws:* {%
 text -> (%words) {% 
   ([[text]]) => ({...text, type: "text"})  
 %}
-authorx -> text {% id %}

@@ -48,8 +48,8 @@ There's only two syntactic elements to authorx documents: text and functions tha
 
 ```
 <p {
-    Hello, world!
-  }
+  Hello, world!
+}
 ```
 
 You can see the grammar [here](./packages/compiler/lib/grammar.ne).

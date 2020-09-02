@@ -11,6 +11,7 @@ const makeLexer = () => {
     function: {
       identifier: { match: /[a-zA-Z0-9>#?^&*%$@!\-=+_~`<>.,/\\|]+/ },
       openParen: { match: /\(/, push: "args" },
+      leaf: { match: /{:(?:[^:]|:[^}])*:}/, pop: true },
       openBracket: { match: /{/, pop: true },
       ws: / /,
     },

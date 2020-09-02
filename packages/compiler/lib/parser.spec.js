@@ -80,6 +80,34 @@ describe("authorx -> authorx | %identifier", () => {
     });
   });
 
+  describe("leaves", () => {
+    it("parses a simple authorx code block without escapes", () => {
+      expectToParse(`<> {:
+        <p {
+          hello
+        }
+      :}`);
+    });
+    it("parses html code block without escapes", () => {
+      expectToParse(`<> {:
+        <pre>
+          <code>
+          </code>
+        </pre>
+      :}`);
+    });
+    it("parses javascript code block without escapes", () => {
+      expectToParse(`<> {:
+        // my-markdown.js
+        const xFauxMarkdown = require("@authorx/x-faux-markdown")
+        module.exports = {
+          // Your custom functions here
+          ...xFauxMarkdown  
+        }
+      :}`);
+    });
+  });
+
   describe("arguments", () => {
     it("parses a single argument", () => {
       expectToParse(`<p {
