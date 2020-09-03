@@ -66,12 +66,40 @@ You can see the grammar <a(./grammar.ne) { here }.
 
 <# Quick Start 
 
-Here's how you could create a language that has the "#" h1 headings of markdown:
+<>{:
+npm i @authorx/compiler
+:}
+
+Let's write hello world in a <` { hello.ax } file:
 
 <> {:
-npm i @authorx/compiler
-echo -n "<# { hello world! }" > hello.ax
-echo "module.exports = { '#': (text) => '<h1>' + text + '</h1>' } " > my-markdown.js  
+<# hello world
+:}
+
+Next, we'll create an empty <` { my-markdown.js } file, with details to be filled in later:
+
+<>(bash) {:
+touch my-markdown.js
+:}
+
+You can use the compiler right away, but all it'll do is print out hello world:
+
+<>(bash) {:
+npx axc hello.ax my-markdown.js
+# outputs "hello world"
+:}
+
+If you want "\<#" to wrap "hello world" in h1 headings like markdown does, add this to your <` { my-markdown.js } file
+
+<>(js) {:
+module.exports = { 
+  '#': (text) => '<h1>' + text + '</h1>' 
+}  
+:}
+
+Now, when you run <` { axc }, you'll see that hello world is wrapped in h1 tags:
+
+<>(bash) {:
 npx axc hello.ax my-markdown.js
 # outputs <h1>hello world</h1>
 :}
@@ -87,9 +115,9 @@ module.exports = {
 }
 :}
 
-Then just rerun <` { axc } and point it to your new file:
+Then just rerun <` { axc } and point it to your updated file:
 
-<> {:
+<>(bash) {:
 npx axc hello.ax my-markdown.js
 :}
 
