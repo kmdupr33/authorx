@@ -45,7 +45,7 @@ compile("path-to-ax-file", {
 });
 ```
 
-In fact, this markdown README file was generated from a README.ax file, where the functions look like markdown tags:
+In fact, this markdown README file was generated from [a README.ax file](./README.ax), where the functions look like markdown tags:
 
 ```
 <# How?
