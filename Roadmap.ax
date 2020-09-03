@@ -1,13 +1,12 @@
 <l {  
-  << Add Macro Support (e.g., auto paragraph)
-  << Add composition-based api (to make it easy to extend markdown-like semantics, for example)
   << Bracket-less functions for single lines  
-  << Quoting? (for embedding code within .ax docs)
+  << x-frontmatter
+  << x-hugo
+  << Add Macro Support (e.g., auto paragraph)
   << Buffer tweets example semantics?
   << Slack onboarding example semantics?
   << Java bindings
   << R bindings?
   << Custom lexing flags to cli?
-  << Split parser from js bindings?
   << reveal.js presentation example semantics?
 }

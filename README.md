@@ -5,6 +5,7 @@ authorx is a tool-chain for creating markdown-like languages.
 * [Why?](#why) 
 * [How?](#how) 
 * [Quickstart](#quick-start) 
+* [Status & Roadmap](#project-status--roadmap) 
 
 
 # Why? 
