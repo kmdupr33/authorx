@@ -12,39 +12,98 @@ authorx is a tool-chain for creating markdown-like languages.
 
 <# Why?
 
-While its nice to write simple documents in markdown, anything relatively sophisticated (e.g., blogs, technical documentation, interactive explanations, interactive computing notebooks) requires using and/or implementing ad-hoc extensions to markdown. Implementing and using these extensions is difficult because: 
+While its nice to write simple documents in markdown, writing anything relatively sophisticated (e.g., blogs, technical documentation, interactive content) is a pain because: 
 
 <l {
-<< { Markdown <a(https://roopc.net/posts/2014/markdown-cfg/) { has an ambiguous grammar } and therefore multiple implementations of parsing and rendering. }
-<< Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown.
-<< You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language.
+<< We often need to use awkward, ad-hoc extensions to markdown. Take "front-matter" in static site generators, for example.
+<< There are some things we just can't do with markdown because it doesn't allow arbitrary nesting of tagged/transformed text. We wind up embedding markdown in html or in some sort of template system.
 }
 
-authorx makes it easy to create markdown-like languages that work for more complicated publishing formats.
+Let's quickly walk through how authorx solves these problems. 
+
+Let's start with front matter as an example. You'll often find markdown documents with front matter that look like this:
+
+<>(md) {:
++++
+title = "Why authorx?"
+tags = [
+  "technical", 
+  "philosophical"
+]
++++
+
+# But y tho?
+
+Compelling explanation with **bold claims**.
+:}
+
+Markdown isn't expressive enough to represent the document metadata, so we're stuck tacking toml or yaml at the top of our markdown files. In authorx, the same document <* { could } look like this:
+
+<>(ax) {:
+<$ {
+  <+ {
+    <=(title) Why authorx?
+    <=(tags) {
+      << technical
+      << philosophical
+    }
+  }
+
+  <# But y tho?
+
+  Compelling explanation with <* { bold claims }.
+}
+:}
+
+With authorx, we don't need an ad-hoc extension to the language, the syntax for describing your metadata and for marking up text is the same.
+
+Let's look at the problem of arbitrarily nesting transformed content. Say I want to a footnote to appear in the margin <a(https://rstudio.github.io/tufte/) { a-la-Tufte }. With markdown, I have to start using html:
+
+<>(md) {:
+
+Claim.<sup>1</sup>
+
+<footnote class="margin">
+1. Evidence from some pages from some book by some author
+</footnote>
+
+:}
+
+This is bad enough as is, but it's worse because I can't use any markdown inside of the html tags. What if I want to bold something in the footnote? With authorx, the same document <* { could } look like this:
+
+<>(ax) {:
+  <$ {
+    Claim. <footn {
+      <* { Bold } Evidence from some pages from some book by some author
+    }
+  }
+:}
+
+I've been emphasizing <* { could } in these examples because the way authorx documents work is largely up to you. With authorx, syntax and semantics are separate. The <` { \<footn } in the above example is just a function. You define what the function does in javascript. Maybe it puts the footnote to the margin in a Tufte style. Maybe it puts the footnote at the end of the document. 
+
+With authorx's minimal and expressive syntax and your function definitions, you can create markdown-like languages that work for more complicated publishing formats. All you have to do is define the functions.
 
 <# How?
 
-<## Simple, unambiguous grammar
+<## Simple grammar
 
 There's only two syntactic elements to authorx documents: text and functions that transform text. Hello world looks like this:
 
 <> {:
-<p {
-  Hello, world!
-}
+<p Hello, world!
 :}
 
 You can see the grammar <a(./packages/compiler/lib/grammar.ne) { here }.
 
 <## { Syntax is separate from semantics }
 
-Functions in authorx have no meaning by default. This means that the above hello world example that calls the "p" function may create a simple html paragraph or it may display the text inside a div with pink background. It's your call. With authorx, semantics are added by defining the text-transformation functions in js and passing them to the compiler:
+Functions in authorx have no meaning by default. With authorx, semantics are added by defining the text-transformation functions in js and passing them to the compiler:
 
 <>(js) {:
 import { compile } from "@authorx/compiler";
 
 compile("path-to-ax-file", {
-  "p": (string) => `<p>${string}</p>`
+  "#": (text) => `<h1>${text}</h1>`
 });
 :}
 
@@ -58,11 +117,12 @@ In fact, this markdown README file was generated from <a(./README.ax) { a README
 You can see the grammar <a(./grammar.ne) { here }.
 
 <l {
-<< { Markdown \<a(https://roopc.net/posts/2014/markdown-cfg/) \{ has an ambiguous grammar \} and therefore multiple implementations of parsing and rendering. \}
-<< { Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown. \}
-<< { You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. \}
+<< We often need to use awkward, ad-hoc extensions to markdown. Take "front-matter" in static site generators, for example.
+<< There are some things we just can't do with markdown because it doesn't allow arbitrary nesting of tagged/transformed text. We wind up embedding markdown in html or in some sort of template system.
 }
 :}
+
+The markdown-like functions that generated this readme are defined in the <a(https://github.com/kmdupr33/authorx/tree/master/packages/x-faux-markdown) { x-faux-markdown package }
 
 <# Quick Start 
 

@@ -1,5 +1,5 @@
 module.exports = {
-  "*": (string) => `*${string}*`,
+  "*": (string) => `*${string.trim()}*`,
   "#": (string) => `# ${string}`,
   "##": (string) => `## ${string}`,
   "<": (string) => `* ${string}`,
