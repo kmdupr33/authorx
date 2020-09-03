@@ -1,5 +1,4 @@
 <l {  
-  << Bracket-less functions for single lines  
   << x-frontmatter
   << x-hugo
   << Add Macro Support (e.g., auto paragraph)

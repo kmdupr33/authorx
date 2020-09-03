@@ -8,20 +8,20 @@ authorx is a tool-chain for creating markdown-like languages.
 * [Status & Roadmap](#project-status--roadmap) 
 
 
-# Why? 
+# Why?
 
 While its nice to write simple documents in markdown, anything relatively sophisticated (e.g., blogs, technical documentation, interactive explanations, interactive computing notebooks) requires using and/or implementing ad-hoc extensions to markdown. Implementing and using these extensions is difficult because: 
 
 * Markdown [has an ambiguous grammar](https://roopc.net/posts/2014/markdown-cfg/) and therefore multiple implementations of parsing and rendering. 
-* Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown. 
-* You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. 
+* Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown.
+* You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language.
 
 
 authorx makes it easy to create markdown-like languages that work for more complicated publishing formats.
 
-# How? 
+# How?
 
-## Simple, unambiguous grammar 
+## Simple, unambiguous grammar
 
 There's only two syntactic elements to authorx documents: text and functions that transform text. Hello world looks like this:
 
@@ -48,9 +48,9 @@ compile("path-to-ax-file", {
 In fact, this markdown README file was generated from a README.ax file, where the functions look like markdown tags:
 
 ```
-<# { How? }
+<# How?
 
-<## { Syntax is separate from semantics } 
+<## Syntax is separate from semantics  
 
 You can see the grammar <a(./grammar.ne) { here }.
 

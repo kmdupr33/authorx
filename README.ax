@@ -10,21 +10,21 @@ authorx is a tool-chain for creating markdown-like languages.
 << { <a(#project-status--roadmap) { Status & Roadmap } }
 }
 
-<# { Why? }
+<# Why?
 
 While its nice to write simple documents in markdown, anything relatively sophisticated (e.g., blogs, technical documentation, interactive explanations, interactive computing notebooks) requires using and/or implementing ad-hoc extensions to markdown. Implementing and using these extensions is difficult because: 
 
 <l {
 << { Markdown <a(https://roopc.net/posts/2014/markdown-cfg/) { has an ambiguous grammar } and therefore multiple implementations of parsing and rendering. }
-<< { Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown. }
-<< { You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language. }
+<< Not all programming languages have markdown parsers that offer extension points, and even when they do, those extension points often make it feel messier to write in markdown.
+<< You can't arbitrarily nest tagged/transformed text in markdown, so it's inherently limited as a language.
 }
 
 authorx makes it easy to create markdown-like languages that work for more complicated publishing formats.
 
-<# { How? }
+<# How?
 
-<## { Simple, unambiguous grammar }
+<## Simple, unambiguous grammar
 
 There's only two syntactic elements to authorx documents: text and functions that transform text. Hello world looks like this:
 
@@ -51,9 +51,9 @@ compile("path-to-ax-file", {
 In fact, this markdown README file was generated from a README.ax file, where the functions look like markdown tags:
 
 <> {:
-<# { How? }
+<# How?
 
-<## { Syntax is separate from semantics } 
+<## Syntax is separate from semantics  
 
 You can see the grammar <a(./grammar.ne) { here }.
 
@@ -64,7 +64,7 @@ You can see the grammar <a(./grammar.ne) { here }.
 }
 :}
 
-<# { Quick Start }
+<# Quick Start 
 
 Here's how you could create a language that has the "#" h1 headings of markdown:
 
@@ -93,7 +93,7 @@ Then just rerun <` { axc } and point it to your new file:
 npx axc hello.ax my-markdown.js
 :}
 
-<# { Project Status & Roadmap }
+<# Project Status & Roadmap 
 
 authorx is in rough shape currently. The syntax isn't even as clean as I'd like it, but I'm working on <a(./Roadmap.ax) { the roadmap }. Feel free to file issues. Would love to hear your feedback.
 

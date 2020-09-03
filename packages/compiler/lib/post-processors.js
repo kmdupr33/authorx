@@ -13,4 +13,13 @@ const postProcessLeaf = ([_, invocation, _1, leaf]) => ({
   children: [{ ...leaf, type: "text", value: leaf.value.slice(2, -2) }],
 });
 
-module.exports = { postProcessAuthorX, postProcessLeaf };
+const postProcessSingleLine = ([_, invocation, _1, text, newLine]) => ({
+  type: "functionInvocation",
+  ...invocation,
+  children: [
+    { ...text, type: "text", value: text.value },
+    { type: "whitespace", children: [{ ...newLine, type: "ws" }] },
+  ],
+});
+
+module.exports = { postProcessAuthorX, postProcessLeaf, postProcessSingleLine };

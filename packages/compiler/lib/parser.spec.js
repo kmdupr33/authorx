@@ -108,6 +108,31 @@ describe("authorx -> authorx | %identifier", () => {
     });
   });
 
+  describe("single line function invocations", () => {
+    it("parses a single line with one word", () => {
+      expectToParse(`<# Hello
+      `);
+    });
+    it("parses a single line with two words", () => {
+      expectToParse(`<# Hello world
+      `);
+    });
+    it("parses a single line within another invocation", () => {
+      expectToParse(`<p {
+        something
+
+        <# Hello
+
+      }`);
+    });
+    it("parses a single followed by a bracketed invocation", () => {
+      expectToParse(`<p {
+        <# Hello
+        <# { world }
+      }`);
+    });
+  });
+
   describe("arguments", () => {
     it("parses a single argument", () => {
       expectToParse(`<p {

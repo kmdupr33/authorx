@@ -4,7 +4,7 @@
 function id(x) { return x[0]; }
 
 require("array-flat-polyfill")
-const { postProcessAuthorX, postProcessLeaf } = require("./post-processors");
+const { postProcessAuthorX, postProcessLeaf, postProcessSingleLine } = require("./post-processors");
 const { makeLexer } = require("./lexer");
 const lexer = makeLexer()
 var grammar = {
@@ -15,12 +15,15 @@ var grammar = {
     {"name": "authorx$ebnf$1$subexpression$2", "symbols": ["authorx", "_"]},
     {"name": "authorx$ebnf$1", "symbols": ["authorx$ebnf$1", "authorx$ebnf$1$subexpression$2"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "authorx", "symbols": [{"literal":"<"}, "invocation", "_", {"literal":"{"}, "_", "authorx$ebnf$1", (lexer.has("closeBracket") ? {type: "closeBracket"} : closeBracket)], "postprocess": 
-        (data) => postProcessAuthorX(data)
+        postProcessAuthorX
+        },
+    {"name": "authorx", "symbols": [{"literal":"<"}, "invocation", "_", (lexer.has("leaf") ? {type: "leaf"} : leaf)], "postprocess": 
+        postProcessLeaf  
+        },
+    {"name": "authorx", "symbols": [{"literal":"<"}, "invocation", "_", (lexer.has("singleLineText") ? {type: "singleLineText"} : singleLineText), (lexer.has("newLine") ? {type: "newLine"} : newLine)], "postprocess": 
+        postProcessSingleLine
         },
     {"name": "authorx", "symbols": ["text"], "postprocess": id},
-    {"name": "authorx", "symbols": [{"literal":"<"}, "invocation", "_", (lexer.has("leaf") ? {type: "leaf"} : leaf)], "postprocess": 
-        (data) => postProcessLeaf(data)  
-        },
     {"name": "invocation$ebnf$1", "symbols": ["argList"], "postprocess": id},
     {"name": "invocation$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
     {"name": "invocation", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "invocation$ebnf$1"], "postprocess": 

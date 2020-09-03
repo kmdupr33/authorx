@@ -9,11 +9,18 @@ const makeLexer = () => {
       words: { match: /(?:(?:\\<)|(?:\\})|(?:\\)|[^<\\}])+/, lineBreaks: true },
     },
     function: {
-      identifier: { match: /[a-zA-Z0-9>#?^&*%$@!\-=+_~`<>.,/\\|]+/ },
+      identifier: {
+        match: /[a-zA-Z0-9>#?^&*%$@!\-=+_~`<>.,/\\|]+/,
+        next: "body",
+      },
+    },
+    body: {
       openParen: { match: /\(/, push: "args" },
       leaf: { match: /{:(?:[^:]|:[^}])*:}/, pop: true },
       openBracket: { match: /{/, pop: true },
       ws: / /,
+      newLine: { match: /\n/, lineBreaks: true, pop: true },
+      singleLineText: { match: /[^ ][^\n]+/ },
     },
     args: {
       ws: / /,

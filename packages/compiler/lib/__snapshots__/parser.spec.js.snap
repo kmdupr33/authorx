@@ -817,3 +817,286 @@ Object {
   "type": "functionInvocation",
 }
 `;
+
+exports[`authorx -> authorx | %identifier single line function invocations parses a single followed by a bracketed invocation 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "col": 4,
+          "line": 2,
+          "lineBreaks": 0,
+          "offset": 8,
+          "text": "Hello",
+          "toString": [Function],
+          "type": "text",
+          "value": "Hello",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "col": 9,
+              "line": 2,
+              "lineBreaks": 1,
+              "offset": 13,
+              "text": "
+",
+              "toString": [Function],
+              "type": "ws",
+              "value": "
+",
+            },
+          ],
+          "type": "whitespace",
+        },
+      ],
+      "identifier": Object {
+        "col": 2,
+        "line": 2,
+        "lineBreaks": 0,
+        "offset": 6,
+        "text": "#",
+        "toString": [Function],
+        "type": "identifier",
+        "value": "#",
+      },
+      "type": "functionInvocation",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 6,
+          "line": 3,
+          "lineBreaks": 0,
+          "offset": 19,
+          "text": "world ",
+          "toString": [Function],
+          "type": "text",
+          "value": "world ",
+        },
+      ],
+      "identifier": Object {
+        "col": 2,
+        "line": 3,
+        "lineBreaks": 0,
+        "offset": 15,
+        "text": "#",
+        "toString": [Function],
+        "type": "identifier",
+        "value": "#",
+      },
+      "type": "functionInvocation",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 13,
+          "line": 3,
+          "lineBreaks": 1,
+          "offset": 26,
+          "text": "
+",
+          "toString": [Function],
+          "type": "ws",
+          "value": "
+",
+        },
+      ],
+      "type": "whitespace",
+    },
+  ],
+  "identifier": Object {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+    "text": "p",
+    "toString": [Function],
+    "type": "identifier",
+    "value": "p",
+  },
+  "type": "functionInvocation",
+}
+`;
+
+exports[`authorx -> authorx | %identifier single line function invocations parses a single line with one word 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "col": 4,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 3,
+      "text": "Hello",
+      "toString": [Function],
+      "type": "text",
+      "value": "Hello",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 9,
+          "line": 1,
+          "lineBreaks": 1,
+          "offset": 8,
+          "text": "
+",
+          "toString": [Function],
+          "type": "ws",
+          "value": "
+",
+        },
+      ],
+      "type": "whitespace",
+    },
+  ],
+  "identifier": Object {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+    "text": "#",
+    "toString": [Function],
+    "type": "identifier",
+    "value": "#",
+  },
+  "type": "functionInvocation",
+}
+`;
+
+exports[`authorx -> authorx | %identifier single line function invocations parses a single line with two words 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "col": 4,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 3,
+      "text": "Hello world",
+      "toString": [Function],
+      "type": "text",
+      "value": "Hello world",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 15,
+          "line": 1,
+          "lineBreaks": 1,
+          "offset": 14,
+          "text": "
+",
+          "toString": [Function],
+          "type": "ws",
+          "value": "
+",
+        },
+      ],
+      "type": "whitespace",
+    },
+  ],
+  "identifier": Object {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+    "text": "#",
+    "toString": [Function],
+    "type": "identifier",
+    "value": "#",
+  },
+  "type": "functionInvocation",
+}
+`;
+
+exports[`authorx -> authorx | %identifier single line function invocations parses a single line within another invocation 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "col": 1,
+      "line": 2,
+      "lineBreaks": 2,
+      "offset": 5,
+      "text": "something
+
+",
+      "toString": [Function],
+      "type": "text",
+      "value": "something
+
+",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 4,
+          "line": 4,
+          "lineBreaks": 0,
+          "offset": 19,
+          "text": "Hello",
+          "toString": [Function],
+          "type": "text",
+          "value": "Hello",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "col": 9,
+              "line": 4,
+              "lineBreaks": 1,
+              "offset": 24,
+              "text": "
+",
+              "toString": [Function],
+              "type": "ws",
+              "value": "
+",
+            },
+          ],
+          "type": "whitespace",
+        },
+      ],
+      "identifier": Object {
+        "col": 2,
+        "line": 4,
+        "lineBreaks": 0,
+        "offset": 17,
+        "text": "#",
+        "toString": [Function],
+        "type": "identifier",
+        "value": "#",
+      },
+      "type": "functionInvocation",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "col": 1,
+          "line": 5,
+          "lineBreaks": 1,
+          "offset": 25,
+          "text": "
+",
+          "toString": [Function],
+          "type": "ws",
+          "value": "
+",
+        },
+      ],
+      "type": "whitespace",
+    },
+  ],
+  "identifier": Object {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+    "text": "p",
+    "toString": [Function],
+    "type": "identifier",
+    "value": "p",
+  },
+  "type": "functionInvocation",
+}
+`;
