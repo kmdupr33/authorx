@@ -1,0 +1,22 @@
+{
+  "name": "x-info-panel",
+  "version": "0.3.0",
+  "description": "> TODO: description",
+  "author": "Matt Dupree <kmdupr33@gmail.com>",
+  "homepage": "https://github.com/kmdupr33/authorx#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmdupr33/authorx.git"
+  },
+  "dependencies": {
+    "@authorx/x-faux-markdown": "0.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/kmdupr33/authorx/issues"
+  }
+}
