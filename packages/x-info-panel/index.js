@@ -4,7 +4,7 @@ module.exports = () => {
   return {
     "!": {
       func: (text) => `
-<div style="background-color: rgb(255, 235, 230);">
+<div style="background-color: rgb(255, 235, 230); padding: 10px;">
     <p>
         <span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgb(222, 53, 11)" width="18px" height="18px">
