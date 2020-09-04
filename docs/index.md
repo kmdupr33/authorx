@@ -179,7 +179,7 @@ If you don't want to rewrite markdown-esque functions, you can `npm i @authorx/x
 const xFauxMarkdown = require("@authorx/x-faux-markdown")
 module.exports = {
   // Your custom functions here
-  ...xFauxMarkdown  
+  ...xFauxMarkdown()  
 }
 ```
 
