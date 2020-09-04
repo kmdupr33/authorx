@@ -1,5 +1,4 @@
 <$ {
-authorx is a tool-chain for creating markdown-like languages.
 
 <! {
   I don't recommend using authorx for serious projects yet.
@@ -98,7 +97,7 @@ There's only two syntactic elements to authorx documents: text and functions tha
 <p Hello, world!
 :}
 
-You can see the grammar <a(./packages/compiler/lib/grammar.ne) { here }.
+You can see the grammar <a(https://github.com/kmdupr33/authorx/blob/master/packages/compiler/lib/grammar.ne) { here }.
 
 <## { Syntax is separate from semantics }
 

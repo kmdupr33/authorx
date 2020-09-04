@@ -1,5 +1,3 @@
-authorx is a tool-chain for creating markdown-like languages.
-
 
 <div style="background-color: rgb(255, 235, 230);">
     <p>
@@ -103,7 +101,7 @@ There's only two syntactic elements to authorx documents: text and functions tha
 <p Hello, world!
 ```
 
-You can see the grammar [here](./packages/compiler/lib/grammar.ne).
+You can see the grammar [here](https://github.com/kmdupr33/authorx/blob/master/packages/compiler/lib/grammar.ne).
 
 ## Syntax is separate from semantics 
 
