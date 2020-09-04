@@ -8,4 +8,4 @@ const parser = createParser();
 const [_, _1, axFilePath, funcMapPath] = process.argv;
 const ast = parser.parse(fs.readFileSync(axFilePath, { encoding: "utf8" }))[0];
 const funcMap = require(path.resolve(process.cwd(), funcMapPath));
-console.log(compile(ast, funcMap));
+console.log(compile(ast, funcMap()));
