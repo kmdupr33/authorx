@@ -187,6 +187,6 @@ npx axc hello.ax my-markdown.js
 
 <# Project Status & Roadmap 
 
-authorx is in rough shape currently. The syntax isn't even as clean as I'd like it, but I'm working on <a(./Roadmap.ax) { the roadmap }. Feel free to file issues. Would love to hear your feedback.
+authorx is in rough shape currently. The syntax isn't even as clean as I'd like it, but I'm working on <a(https://github.com/kmdupr33/authorx/blob/master/Roadmap.ax) { the roadmap }. Feel free to file issues. Would love to hear your feedback.
 
 }
