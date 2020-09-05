@@ -17,76 +17,55 @@
 
 <# Why?
 
-While its nice to write simple documents in markdown, writing anything relatively sophisticated (e.g., blogs, technical documentation, interactive content) is a pain because: 
+While its nice to write simple documents in markdown, writing anything relatively sophisticated (e.g., blogs, technical documentation, interactive content) is a pain. 
 
-<l {
-<< We often need to use awkward, ad-hoc extensions to markdown. Take "front-matter" in static site generators, for example.
-<< There are some things we just can't do with markdown because it doesn't allow arbitrary nesting of tagged/transformed text. We wind up embedding markdown in html or in some sort of template system.
-}
-
-Let's quickly walk through how authorx solves these problems. 
-
-Let's start with front matter as an example. You'll often find markdown documents with front matter that look like this:
-
-<>(md) {:
-+++
-title = "Why authorx?"
-tags = [
-  "technical", 
-  "philosophical"
-]
-+++
-
-# But y tho?
-
-Compelling explanation with **bold claims**.
-:}
-
-Markdown isn't expressive enough to represent the document metadata, so we're stuck tacking toml or yaml at the top of our markdown files. In authorx, the same document <* { could } look like this:
-
-<>(ax) {:
-<$ {
-  <+ {
-    <=(title) Why authorx?
-    <=(tags) {
-      << technical
-      << philosophical
-    }
-  }
-
-  <# But y tho?
-
-  Compelling explanation with <* { bold claims }.
-}
-:}
-
-With authorx, we don't need an ad-hoc extension to the language, the syntax for describing your metadata and for marking up text is the same.
-
-Let's look at the problem of arbitrarily nesting transformed content. Say I want to a footnote to appear in the margin <a(https://rstudio.github.io/tufte/) { a-la-Tufte }. With markdown, I have to start using html:
+For example, consider the red warning panel at the top of this doc that says you shouldn't use authorx for serious projects. The only way to create something like that in markdown is to embed html into your markdown doc:
 
 <>(md) {:
 
-Claim.<sup>1</sup>
+<div <!-- ... --> >
+  <div>
+    <svg
+      <!-- ... -->
+    >
+      <path <!-- ... --> />
+    </svg>
+  </div>
+  <p <!-- ... --> >I don't recommend using authorx for serious projects yet.
+  You can view the roadmap to 1.0 <a href="#project-status--roadmap">here</a>.
+  </p>
+</div>
 
-<footnote class="margin">
-1. Evidence from some pages from some book by some author
-</footnote>
+# Table of Contents
 
 :}
 
-This is bad enough as is, but it's worse because I can't use any markdown inside of the html tags. What if I want to bold something in the footnote? With authorx, the same document <* { could } look like this:
+With authorx, you <* { could } create a warning info panel like this:
 
-<>(ax) {:
-  <$ {
-    Claim. <footn {
-      <* { Bold } Evidence from some pages from some book by some author
-    }
-  }
+<>{:
+<! {
+  I don't recommend using authorx for serious projects yet.
+  You can view the roadmap to 1.0 <a(#project-status--roadmap) { here }.
+}
 :}
 
-I've been emphasizing <* { could } in these examples because the way authorx documents work is largely up to you. With authorx, syntax and semantics are separate. The <` { \<footn } in the above example is just a function. You define what the function does in javascript. Maybe it puts the footnote to the margin in a Tufte style. Maybe it puts the footnote at the end of the document. 
+Note that with authorx we can arbitrarily nest transformed content. Here we have a link inside of a warning panel.
 
-With authorx's minimal and expressive syntax and your function definitions, you can create markdown-like languages that work for more complicated publishing formats. All you have to do is define the functions.
+Here's another example: say you wanted to embed a <a(https://mermaid-js.github.io/mermaid/#/) { mermaid.js } diagram into your doc like <a(#syntax-is-separate-from-semantics) { the one below }. If you're just using markdown, you'll have to write your mermaid diagram, run the cli, and then include a reference to the generated image in your markdown. With authorx, you can embed mermaid diagrams like this:
+
+<>{:
+<~ {
+  graph LR
+  A[.ax file] -->|parse| B(AST)
+  B --> C("authorx-extensions e.g., x-faux-markdown x-mermaid-js")
+  C -->D(your extensions)
+  D -->E(".html | .md | .*")
+}
+:}
+
+I've been emphasizing <* { could } in these examples because the way authorx documents work is largely up to you. With authorx, syntax and semantics are separate. The <` { \<~ } in the above example is just a function. You define what the function does in javascript. Maybe it embeds a mermaid diagram into your document. Maybe it floats content to the left side of the page. It's up to you. 
+
+With authorx's minimal and expressive syntax and your function definitions, you can create markdown-like languages that work for more rich and interactive content. All you have to do is define the functions.
 
 <# How?
 
@@ -114,13 +93,13 @@ compile("path-to-ax-file", {
 
 Here's the high-level flow of how <` { compile } transforms text to its final format:
 
-<~ {:
+<~ {
   graph LR
   A[.ax file] -->|parse| B(AST)
   B --> C("authorx-extensions e.g., x-faux-markdown x-mermaid-js")
   C -->D(your extensions)
-  D -->E{".html | .md | .*"}
-:}
+  D -->E(".html | .md | .*")
+}
 
 In fact, this markdown README file was generated from <a(./README.ax) { a README.ax file }, where the functions look like markdown tags:
 
