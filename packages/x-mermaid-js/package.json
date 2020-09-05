@@ -1,5 +1,5 @@
 {
-  "name": "x-mermaid",
+  "name": "@authorx/x-mermaid",
   "version": "0.5.0",
   "description": "> TODO: description",
   "author": "Matt Dupree <kmdupr33@gmail.com>",
@@ -17,5 +17,8 @@
   "dependencies": {
     "mermaid": "^8.8.0",
     "puppeteer": "^5.2.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

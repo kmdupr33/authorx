@@ -1,5 +1,5 @@
 {
-  "name": "x-info-panel",
+  "name": "@authorx/x-info-panel",
   "version": "0.5.0",
   "description": "> TODO: description",
   "author": "Matt Dupree <kmdupr33@gmail.com>",
@@ -16,5 +16,8 @@
   "scripts": {},
   "bugs": {
     "url": "https://github.com/kmdupr33/authorx/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
