@@ -10,4 +10,7 @@ const ast = parser.parse(fs.readFileSync(axFilePath, { encoding: "utf8" }))[0];
 const funcMap = require(path.resolve(process.cwd(), funcMapPath));
 const scope = new Scope();
 scope.push(funcMap());
-console.log(compile(ast, scope));
+(async () => {
+  const outputDir = path.dirname(axFilePath);
+  console.log(await compile(ast, scope, outputDir));
+})();

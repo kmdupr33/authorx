@@ -1,20 +1,21 @@
 {
-  "name": "x-info-panel",
+  "name": "x-mermaid",
   "version": "0.4.0",
   "description": "> TODO: description",
   "author": "Matt Dupree <kmdupr33@gmail.com>",
   "homepage": "https://github.com/kmdupr33/authorx#readme",
-  "license": "MIT",
+  "license": "ISC",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kmdupr33/authorx.git"
   },
-  "dependencies": {
-    "@authorx/x-faux-markdown": "^0.4.0"
-  },
   "scripts": {},
   "bugs": {
     "url": "https://github.com/kmdupr33/authorx/issues"
+  },
+  "dependencies": {
+    "mermaid": "^8.8.0",
+    "puppeteer": "^5.2.1"
   }
 }

@@ -38,20 +38,23 @@ const getFunction = (identifier, scope) => {
   }
 };
 
-const compile = ({ children, type, ...rest }, scope) => {
+const compile = async ({ children, type, ...rest }, scope, outputDir) => {
   if (!children) {
     return genLeaf(type, rest);
   }
   const { identifier, argList } = rest;
   const { func, scope: childScope } = getFunction(identifier, scope);
-  return func(
-    children.reduce((acc, child) => {
-      childScope && scope.push(childScope);
-      const result = acc + compile(child, scope);
-      childScope && scope.pop();
-      return result;
-    }, ""),
-    argList
+  return (
+    await func(
+      await children.reduce(async (acc, child) => {
+        childScope && scope.push(childScope);
+        const result = (await acc) + (await compile(child, scope, outputDir));
+        childScope && scope.pop();
+        return result;
+      }, ""),
+      argList,
+      outputDir
+    )
   ).replace(/\\/g, "");
 };
 
