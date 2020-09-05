@@ -2,7 +2,8 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "readme": "lerna run build && packages/compiler/bin/compile.js docs/index.ax ax-markdown.js > docs/index.md"
+    "readme": "lerna run build && packages/compiler/bin/compile.js docs/index.ax ax-markdown.js > docs/index.md",
+    "publish": "lerna run build && lerna run test && lerna publish"
   },
   "devDependencies": {
     "lerna": "^3.22.1"
