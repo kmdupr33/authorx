@@ -1,6 +1,6 @@
 {
   "name": "x-info-panel",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "> TODO: description",
   "author": "Matt Dupree <kmdupr33@gmail.com>",
   "homepage": "https://github.com/kmdupr33/authorx#readme",
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/kmdupr33/authorx.git"
   },
   "dependencies": {
-    "@authorx/x-faux-markdown": "^0.4.0"
+    "@authorx/x-faux-markdown": "^0.5.0"
   },
   "scripts": {},
   "bugs": {
