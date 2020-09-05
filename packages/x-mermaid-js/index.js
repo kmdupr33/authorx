@@ -19,7 +19,7 @@ module.exports = () => ({
     const dest = path.resolve(outputDir, fileName);
     fs.writeFileSync(dest, svg);
     await browser.close();
-    return `[](./${fileName})`;
+    return `![](/${fileName})`;
   },
 });
 const initializeMermaid = (container, text) => {

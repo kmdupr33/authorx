@@ -25,24 +25,21 @@
 </p>
 </div>
 
-
 # Table of Contents
 
-* [Why?](#why) 
-* [How?](#how) 
-* [Quickstart](#quick-start) 
-* [Status & Roadmap](#project-status--roadmap) 
-
+- [Why?](#why)
+- [How?](#how)
+- [Quickstart](#quick-start)
+- [Status & Roadmap](#project-status--roadmap)
 
 # Why?
 
-While its nice to write simple documents in markdown, writing anything relatively sophisticated (e.g., blogs, technical documentation, interactive content) is a pain because: 
+While its nice to write simple documents in markdown, writing anything relatively sophisticated (e.g., blogs, technical documentation, interactive content) is a pain because:
 
-* We often need to use awkward, ad-hoc extensions to markdown. Take "front-matter" in static site generators, for example.
-* There are some things we just can't do with markdown because it doesn't allow arbitrary nesting of tagged/transformed text. We wind up embedding markdown in html or in some sort of template system.
+- We often need to use awkward, ad-hoc extensions to markdown. Take "front-matter" in static site generators, for example.
+- There are some things we just can't do with markdown because it doesn't allow arbitrary nesting of tagged/transformed text. We wind up embedding markdown in html or in some sort of template system.
 
-
-Let's quickly walk through how authorx solves these problems. 
+Let's quickly walk through how authorx solves these problems.
 
 Let's start with front matter as an example. You'll often find markdown documents with front matter that look like this:
 
@@ -60,7 +57,7 @@ tags = [
 Compelling explanation with **bold claims**.
 ```
 
-Markdown isn't expressive enough to represent the document metadata, so we're stuck tacking toml or yaml at the top of our markdown files. In authorx, the same document *could* look like this:
+Markdown isn't expressive enough to represent the document metadata, so we're stuck tacking toml or yaml at the top of our markdown files. In authorx, the same document _could_ look like this:
 
 ```ax
 <$ {
@@ -83,16 +80,14 @@ With authorx, we don't need an ad-hoc extension to the language, the syntax for 
 Let's look at the problem of arbitrarily nesting transformed content. Say I want to a footnote to appear in the margin [a-la-Tufte](https://rstudio.github.io/tufte/). With markdown, I have to start using html:
 
 ```md
-
 Claim.<sup>1</sup>
 
 <footnote class="margin">
 1. Evidence from some pages from some book by some author
 </footnote>
-
 ```
 
-This is bad enough as is, but it's worse because I can't use any markdown inside of the html tags. What if I want to bold something in the footnote? With authorx, the same document *could* look like this:
+This is bad enough as is, but it's worse because I can't use any markdown inside of the html tags. What if I want to bold something in the footnote? With authorx, the same document _could_ look like this:
 
 ```ax
   <$ {
@@ -102,7 +97,7 @@ This is bad enough as is, but it's worse because I can't use any markdown inside
   }
 ```
 
-I've been emphasizing *could* in these examples because the way authorx documents work is largely up to you. With authorx, syntax and semantics are separate. The `<footn` in the above example is just a function. You define what the function does in javascript. Maybe it puts the footnote to the margin in a Tufte style. Maybe it puts the footnote at the end of the document. 
+I've been emphasizing _could_ in these examples because the way authorx documents work is largely up to you. With authorx, syntax and semantics are separate. The `<footn` in the above example is just a function. You define what the function does in javascript. Maybe it puts the footnote to the margin in a Tufte style. Maybe it puts the footnote at the end of the document.
 
 With authorx's minimal and expressive syntax and your function definitions, you can create markdown-like languages that work for more complicated publishing formats. All you have to do is define the functions.
 
@@ -118,7 +113,7 @@ There's only two syntactic elements to authorx documents: text and functions tha
 
 You can see the grammar [here](https://github.com/kmdupr33/authorx/blob/master/packages/compiler/lib/grammar.ne).
 
-## Syntax is separate from semantics 
+## Syntax is separate from semantics
 
 Functions in authorx have no meaning by default. With authorx, semantics are added by defining the text-transformation functions in js and passing them to the compiler:
 
@@ -126,16 +121,20 @@ Functions in authorx have no meaning by default. With authorx, semantics are add
 import { compile } from "@authorx/compiler";
 
 compile("path-to-ax-file", {
-  "#": (text) => `<h1>${text}</h1>`
+  "#": (text) => `<h1>${text}</h1>`,
 });
 ```
+
+Here's the high-level flow of how `compile` transforms text to its final format:
+
+![](/diagram.svg)
 
 In fact, this markdown README file was generated from [a README.ax file](./README.ax), where the functions look like markdown tags:
 
 ```
 <# How?
 
-<## Syntax is separate from semantics  
+<## Syntax is separate from semantics
 
 You can see the grammar <a(./grammar.ne) { here }.
 
@@ -147,7 +146,7 @@ You can see the grammar <a(./grammar.ne) { here }.
 
 The markdown-like functions that generated this readme are defined in the [x-faux-markdown package](https://github.com/kmdupr33/authorx/tree/master/packages/x-faux-markdown)
 
-# Quick Start 
+# Quick Start
 
 ```
 npm i @authorx/compiler
@@ -175,9 +174,9 @@ npx axc hello.ax my-markdown.js
 If you want "<#" to wrap "hello world" in h1 headings like markdown does, add this to your `my-markdown.js` file
 
 ```js
-module.exports = { 
-  '#': (text) => '<h1>' + text + '</h1>' 
-}  
+module.exports = {
+  "#": (text) => "<h1>" + text + "</h1>",
+};
 ```
 
 Now, when you run `axc`, you'll see that hello world is wrapped in h1 tags:
@@ -191,11 +190,11 @@ If you don't want to rewrite markdown-esque functions, you can `npm i @authorx/x
 
 ```js
 // my-markdown.js
-const xFauxMarkdown = require("@authorx/x-faux-markdown")
+const xFauxMarkdown = require("@authorx/x-faux-markdown");
 module.exports = {
   // Your custom functions here
-  ...xFauxMarkdown()  
-}
+  ...xFauxMarkdown(),
+};
 ```
 
 Then just rerun `axc` and point it to your updated file:
@@ -204,8 +203,6 @@ Then just rerun `axc` and point it to your updated file:
 npx axc hello.ax my-markdown.js
 ```
 
-# Project Status & Roadmap 
+# Project Status & Roadmap
 
 authorx is in rough shape currently. The syntax isn't even as clean as I'd like it, but I'm working on [the roadmap](https://github.com/kmdupr33/authorx/blob/master/Roadmap.ax). Feel free to file issues. Would love to hear your feedback.
-
-

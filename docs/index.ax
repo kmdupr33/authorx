@@ -5,6 +5,7 @@
   You can view the roadmap to 1.0 <a(#project-status--roadmap) { here }.
 }
 
+
 <# Table of Contents
 
 <l {
@@ -109,6 +110,16 @@ import { compile } from "@authorx/compiler";
 compile("path-to-ax-file", {
   "#": (text) => `<h1>${text}</h1>`
 });
+:}
+
+Here's the high-level flow of how <` { compile } transforms text to its final format:
+
+<~ {:
+  graph LR
+  A[.ax file] -->|parse| B(AST)
+  B --> C("authorx-extensions e.g., x-faux-markdown x-mermaid-js")
+  C -->D(your extensions)
+  D -->E{".html | .md | .*"}
 :}
 
 In fact, this markdown README file was generated from <a(./README.ax) { a README.ax file }, where the functions look like markdown tags:
