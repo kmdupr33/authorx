@@ -177,6 +177,25 @@ npx axc hello.ax my-markdown.js
 
 <# Project Status & Roadmap 
 
-authorx is in rough shape currently. The syntax isn't even as clean as I'd like it, but I'm working on <a(https://github.com/kmdupr33/authorx/blob/master/Roadmap.ax) { the roadmap }. Feel free to file issues. Would love to hear your feedback.
+authorx is in rough shape currently. The following items need to get done before 1.0: 
+
+<l {
+<< Add Macro Support 
+<< Add x-toc (table of contents generation)
+<< more consistent handling of escaping (specifically within \{: blocks)
+<< x-front-matter
+<< implement html target for x-faux-markdown
+}
+
+Here are some ideas for what to do post 1.0:
+
+<<l {
+<< x-hugo (shortcodes)
+<< Buffer tweets example semantics?
+<< Slack onboarding example semantics?
+<< reveal.js presentation example semantics?
+}
+
+Until then, if you're using authorx, feel free to file issues. Would love to hear your feedback.
 
 }
