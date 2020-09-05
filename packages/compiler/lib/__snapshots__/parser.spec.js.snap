@@ -466,6 +466,191 @@ module.exports = {
 }
 `;
 
+exports[`authorx -> authorx | %identifier no body function invocation parses arglist-less 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "col": 3,
+          "line": 1,
+          "lineBreaks": 1,
+          "offset": 2,
+          "text": "
+",
+          "toString": [Function],
+          "type": "ws",
+          "value": "
+",
+        },
+      ],
+      "type": "whitespace",
+    },
+  ],
+  "identifier": Object {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+    "text": "a",
+    "toString": [Function],
+    "type": "identifier",
+    "value": "a",
+  },
+}
+`;
+
+exports[`authorx -> authorx | %identifier no body function invocation parses with a single arg 1`] = `
+Object {
+  "argList": Array [
+    Object {
+      "col": 4,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 3,
+      "text": "arg",
+      "toString": [Function],
+      "type": "argument",
+      "value": "arg",
+    },
+  ],
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "col": 8,
+          "line": 1,
+          "lineBreaks": 1,
+          "offset": 7,
+          "text": "
+",
+          "toString": [Function],
+          "type": "ws",
+          "value": "
+",
+        },
+      ],
+      "type": "whitespace",
+    },
+  ],
+  "identifier": Object {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+    "text": "a",
+    "toString": [Function],
+    "type": "identifier",
+    "value": "a",
+  },
+}
+`;
+
+exports[`authorx -> authorx | %identifier no body function invocation parses with multiple args 1`] = `
+Object {
+  "argList": Array [
+    Object {
+      "col": 4,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 3,
+      "text": "arg1",
+      "toString": [Function],
+      "type": "argument",
+      "value": "arg1",
+    },
+    Object {
+      "col": 10,
+      "line": 1,
+      "lineBreaks": 0,
+      "offset": 9,
+      "text": "arg2",
+      "toString": [Function],
+      "type": "argument",
+      "value": "arg2",
+    },
+  ],
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "col": 15,
+          "line": 1,
+          "lineBreaks": 1,
+          "offset": 14,
+          "text": "
+",
+          "toString": [Function],
+          "type": "ws",
+          "value": "
+",
+        },
+      ],
+      "type": "whitespace",
+    },
+  ],
+  "identifier": Object {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+    "text": "a",
+    "toString": [Function],
+    "type": "identifier",
+    "value": "a",
+  },
+}
+`;
+
+exports[`authorx -> authorx | %identifier no body function invocation parses within a p invocation 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "col": 11,
+              "line": 2,
+              "lineBreaks": 1,
+              "offset": 15,
+              "text": "
+",
+              "toString": [Function],
+              "type": "ws",
+              "value": "
+",
+            },
+          ],
+          "type": "whitespace",
+        },
+      ],
+      "identifier": Object {
+        "col": 2,
+        "line": 2,
+        "lineBreaks": 0,
+        "offset": 6,
+        "text": "a",
+        "toString": [Function],
+        "type": "identifier",
+        "value": "a",
+      },
+    },
+  ],
+  "identifier": Object {
+    "col": 2,
+    "line": 1,
+    "lineBreaks": 0,
+    "offset": 1,
+    "text": "p",
+    "toString": [Function],
+    "type": "identifier",
+    "value": "p",
+  },
+  "type": "functionInvocation",
+}
+`;
+
 exports[`authorx -> authorx | %identifier parses { hello } | b world 1`] = `
 Object {
   "children": Array [

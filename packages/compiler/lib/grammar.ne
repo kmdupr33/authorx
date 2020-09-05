@@ -1,7 +1,12 @@
 
 @{%
 require("array-flat-polyfill")
-const { postProcessAuthorX, postProcessLeaf, postProcessSingleLine } = require("./post-processors");
+const { 
+  postProcessAuthorX, 
+  postProcessLeaf, 
+  postProcessSingleLine, 
+  postProcessNoBody 
+} = require("./post-processors");
 const { makeLexer } = require("./lexer");
 const lexer = makeLexer()
 %}
@@ -18,6 +23,10 @@ authorx -> "<" invocation _ %leaf {%
 
 authorx -> "<" invocation _ %singleLineText %newLine {%
   postProcessSingleLine
+%}
+
+authorx -> "<" invocation _ %newLine {%
+  postProcessNoBody
 %}
 
 authorx -> text {% id %}

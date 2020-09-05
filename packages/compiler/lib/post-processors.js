@@ -22,4 +22,14 @@ const postProcessSingleLine = ([_, invocation, _1, text, newLine]) => ({
   ],
 });
 
-module.exports = { postProcessAuthorX, postProcessLeaf, postProcessSingleLine };
+const postProcessNoBody = ([_, invocation, _1, newLine]) => ({
+  ...invocation,
+  children: [{ type: "whitespace", children: [{ ...newLine, type: "ws" }] }],
+});
+
+module.exports = {
+  postProcessAuthorX,
+  postProcessLeaf,
+  postProcessSingleLine,
+  postProcessNoBody,
+};

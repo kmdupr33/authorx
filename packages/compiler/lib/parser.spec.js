@@ -133,6 +133,26 @@ describe("authorx -> authorx | %identifier", () => {
     });
   });
 
+  describe("no body function invocation", () => {
+    it("parses arglist-less", () => {
+      expectToParse(`<a
+      `);
+    });
+    it("parses with a single arg", () => {
+      expectToParse(`<a(arg)
+      `);
+    });
+    it("parses with multiple args", () => {
+      expectToParse(`<a(arg1, arg2)
+      `);
+    });
+    it("parses within a p invocation", () => {
+      expectToParse(`<p {
+        <a        
+      }`);
+    });
+  });
+
   describe("arguments", () => {
     it("parses a single argument", () => {
       expectToParse(`<p {

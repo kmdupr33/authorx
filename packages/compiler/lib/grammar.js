@@ -4,7 +4,12 @@
 function id(x) { return x[0]; }
 
 require("array-flat-polyfill")
-const { postProcessAuthorX, postProcessLeaf, postProcessSingleLine } = require("./post-processors");
+const { 
+  postProcessAuthorX, 
+  postProcessLeaf, 
+  postProcessSingleLine, 
+  postProcessNoBody 
+} = require("./post-processors");
 const { makeLexer } = require("./lexer");
 const lexer = makeLexer()
 var grammar = {
@@ -22,6 +27,9 @@ var grammar = {
         },
     {"name": "authorx", "symbols": [{"literal":"<"}, "invocation", "_", (lexer.has("singleLineText") ? {type: "singleLineText"} : singleLineText), (lexer.has("newLine") ? {type: "newLine"} : newLine)], "postprocess": 
         postProcessSingleLine
+        },
+    {"name": "authorx", "symbols": [{"literal":"<"}, "invocation", "_", (lexer.has("newLine") ? {type: "newLine"} : newLine)], "postprocess": 
+        postProcessNoBody
         },
     {"name": "authorx", "symbols": ["text"], "postprocess": id},
     {"name": "invocation$ebnf$1", "symbols": ["argList"], "postprocess": id},
