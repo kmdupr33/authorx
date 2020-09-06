@@ -10,17 +10,18 @@ const makeLexer = () => {
     },
     function: {
       identifier: {
-        match: /[a-zA-Z0-9>#?^&*%$@!\-=+_~`<>.,/\\|]+/,
+        // \ is not a valid identifier here! It's escaping the "-"
+        match: /[a-zA-Z0-9#^&*%$@!\-+_~`<>]+/,
         next: "body",
       },
     },
     body: {
       openParen: { match: /\(/, push: "args" },
-      leaf: { match: /{:(?:[^:]|:[^}])*:}/, pop: true },
+      leaf: { match: /(?<!\\){:(?:\\:}|[^:]|:[^}])*:}/, pop: true },
       openBracket: { match: /{/, pop: true },
       ws: / /,
       newLine: { match: /\n/, lineBreaks: true, pop: true },
-      singleLineText: { match: /[^ ][^\n]+/ },
+      singleLineText: { match: /[^\n]+/ },
     },
     args: {
       ws: / /,

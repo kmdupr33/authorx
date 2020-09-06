@@ -20,8 +20,7 @@
       />
     </svg>
   </div>
-  <p style="margin-left: 5px">I don't recommend using authorx for serious projects yet.
-  You can view the roadmap to 1.0 <a href="#project-status--roadmap">here</a>.
+  <p style="margin-left: 5px">authorx is pre 1.0 and it's syntax and API may change before 1.0. You can view the roadmap to 1.0 <a href="#project-status--roadmap">here</a>.
 </p>
 </div>
 
@@ -32,6 +31,12 @@
 * [Why?](#why) 
 * [How?](#how) 
 * [Quickstart](#quick-start) 
+* [Authorx Syntax](#authorx-syntax) 
+* [Extensions Reference](#extensions-reference) 
+  * [x-faux-markdown](#x-faux-markdown) 
+  * [x-info-panel](#x-info-panels) 
+  * [x-mermaid-js](#x-mermaid-js) 
+
 * [Status & Roadmap](#project-status--roadmap) 
 
 
@@ -39,7 +44,7 @@
 
 While its nice to write simple documents in markdown, writing anything relatively sophisticated (e.g., blogs, technical documentation, interactive content) is a pain. 
 
-For example, consider the red warning panel at the top of this doc that says you shouldn't use authorx for serious projects. The only way to create something like that in markdown is to embed html into your markdown doc:
+For example, consider the red warning panel at the top of this doc that says authorx is pre-1.0. The only way to create something like that in markdown is to embed html into your markdown doc:
 
 ```md
 
@@ -74,13 +79,13 @@ Note that with authorx we can arbitrarily nest transformed content. Here we have
 Here's another example: say you wanted to embed a [mermaid.js](https://mermaid-js.github.io/mermaid/#/) diagram into your doc like [the one below](#syntax-is-separate-from-semantics). If you're just using markdown, you'll have to write your mermaid diagram, run the cli, and then include a reference to the generated image in your markdown. With authorx, you can embed mermaid diagrams like this:
 
 ```
-<~ {
+<~ {:
   graph LR
   A[.ax file] -->|parse| B(AST)
   B --> C("authorx-extensions e.g., x-faux-markdown x-mermaid-js")
   C -->D(your extensions)
   D -->E(".html | .md | .*")
-}
+:}
 ```
 
 I've been emphasizing *could* in these examples because the way authorx documents work is largely up to you. With authorx, syntax and semantics are separate. The `<~` in the above example is just a function. You define what the function does in javascript. Maybe it embeds a mermaid diagram into your document. Maybe it floats content to the left side of the page. It's up to you. 
@@ -160,9 +165,9 @@ npx axc hello.ax my-markdown.js
 If you want "<#" to wrap "hello world" in h1 headings like markdown does, add this to your `my-markdown.js` file
 
 ```js
-module.exports = { 
+module.exports = () => ({ 
   '#': (text) => '<h1>' + text + '</h1>' 
-}  
+})  
 ```
 
 Now, when you run `axc`, you'll see that hello world is wrapped in h1 tags:
@@ -189,20 +194,66 @@ Then just rerun `axc` and point it to your updated file:
 npx axc hello.ax my-markdown.js
 ```
 
+# Authorx Syntax
+
+Authorx only has two syntactic elements: functions and text. 
+
+Text is written exactly how you'd expect: you just write words into your authorx file (by convention, saved with .ax extension).
+
+Functions transform text and/or execute side-effects. They can wrap text in h1 tags, place text inside a warning panel div, or build a mermaid diagram and replace the text with a reference to the generated svg. Functions start with a `<` and must be followed by an identifer. Here are some examples:
+
+```
+<h1 { wrap me in a heading! }  
+<# { wrap me in a heading too !}
+```
+
+Notice that function identifers can contain characters. This enables you to keep them short and your keep your authorx docs focused on the text. Here's the full list of supported special characters in identifiers:
+
+* ^
+* &
+* *
+* %
+* $
+* @
+* !
+* -
+* +
+* _
+* ~
+* `
+* < 
+* >
+
+
+Functions that operate on multiple lines of text should surround that text with brackets like the above example. If, however, your function only operates on one line of text, you may omit the brackets like so:
+
+```
+<# Wrap me in a heading!
+```
+
+Whether your function operates on text surrounded by brackets only operates on single line text, the "<", "{", "}", and "\" characters must be escaped with a "\".
+
+To facilitate the inclusion of code in authorx docs without needing to escape characters, you can also wrap text in colon brackets "{:" ":}". Inside colon brackets, "<," "{,", and "}" don't need to be escaped with "\".
+
+# Extensions Reference
+
+## x-faux-markdown
+
+## x-info-panel
+
+## x-mermaid-js
+
 # Project Status & Roadmap 
 
-authorx is in rough shape currently. The following items need to get done before 1.0: 
+Here's a roadmap for upcoming features:
 
+* better cli
 * Add Macro Support 
 * Add x-toc (table of contents generation)
-* more consistent handling of escaping (specifically within {: blocks)
-* x-front-matter
 * implement html target for x-faux-markdown
-
-
-Here are some ideas for what to do post 1.0:
-
+* x-front-matter
 * x-hugo (shortcodes)
+* better parser error messages?
 * Buffer tweets example semantics?
 * Slack onboarding example semantics?
 * reveal.js presentation example semantics?

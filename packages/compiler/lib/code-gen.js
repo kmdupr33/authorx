@@ -55,7 +55,7 @@ const compile = async ({ children, type, ...rest }, scope, outputDir) => {
       argList,
       outputDir
     )
-  ).replace(/\\/g, "");
+  ).replace(/\\([^\n ])/g, "$1");
 };
 
 module.exports = { compile, Scope };

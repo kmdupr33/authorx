@@ -1,28 +1,38 @@
 module.exports = (target = "md") => {
   const functions = {
     md: {
-      "*": (string) => `*${string.trim()}*`,
-      "#": (string) => `# ${string}`,
-      "##": (string) => `## ${string}`,
-      "<": (string) => `* ${string}`,
-      "`": (string) => "`" + string.trim() + "`",
-      a: (string, [url]) => `[${string.trim()}](${url.value})`,
-      ">": (string, lang) =>
-        `\`\`\`${(lang && lang[0].value) || ""}${string}\`\`\``,
+      "*": (text) => `*${text.trim()}*`,
+      "#": (text) => `# ${text}`,
+      "##": (text) => `## ${text}`,
+      l: {
+        func: (text) => text,
+        scope: {
+          "<": {
+            func: (text) => `* ${text}`,
+            scope: {
+              "<": { func: (text) => `  * ${text}` },
+            },
+          },
+        },
+      },
+      "`": (text) => "`" + text.trim() + "`",
+      a: (text, [url]) => `[${text.trim()}](${url.value})`,
+      ">": (text, lang) =>
+        `\`\`\`${(lang && lang[0].value) || ""}${text}\`\`\``,
       // A comment function
       "//": () => "",
     },
     html: {
-      "*": (string) => `<em>string.trim()}</em>`,
-      "#": (string) => `<h1>${string}</h1>`,
-      "##": (string) => `<h2>${string}</h2>`,
-      "<": (string) => `<li>${string}</li>`,
-      "`": (string) => "<code>" + string.trim() + "</code>",
-      a: (string, [url]) => `<a href="${url.value}">${string.trim()}</a>`,
-      ">": (string, lang) =>
+      "*": (text) => `<em>string.trim()}</em>`,
+      "#": (text) => `<h1>${text}</h1>`,
+      "##": (text) => `<h2>${text}</h2>`,
+      "<": (text) => `<li>${text}</li>`,
+      "`": (text) => "<code>" + text.trim() + "</code>",
+      a: (text, [url]) => `<a href="${url.value}">${text.trim()}</a>`,
+      ">": (text, lang) =>
         `<pre><code class="${
           (lang && lang[0].value) || ""
-        }">${string}</code></pre>`,
+        }">${text}</code></pre>`,
       // A comment function
       "//": () => "",
     },
