@@ -110,11 +110,11 @@ You can see the grammar [here](https://github.com/kmdupr33/authorx/blob/master/p
 Functions in authorx have no meaning by default. With authorx, semantics are added by defining the text-transformation functions in js and passing them to the compiler:
 
 ```js
-import { compile } from "@authorx/compiler";
+const { compile } = require("@authorx/compiler");
 
-compile("path-to-ax-file", {
+compile("path-to-ax-file", (target = "html") => ({
   "#": (text) => `<h1>${text}</h1>`
-});
+}));
 ```
 
 Here's the high-level flow of how `compile` transforms text to its final format:
@@ -163,7 +163,7 @@ npx axc hello.ax my-markdown.js
 # outputs "hello world"
 ```
 
-If you want "<#" to wrap "hello world" in h1 headings like markdown does, add this to your `my-markdown.js` file
+If you want `<#` to wrap "hello world" in h1 headings like markdown does, add this to your `my-markdown.js` file
 
 ```js
 module.exports = () => ({ 
@@ -327,7 +327,7 @@ Here's a roadmap for upcoming features:
 * reveal.js presentation example semantics?
 
 
-If you're using authorx, feel free to [file issues](https://github.com/kmdupr33/authorx/issues). Would love to hear your feedback. If you have an idea for an extension, please file an issue so we can discuss it.
+If you have any feedback about authorx, feel free to [file issues](https://github.com/kmdupr33/authorx/issues). Would love to hear your feedback. If you have an idea for an extension you think should be in the monorepo, please file an issue so we can discuss it. 
 
 # FAQs
 
