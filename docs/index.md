@@ -77,7 +77,7 @@ With authorx, you *could* create a warning info panel like this:
 
 Note that with authorx we can arbitrarily nest transformed content. Here we have a link inside of a warning panel.
 
-Here's another example: say you wanted to embed a [mermaid.js](https://mermaid-js.github.io/mermaid/#/) diagram into your doc like [the one below](#syntax-is-separate-from-semantics). If you're just using markdown, you'll have to write your mermaid diagram, run the cli, and then include a reference to the generated image in your markdown. With authorx, you can embed mermaid diagrams like this:
+Here's another example: say you wanted to embed a [mermaid.js](https://mermaid-js.github.io/mermaid/#/) diagram into your doc like [the one below](#syntax-is-separate-from-semantics). If you're just using markdown, you'll have to write your mermaid diagram, run the cli, and then include a reference to the generated image in your markdown. With authorx, you *could* embed mermaid diagrams like this:
 
 ```
 <~ {:
