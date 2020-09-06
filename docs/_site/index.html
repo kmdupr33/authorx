@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=270329fb04da244128108264c106f12a2d1a37fb">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>authorx | authorx is an extensible, markdown-like language for creating rich, interactive content</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="authorx" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="authorx is an extensible, markdown-like language for creating rich, interactive content" />
+<meta property="og:description" content="authorx is an extensible, markdown-like language for creating rich, interactive content" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="authorx" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/","description":"authorx is an extensible, markdown-like language for creating rich, interactive content","name":"authorx","headline":"authorx","@type":"WebSite","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/kmdupr33/authorx">View on GitHub</a>
+
+          <h1 id="project_title">authorx</h1>
+          <h2 id="project_tagline">authorx is an extensible, markdown-like language for creating rich, interactive content</h2>
+
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <div style="
+    background-color: rgb(255, 235, 230);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  ">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgb(222, 53, 11)" width="26px" height="26px">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 11c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1zm1 4h-2v-2h2v2z" />
+    </svg>
+  </div>
+  <p style="margin-left: 5px">authorx is pre 1.0 and it's syntax and API may change before 1.0. You can view the roadmap <a href="#project-status--roadmap">here</a>.
+</p>
+</div>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+
+<ul>
+  <li><a href="#why">Why?</a></li>
+  <li><a href="#how">How?</a></li>
+  <li><a href="#quick-start">Quickstart</a></li>
+  <li><a href="#authorx-syntax">Authorx Syntax</a></li>
+  <li><a href="#extensions-reference">Extensions Reference</a>
+    <ul>
+      <li><a href="#x-faux-markdown">x-faux-markdown</a></li>
+      <li><a href="#x-info-panels">x-info-panel</a></li>
+      <li><a href="#x-mermaid-js">x-mermaid-js</a></li>
+    </ul>
+  </li>
+  <li><a href="#project-status--roadmap">Status &amp; Roadmap</a></li>
+</ul>
+
+<h1 id="why">Why?</h1>
+
+<p>While its nice to write simple documents in markdown, writing anything relatively sophisticated (e.g., blogs, technical documentation, interactive content) is a pain.</p>
+
+<p>For example, consider the red warning panel at the top of this doc that says authorx is pre-1.0. The only way to create something like that in markdown is to embed html into your markdown doc:</p>
+
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;div</span> <span class="err">&lt;!</span><span class="na">--</span> <span class="err">...</span> <span class="na">--</span><span class="nt">&gt;</span> &gt;
+  <span class="nt">&lt;div&gt;</span>
+    &lt;svg
+      <span class="c">&lt;!-- ... --&gt;</span>
+<span class="gt">    &gt;</span>
+      <span class="nt">&lt;path</span> <span class="err">&lt;!</span><span class="na">--</span> <span class="err">...</span> <span class="na">--</span><span class="nt">&gt;</span> /&gt;
+    <span class="nt">&lt;/svg&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;p</span> <span class="err">&lt;!</span><span class="na">--</span> <span class="err">...</span> <span class="na">--</span><span class="nt">&gt;</span> &gt;I don't recommend using authorx for serious projects yet.
+  You can view the roadmap to 1.0 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#project-status--roadmap"</span><span class="nt">&gt;</span>here<span class="nt">&lt;/a&gt;</span>.
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="gh"># Table of Contents</span>
+
+</code></pre></div></div>
+
+<p>With authorx, you <em>could</em> create a warning info panel like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;! {
+  I don't recommend using authorx for serious projects yet.
+  You can view the roadmap to 1.0 &lt;a(#project-status--roadmap) { here }.
+}
+</code></pre></div></div>
+
+<p>Note that with authorx we can arbitrarily nest transformed content. Here we have a link inside of a warning panel.</p>
+
+<p>Here’s another example: say you wanted to embed a <a href="https://mermaid-js.github.io/mermaid/#/">mermaid.js</a> diagram into your doc like <a href="#syntax-is-separate-from-semantics">the one below</a>. If you’re just using markdown, you’ll have to write your mermaid diagram, run the cli, and then include a reference to the generated image in your markdown. With authorx, you can embed mermaid diagrams like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;~ {:
+  graph LR
+  A[.ax file] --&gt;|parse| B(AST)
+  B --&gt; C("authorx-extensions e.g., x-faux-markdown x-mermaid-js")
+  C --&gt;D(your extensions)
+  D --&gt;E(".html | .md | .*")
+:}
+</code></pre></div></div>
+
+<p>I’ve been emphasizing <em>could</em> in these examples because the way authorx documents work is largely up to you. With authorx, syntax and semantics are separate. The <code class="language-plaintext highlighter-rouge">&lt;~</code> in the above example is just a function. You define what the function does in javascript. Maybe it embeds a mermaid diagram into your document. Maybe it floats content to the left side of the page. It’s up to you.</p>
+
+<p>With authorx’s minimal and expressive syntax and your function definitions, you can create markdown-like languages that work for more rich and interactive content. All you have to do is define the functions.</p>
+
+<h1 id="how">How?</h1>
+
+<h2 id="simple-grammar">Simple grammar</h2>
+
+<p>There’s only two syntactic elements to authorx documents: text and functions that transform text. Hello world looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p Hello, world!
+</code></pre></div></div>
+
+<p>You can see the grammar <a href="https://github.com/kmdupr33/authorx/blob/master/packages/compiler/lib/grammar.ne">here</a>.</p>
+
+<h2 id="syntax-is-separate-from-semantics">Syntax is separate from semantics</h2>
+
+<p>Functions in authorx have no meaning by default. With authorx, semantics are added by defining the text-transformation functions in js and passing them to the compiler:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">compile</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@authorx/compiler</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">compile</span><span class="p">(</span><span class="dl">"</span><span class="s2">path-to-ax-file</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">#</span><span class="dl">"</span><span class="p">:</span> <span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="s2">`&lt;h1&gt;</span><span class="p">${</span><span class="nx">text</span><span class="p">}</span><span class="s2">&lt;/h1&gt;`</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Here’s the high-level flow of how <code class="language-plaintext highlighter-rouge">compile</code> transforms text to its final format:</p>
+
+<p><img src="/diagram.svg" alt="" /></p>
+
+<p>In fact, this markdown README file was generated from <a href="./README.ax">a README.ax file</a>, where the functions look like markdown tags:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;# How?
+
+&lt;## Syntax is separate from semantics  
+
+You can see the grammar &lt;a(./grammar.ne) { here }.
+
+&lt;l {
+&lt;&lt; We often need to use awkward, ad-hoc extensions to markdown. Take "front-matter" in static site generators, for example.
+&lt;&lt; There are some things we just can't do with markdown because it doesn't allow arbitrary nesting of tagged/transformed text. We wind up embedding markdown in html or in some sort of template system.
+}
+</code></pre></div></div>
+
+<p>The markdown-like functions that generated this readme are defined in the <a href="https://github.com/kmdupr33/authorx/tree/master/packages/x-faux-markdown">x-faux-markdown package</a></p>
+
+<h1 id="quick-start">Quick Start</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i @authorx/compiler
+</code></pre></div></div>
+
+<p>Let’s write hello world in a <code class="language-plaintext highlighter-rouge">hello.ax</code> file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;# hello world
+</code></pre></div></div>
+
+<p>Next, we’ll create an empty <code class="language-plaintext highlighter-rouge">my-markdown.js</code> file, with details to be filled in later:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch </span>my-markdown.js
+</code></pre></div></div>
+
+<p>You can use the compiler right away, but all it’ll do is print out hello world:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx axc hello.ax my-markdown.js
+<span class="c"># outputs "hello world"</span>
+</code></pre></div></div>
+
+<p>If you want “&lt;#” to wrap “hello world” in h1 headings like markdown does, add this to your <code class="language-plaintext highlighter-rouge">my-markdown.js</code> file</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span> 
+  <span class="dl">'</span><span class="s1">#</span><span class="dl">'</span><span class="p">:</span> <span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="dl">'</span><span class="s1">&lt;h1&gt;</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">text</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&lt;/h1&gt;</span><span class="dl">'</span> 
+<span class="p">})</span>  
+</code></pre></div></div>
+
+<p>Now, when you run <code class="language-plaintext highlighter-rouge">axc</code>, you’ll see that hello world is wrapped in h1 tags:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx axc hello.ax my-markdown.js
+<span class="c"># outputs &lt;h1&gt;hello world&lt;/h1&gt;</span>
+</code></pre></div></div>
+
+<p>If you don’t want to rewrite markdown-esque functions, you can <code class="language-plaintext highlighter-rouge">npm i @authorx/x-faux-markdown</code> and extend those functions trivially:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// my-markdown.js</span>
+<span class="kd">const</span> <span class="nx">xFauxMarkdown</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">@authorx/x-faux-markdown</span><span class="dl">"</span><span class="p">)</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// Your custom functions here</span>
+  <span class="p">...</span><span class="nx">xFauxMarkdown</span><span class="p">()</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Then just rerun <code class="language-plaintext highlighter-rouge">axc</code> and point it to your updated file:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx axc hello.ax my-markdown.js
+</code></pre></div></div>
+
+<h1 id="authorx-syntax">Authorx Syntax</h1>
+
+<p>Authorx only has two syntactic elements: functions and text.</p>
+
+<p>Text is written exactly how you’d expect: you just write words into your authorx file (by convention, saved with .ax extension).</p>
+
+<p>Functions transform text and/or execute side-effects. They can wrap text in h1 tags, place text inside a warning panel div, or build a mermaid diagram and replace the text with a reference to the generated svg. Functions start with a <code class="language-plaintext highlighter-rouge">&lt;</code> and must be followed by an identifer. Here are some examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h1 { wrap me in a heading! }  
+&lt;# { wrap me in a heading too !}
+</code></pre></div></div>
+
+<p>Notice that function identifers can contain special characters. This enables you to keep them short and your keep your authorx docs focused on the text. Here’s the full list of supported special characters in identifiers:</p>
+
+<ul>
+  <li>&amp;</li>
+  <li>*</li>
+  <li>%</li>
+  <li>$</li>
+  <li>@</li>
+  <li>!</li>
+  <li>-</li>
+  <li>+</li>
+  <li>_</li>
+  <li>~</li>
+  <li>`</li>
+  <li>&lt;</li>
+</ul>
+
+<p>Functions that operate on multiple lines of text should surround that text with brackets like the above example. If, however, your function only operates on one line of text, you may omit the brackets like so:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;# Wrap me in a heading!
+</code></pre></div></div>
+
+<p>Whether your function operates on text surrounded by brackets or operates on single line text, the <code class="language-plaintext highlighter-rouge">&lt;</code>, <code class="language-plaintext highlighter-rouge">{</code>, <code class="language-plaintext highlighter-rouge">}</code>, and <code class="language-plaintext highlighter-rouge">\</code> characters must be escaped with a <code class="language-plaintext highlighter-rouge">\</code>.</p>
+
+<p>To facilitate the inclusion of code in authorx docs without needing to escape characters, you can also wrap text in colon brackets “”. Inside colon brackets, “&lt;,” “{,”, and “}” don’t need to be escaped with “\”.</p>
+
+<p>Functions can also take arguments. For example, a link function may take the url of the link:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You can find my blog &lt;a(http://philosophicalhacker.com) { here }
+</code></pre></div></div>
+
+<p>Multiple function arguments must be separated by a comma.</p>
+
+<h1 id="extensions-reference">Extensions Reference</h1>
+
+<p>authorx has some first-party extensions for common use-cases. the functions exposed by those extensions are documented below.</p>
+
+<h2 id="x-faux-markdown">x-faux-markdown</h2>
+
+<h3 id="headings">Headings</h3>
+
+<p><code class="language-plaintext highlighter-rouge">#</code> wraps text in a h1 tag</p>
+
+<p><code class="language-plaintext highlighter-rouge">##</code> wraps text in a h2 tag</p>
+
+<p><code class="language-plaintext highlighter-rouge">##</code> wraps text in a h3 tag</p>
+
+<h3 id="lists">Lists</h3>
+
+<p><code class="language-plaintext highlighter-rouge">l</code> creates an unordered list. Items are added to list using the <code class="language-plaintext highlighter-rouge">&lt;</code> function. Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;l {
+  &lt;&lt; item1
+  &lt;&lt; item2
+}
+</code></pre></div></div>
+
+<h3 id="code">Code</h3>
+
+<p><code class="language-plaintext highlighter-rouge">`</code> creates inline monospaced code</p>
+
+<p><code class="language-plaintext highlighter-rouge">```</code> creates a code block and takes an optional language argument. Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;```(js) {:
+  console.log("hello world!)
+:}
+</code></pre></div></div>
+
+<h3 id="links">Links</h3>
+
+<p><code class="language-plaintext highlighter-rouge">a</code> creates a link and takes an url argument. Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You can find my blog &lt;a(http://philosophicalhacker.com) { here }
+</code></pre></div></div>
+
+<h2 id="x-info-panel">x-info-panel</h2>
+
+<p><code class="language-plaintext highlighter-rouge">!</code> creates an warning panel like the one at the top of this doc.</p>
+
+<h2 id="x-mermaid-js">x-mermaid-js</h2>
+
+<p><code class="language-plaintext highlighter-rouge">~</code> generates an svg mermaid diagram using the text within its brackets. It then replaces the mermaid text with a link to that diagram. It optionally takes an argument specifying the name of generated svg file. Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;~(my-diagram.svg) {:
+  graph LR
+  A --&gt;|parse| B
+:}
+</code></pre></div></div>
+
+<h1 id="project-status--roadmap">Project Status &amp; Roadmap</h1>
+
+<p>Here’s a roadmap for upcoming features:</p>
+
+<ul>
+  <li>Add Macro Support</li>
+  <li>Add x-toc (table of contents generation)</li>
+  <li>implement html target for x-faux-markdown</li>
+  <li>x-front-matter</li>
+  <li>x-hugo (shortcodes)</li>
+  <li>better parser error messages?</li>
+  <li>Buffer tweets example semantics?</li>
+  <li>Slack onboarding example semantics?</li>
+  <li>reveal.js presentation example semantics?</li>
+</ul>
+
+<p>If you’re using authorx, feel free to file issues. Would love to hear your feedback. If you have an idea for an extension, please file an issue so we can discuss it.</p>
+
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">authorx maintained by <a href="https://github.com/kmdupr33">kmdupr33</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>
