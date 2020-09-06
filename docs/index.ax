@@ -108,7 +108,7 @@ Here's the high-level flow of how <` { compile } transforms text to its final fo
   D -->E(".html | .md | .*")
 }
 
-In fact, this markdown README file was generated from <a(./README.ax) { a README.ax file }, where the functions look like markdown tags:
+In fact, this markdown README file was generated from <a(https://github.com/kmdupr33/authorx/blob/master/docs/index.ax) { a README.ax file }, where the functions look like markdown tags:
 
 <```{:
 <# How?

@@ -121,7 +121,7 @@ Here's the high-level flow of how `compile` transforms text to its final format:
 
 ![](/diagram.svg)
 
-In fact, this markdown README file was generated from [a README.ax file](./README.ax), where the functions look like markdown tags:
+In fact, this markdown README file was generated from [a README.ax file](https://github.com/kmdupr33/authorx/blob/master/docs/index.ax), where the functions look like markdown tags:
 
 ```
 <# How?
