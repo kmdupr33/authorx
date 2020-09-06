@@ -19,6 +19,7 @@
 << { <a(#x-mermaid-js) { x-mermaid-js } }
 }
 << { <a(#project-status--roadmap) { Status & Roadmap } }
+<< { <a(#faqs) { FAQs/Gotchas } }
 }
 
 <# Why?
@@ -183,7 +184,15 @@ npx axc hello.ax my-markdown.js
 
 <# Authorx Syntax
 
-Authorx only has two syntactic elements: functions and text. 
+Authorx only has two syntactic elements: functions and text. Authorx docs must start with a function invocation. That function may be a no-op, but the current syntax requires it. (This should go away eventually.) Typically, authorx docs start with a no-op function and nest content inside of it like this:
+
+<```{:
+<$ {
+  <# Now that i've started the document with a function, the parser is happy.
+  
+  All of my content goes <* { here }.
+}
+:}
 
 Text is written exactly how you'd expect: you just write words into your authorx file (by convention, saved with .ax extension).
 
@@ -306,5 +315,11 @@ Here's a roadmap for upcoming features:
 }
 
 If you're using authorx, feel free to file issues. Would love to hear your feedback. If you have an idea for an extension, please file an issue so we can discuss it.
+
+<# FAQs
+
+<> I'm getting a syntax error about a newline that I didn't add to my authorx doc. What gives?
+
+The current grammar doesn't like trailing newlines in authorx docs. This should go away soon, but until you need to watch out for editors that automatically add a newline at the end of file. vim is an offender here.
 
 }

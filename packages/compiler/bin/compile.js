@@ -27,7 +27,7 @@ require("yargs")
       )[0];
       const funcMap = require(path.resolve(process.cwd(), functionsFilePath));
       const scope = new Scope();
-      scope.push(funcMap());
+      typeof funcMap === "function" && scope.push(funcMap());
       (async () => {
         const outputDir = path.dirname(axFilePath);
         console.log(await compile(ast, scope, outputDir));
