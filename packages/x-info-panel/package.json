@@ -13,6 +13,9 @@
   "dependencies": {
     "@authorx/x-faux-markdown": "^0.5.0"
   },
+  "peerDependencies": {
+    "@authorx/compiler": "0.6.0"
+  },
   "scripts": {},
   "bugs": {
     "url": "https://github.com/kmdupr33/authorx/issues"

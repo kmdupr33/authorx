@@ -18,6 +18,9 @@
     "mermaid": "^8.8.0",
     "puppeteer": "^5.2.1"
   },
+  "peerDependencies": {
+    "@authorx/compiler": "0.6.0"
+  },
   "publishConfig": {
     "access": "public"
   }
