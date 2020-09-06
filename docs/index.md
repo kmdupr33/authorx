@@ -250,7 +250,9 @@ authorx has some first-party extensions for common use-cases. the functions expo
 ### Headings
 
 `#` wraps text in a h1 tag
+
 `##` wraps text in a h2 tag
+
 `##` wraps text in a h3 tag
 
 ### Lists
@@ -267,6 +269,7 @@ authorx has some first-party extensions for common use-cases. the functions expo
 ### Code
 
 ``` creates inline monospaced code
+
 ````` creates a code block and takes an optional language argument. Example:
 
 ```
