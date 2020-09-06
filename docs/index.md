@@ -233,27 +233,75 @@ Whether your function operates on text surrounded by brackets or operates on sin
 
 To facilitate the inclusion of code in authorx docs without needing to escape characters, you can also wrap text in colon brackets "{:" ":}". Inside colon brackets, "<," "{,", and "}" don't need to be escaped with "\\".
 
+Functions can also take arguments. For example, a link function may take the url of the link:
+
+```
+You can find my blog <a(http://philosophicalhacker.com) { here }
+```
+
+Multiple function arguments must be separated by a comma.
+
 # Extensions Reference
 
 authorx has some first-party extensions for common use-cases. the functions exposed by those extensions are documented below.
 
 ## x-faux-markdown
 
-TODO
+### Headings
+
+`#` wraps text in a h1 tag
+`##` wraps text in a h2 tag
+`##` wraps text in a h3 tag
+
+### Lists
+
+`l` creates an unordered list. Items are added to list using the `<` function. Example:
+
+```
+<l {
+  << item1
+  << item2
+}
+```
+
+### Code
+
+``` creates inline monospaced code
+````` creates a code block and takes an optional language argument. Example:
+
+```
+<```(js) {:
+  console.log("hello world!)
+:}
+```
+
+### Links
+
+`a` creates a link and takes an url argument. Example:
+
+```
+You can find my blog <a(http://philosophicalhacker.com) { here }
+```
 
 ## x-info-panel
 
-TODO
+`!` creates an warning panel like the one at the top of this doc. 
 
 ## x-mermaid-js
 
-TODO
+`~` generates an svg mermaid diagram using the text within its brackets. It then replaces the mermaid text with a link to that diagram. It optionally takes an argument specifying the name of generated svg file. Example:
+
+```
+<~(my-diagram.svg) {:
+  graph LR
+  A -->|parse| B
+:}
+```
 
 # Project Status & Roadmap 
 
 Here's a roadmap for upcoming features:
 
-* better cli
 * Add Macro Support 
 * Add x-toc (table of contents generation)
 * implement html target for x-faux-markdown

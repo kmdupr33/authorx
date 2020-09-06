@@ -27,7 +27,7 @@ While its nice to write simple documents in markdown, writing anything relativel
 
 For example, consider the red warning panel at the top of this doc that says authorx is pre-1.0. The only way to create something like that in markdown is to embed html into your markdown doc:
 
-<>(md) {:
+<```(md) {:
 
 <div <!-- ... --> >
   <div>
@@ -48,7 +48,7 @@ For example, consider the red warning panel at the top of this doc that says aut
 
 With authorx, you <* { could } create a warning info panel like this:
 
-<>{:
+<```{:
 <! {
   I don't recommend using authorx for serious projects yet.
   You can view the roadmap to 1.0 <a(#project-status--roadmap) { here }.
@@ -59,7 +59,7 @@ Note that with authorx we can arbitrarily nest transformed content. Here we have
 
 Here's another example: say you wanted to embed a <a(https://mermaid-js.github.io/mermaid/#/) { mermaid.js } diagram into your doc like <a(#syntax-is-separate-from-semantics) { the one below }. If you're just using markdown, you'll have to write your mermaid diagram, run the cli, and then include a reference to the generated image in your markdown. With authorx, you can embed mermaid diagrams like this:
 
-<>{:
+<```{:
 <~ \{:
   graph LR
   A[.ax file] -->|parse| B(AST)
@@ -79,7 +79,7 @@ With authorx's minimal and expressive syntax and your function definitions, you 
 
 There's only two syntactic elements to authorx documents: text and functions that transform text. Hello world looks like this:
 
-<> {:
+<```{:
 <p Hello, world!
 :}
 
@@ -89,7 +89,7 @@ You can see the grammar <a(https://github.com/kmdupr33/authorx/blob/master/packa
 
 Functions in authorx have no meaning by default. With authorx, semantics are added by defining the text-transformation functions in js and passing them to the compiler:
 
-<>(js) {:
+<```(js){:
 import { compile } from "@authorx/compiler";
 
 compile("path-to-ax-file", {
@@ -109,7 +109,7 @@ Here's the high-level flow of how <` { compile } transforms text to its final fo
 
 In fact, this markdown README file was generated from <a(./README.ax) { a README.ax file }, where the functions look like markdown tags:
 
-<> {:
+<```{:
 <# How?
 
 <## Syntax is separate from semantics  
@@ -126,32 +126,32 @@ The markdown-like functions that generated this readme are defined in the <a(htt
 
 <# Quick Start 
 
-<>{:
+<```{:
 npm i @authorx/compiler
 :}
 
 Let's write hello world in a <` { hello.ax } file:
 
-<> {:
+<```{:
 <# hello world
 :}
 
 Next, we'll create an empty <` { my-markdown.js } file, with details to be filled in later:
 
-<>(bash) {:
+<```(bash) {:
 touch my-markdown.js
 :}
 
 You can use the compiler right away, but all it'll do is print out hello world:
 
-<>(bash) {:
+<```(bash) {:
 npx axc hello.ax my-markdown.js
 # outputs "hello world"
 :}
 
 If you want "\<#" to wrap "hello world" in h1 headings like markdown does, add this to your <` { my-markdown.js } file
 
-<>(js) {:
+<```(js) {:
 module.exports = () => ({ 
   '#': (text) => '<h1>' + text + '</h1>' 
 })  
@@ -159,14 +159,14 @@ module.exports = () => ({
 
 Now, when you run <` { axc }, you'll see that hello world is wrapped in h1 tags:
 
-<>(bash) {:
+<```(bash) {:
 npx axc hello.ax my-markdown.js
 # outputs <h1>hello world</h1>
 :}
 
 If you don't want to rewrite markdown-esque functions, you can <` { npm i @authorx/x-faux-markdown } and extend those functions trivially:
 
-<>(js) {:
+<```(js) {:
 // my-markdown.js
 const xFauxMarkdown = require("@authorx/x-faux-markdown")
 module.exports = {
@@ -177,7 +177,7 @@ module.exports = {
 
 Then just rerun <` { axc } and point it to your updated file:
 
-<>(bash) {:
+<```(bash) {:
 npx axc hello.ax my-markdown.js
 :}
 
@@ -189,7 +189,7 @@ Text is written exactly how you'd expect: you just write words into your authorx
 
 Functions transform text and/or execute side-effects. They can wrap text in h1 tags, place text inside a warning panel div, or build a mermaid diagram and replace the text with a reference to the generated svg. Functions start with a <` { \< } and must be followed by an identifer. Here are some examples:
 
-<> {:
+<``` {:
 <h1 { wrap me in a heading! }  
 <# { wrap me in a heading too !}
 :}
@@ -213,7 +213,7 @@ Notice that function identifers can contain special characters. This enables you
 
 Functions that operate on multiple lines of text should surround that text with brackets like the above example. If, however, your function only operates on one line of text, you may omit the brackets like so:
 
-<>{:
+<```{:
 <# Wrap me in a heading!
 :}
 
@@ -221,28 +221,76 @@ Whether your function operates on text surrounded by brackets or operates on sin
 
 To facilitate the inclusion of code in authorx docs without needing to escape characters, you can also wrap text in colon brackets "\{:" ":\}". Inside colon brackets, "\<," "\{,", and "\}" don't need to be escaped with "\\\".
 
+Functions can also take arguments. For example, a link function may take the url of the link:
+
+<``` {:
+You can find my blog <a(http://philosophicalhacker.com) { here }
+:}
+
+Multiple function arguments must be separated by a comma.
+
 <# Extensions Reference
 
 authorx has some first-party extensions for common use-cases. the functions exposed by those extensions are documented below.
 
 <## x-faux-markdown
 
-TODO
+<### Headings
+
+<` { # } wraps text in a h1 tag
+<` { ## } wraps text in a h2 tag
+<` { ## } wraps text in a h3 tag
+
+<### Lists
+
+<` { l } creates an unordered list. Items are added to list using the <` { \< } function. Example:
+
+<```{:
+<l {
+  << item1
+  << item2
+}
+:}
+
+<### Code
+
+<` { ` } creates inline monospaced code
+<` { ``` } creates a code block and takes an optional language argument. Example:
+
+<```{:
+<```(js) \{:
+  console.log("hello world!)
+\:}
+:}
+
+<### Links
+
+<` { a } creates a link and takes an url argument. Example:
+
+<``` {:
+You can find my blog <a(http://philosophicalhacker.com) { here }
+:}
 
 <## x-info-panel
 
-TODO
+<` { ! } creates an warning panel like the one at the top of this doc. 
 
 <## x-mermaid-js
 
-TODO
+<` { ~ } generates an svg mermaid diagram using the text within its brackets. It then replaces the mermaid text with a link to that diagram. It optionally takes an argument specifying the name of generated svg file. Example:
+
+<```{:
+<~(my-diagram.svg) \{:
+  graph LR
+  A -->|parse| B
+\:}
+:}
 
 <# Project Status & Roadmap 
 
 Here's a roadmap for upcoming features:
 
 <l {
-<< better cli
 << Add Macro Support 
 << Add x-toc (table of contents generation)
 << implement html target for x-faux-markdown
