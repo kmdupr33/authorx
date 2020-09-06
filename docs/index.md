@@ -136,7 +136,7 @@ You can see the grammar <a(./grammar.ne) { here }.
 }
 ```
 
-The markdown-like functions that generated this readme are defined in the [x-faux-markdown package](https://github.com/kmdupr33/authorx/tree/master/packages/x-faux-markdown)
+The markdown-like functions that generated this readme are defined in the [x-faux-markdown package](#x-faux-markdown)
 
 # Quick Start 
 
@@ -230,6 +230,7 @@ Notice that function identifers can contain special characters. This enables you
 * ~
 * `
 * <
+* #
 
 
 Functions that operate on multiple lines of text should surround that text with brackets like the above example. If, however, your function only operates on one line of text, you may omit the brackets like so:
@@ -240,7 +241,7 @@ Functions that operate on multiple lines of text should surround that text with 
 
 Whether your function operates on text surrounded by brackets or operates on single line text, the `<`, `{`, `}`, and `\` characters must be escaped with a `\`.
 
-To facilitate the inclusion of code in authorx docs without needing to escape characters, you can also wrap text in colon brackets "{:" ":}". Inside colon brackets, "<," "{,", and "}" don't need to be escaped with "\\".
+To facilitate the inclusion of code in authorx docs without needing to escape characters, you can also wrap text in colon brackets `{:` `:}`. Inside colon brackets, `<`, `{`, , and `}` don't need to be escaped with `\`.
 
 Functions can also take arguments. For example, a link function may take the url of the link:
 
@@ -314,6 +315,7 @@ You can find my blog <a(http://philosophicalhacker.com) { here }
 
 Here's a roadmap for upcoming features:
 
+* Document scopes and targets
 * Add Macro Support 
 * Add x-toc (table of contents generation)
 * implement html target for x-faux-markdown
@@ -325,7 +327,7 @@ Here's a roadmap for upcoming features:
 * reveal.js presentation example semantics?
 
 
-If you're using authorx, feel free to file issues. Would love to hear your feedback. If you have an idea for an extension, please file an issue so we can discuss it.
+If you're using authorx, feel free to [file issues](https://github.com/kmdupr33/authorx/issues). Would love to hear your feedback. If you have an idea for an extension, please file an issue so we can discuss it.
 
 # FAQs
 
