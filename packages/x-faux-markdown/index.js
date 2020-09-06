@@ -17,6 +17,7 @@ module.exports = (target = "md") => {
         },
       },
       "`": (text) => "`" + text.trim() + "`",
+      "``": (text) => "``" + text.trim() + "``",
       a: (text, [url]) => `[${text.trim()}](${url.value})`,
       ">": (text) => `> ${text}`,
       "```": (text, lang) =>

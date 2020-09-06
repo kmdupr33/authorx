@@ -256,9 +256,9 @@ authorx has some first-party extensions for common use-cases. the functions expo
 
 <### Code
 
-<` { ` } creates inline monospaced code
+<`` { ` } creates inline monospaced code
 
-<` { ``` } creates a code block and takes an optional language argument. Example:
+<`` { ``` } creates a code block and takes an optional language argument. Example:
 
 <```{:
 <```(js) \{:
@@ -305,6 +305,6 @@ Here's a roadmap for upcoming features:
 << reveal.js presentation example semantics?
 }
 
-Until then, if you're using authorx, feel free to file issues. Would love to hear your feedback.
+If you're using authorx, feel free to file issues. Would love to hear your feedback. If you have an idea for an extension, please file an issue so we can discuss it.
 
 }
