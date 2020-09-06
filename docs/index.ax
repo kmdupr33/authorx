@@ -51,7 +51,8 @@ With authorx, you <* { could } create a warning info panel like this:
 
 <```{:
 <! {
-  authorx is pre 1.0 and it's syntax and API may change before 1.0. You can view the roadmap <a(#project-status--roadmap) { here }.
+  authorx is pre 1.0 and it's syntax and API may change before 1.0. 
+  You can view the roadmap <a(#project-status--roadmap) { here }.
 }
 :}
 
