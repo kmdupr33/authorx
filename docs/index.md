@@ -20,7 +20,7 @@
       />
     </svg>
   </div>
-  <p style="margin-left: 5px">authorx is pre 1.0 and it's syntax and API may change before 1.0. You can view the roadmap to 1.0 <a href="#project-status--roadmap">here</a>.
+  <p style="margin-left: 5px">authorx is pre 1.0 and it's syntax and API may change before 1.0. You can view the roadmap <a href="#project-status--roadmap">here</a>.
 </p>
 </div>
 
@@ -221,7 +221,7 @@ Notice that function identifers can contain characters. This enables you to keep
 * _
 * ~
 * `
-* < 
+* <
 * >
 
 
@@ -231,17 +231,25 @@ Functions that operate on multiple lines of text should surround that text with 
 <# Wrap me in a heading!
 ```
 
-Whether your function operates on text surrounded by brackets only operates on single line text, the "<", "{", "}", and "\" characters must be escaped with a "\".
+Whether your function operates on text surrounded by brackets only operates on single line text, the "<", "{", "}", and "\\" characters must be escaped with a "\\".
 
-To facilitate the inclusion of code in authorx docs without needing to escape characters, you can also wrap text in colon brackets "{:" ":}". Inside colon brackets, "<," "{,", and "}" don't need to be escaped with "\".
+To facilitate the inclusion of code in authorx docs without needing to escape characters, you can also wrap text in colon brackets "{:" ":}". Inside colon brackets, "<," "{,", and "}" don't need to be escaped with "\\".
 
 # Extensions Reference
 
+authorx has some first-party extensions for common use-cases. the functions exposed by those extensions are documented below.
+
 ## x-faux-markdown
+
+TODO
 
 ## x-info-panel
 
+TODO
+
 ## x-mermaid-js
+
+TODO
 
 # Project Status & Roadmap 
 
