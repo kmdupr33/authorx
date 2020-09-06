@@ -217,7 +217,7 @@ Functions that operate on multiple lines of text should surround that text with 
 <# Wrap me in a heading!
 :}
 
-Whether your function operates on text surrounded by brackets only operates on single line text, the "\<", "\{", "\}", and "\\\" characters must be escaped with a "\\\".
+Whether your function operates on text surrounded by brackets only operates on single line text, the <` { \< }, <` { \{ }, <` { \} }, and <` { \\\\ } characters must be escaped with a <` { \\\\ }.
 
 To facilitate the inclusion of code in authorx docs without needing to escape characters, you can also wrap text in colon brackets "\{:" ":\}". Inside colon brackets, "\<," "\{,", and "\}" don't need to be escaped with "\\\".
 

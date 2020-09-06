@@ -209,7 +209,6 @@ Functions transform text and/or execute side-effects. They can wrap text in h1 t
 
 Notice that function identifers can contain characters. This enables you to keep them short and your keep your authorx docs focused on the text. Here's the full list of supported special characters in identifiers:
 
-* ^
 * &
 * *
 * %
@@ -231,7 +230,7 @@ Functions that operate on multiple lines of text should surround that text with 
 <# Wrap me in a heading!
 ```
 
-Whether your function operates on text surrounded by brackets only operates on single line text, the "<", "{", "}", and "\\" characters must be escaped with a "\\".
+Whether your function operates on text surrounded by brackets only operates on single line text, the `<`, `{`, `}`, and `\` characters must be escaped with a `\`.
 
 To facilitate the inclusion of code in authorx docs without needing to escape characters, you can also wrap text in colon brackets "{:" ":}". Inside colon brackets, "<," "{,", and "}" don't need to be escaped with "\\".
 
