@@ -44,18 +44,17 @@ const compile = async ({ children, type, ...rest }, scope, outputDir) => {
   }
   const { identifier, argList } = rest;
   const { func, scope: childScope } = getFunction(identifier, scope);
-  return (
-    await func(
-      await children.reduce(async (acc, child) => {
-        childScope && scope.push(childScope);
-        const result = (await acc) + (await compile(child, scope, outputDir));
-        childScope && scope.pop();
-        return result;
-      }, ""),
-      argList,
-      outputDir
-    )
-  ).replace(/\\([^\n ]+)/g, "$1");
+  const compiled = await func(
+    await children.reduce(async (acc, child) => {
+      childScope && scope.push(childScope);
+      const result = (await acc) + (await compile(child, scope, outputDir));
+      childScope && scope.pop();
+      return result;
+    }, ""),
+    argList,
+    outputDir
+  );
+  return compiled.replace(/\\([^\n ]+)/g, "$1");
 };
 
 module.exports = { compile, Scope };

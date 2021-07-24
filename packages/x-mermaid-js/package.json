@@ -1,14 +1,15 @@
 {
   "name": "@authorx/x-mermaid",
   "version": "0.6.0",
-  "description": "> TODO: description",
+  "description": "Embed mermaidjs diagrams in authorx documents",
   "author": "Matt Dupree <kmdupr33@gmail.com>",
   "homepage": "https://github.com/kmdupr33/authorx#readme",
   "license": "ISC",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kmdupr33/authorx.git"
+    "url": "git+https://github.com/kmdupr33/authorx.git",
+    "directory": "packages/x-mermaid-js"
   },
   "scripts": {},
   "bugs": {

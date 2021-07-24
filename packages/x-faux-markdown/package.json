@@ -6,7 +6,7 @@
     "url": "https://github.com/kmdupr33/authorx",
     "directory": "packages/x-faux-markdown"
   },
-  "description": "> TODO: description",
+  "description": "Markdown-like functions for authorx",
   "author": "Matt Dupree <kmdupr33@gmail.com>",
   "license": "MIT",
   "main": "index.js",
